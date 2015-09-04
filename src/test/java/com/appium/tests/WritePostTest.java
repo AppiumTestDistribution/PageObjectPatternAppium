@@ -8,12 +8,11 @@ import com.appium.pages.LoginPage;
 import com.appium.pages.PostPage;
 
 public class WritePostTest extends AppiumTestBase {
-	public static final String USERNAME = "org.wordpress.android:id/nux_username";
-	public static final String PASSWORD = "org.wordpress.android:id/nux_password";
+
 
 	@Test(priority = 1)
 	public void writePost() throws InterruptedException {
-		PostPage postpage = LoginPage.enterValidCredentails(driver, USERNAME, PASSWORD)
+		PostPage postpage = LoginPage.enterValidCredentails(driver)
 									.waitForWelcomePage(driver)
 											.writePost(driver).writeContentAndPublish(driver)
 													.clickPostPage(driver);
@@ -24,7 +23,7 @@ public class WritePostTest extends AppiumTestBase {
 
 	@Test(priority = 2)
 	public void deleteTheCreatedPost() {
-		PostPage postpage = LoginPage.enterValidCredentails(driver, USERNAME, PASSWORD)
+		PostPage postpage = LoginPage.enterValidCredentails(driver)
 						.waitForWelcomePage(driver)
 								.clickPostPage(driver).deletePost(driver);
 	   Assert.assertTrue(postpage.verifyPostIsDeleted(driver));

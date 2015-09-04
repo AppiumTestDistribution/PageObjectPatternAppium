@@ -1,8 +1,12 @@
 package com.appium.config;
 
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
 import java.io.IOException;
+import java.io.InputStream;
 import java.net.MalformedURLException;
 import java.net.URL;
+import java.util.Properties;
 
 import org.apache.commons.exec.CommandLine;
 import org.apache.commons.exec.DefaultExecuteResultHandler;
@@ -19,8 +23,13 @@ import io.appium.java_client.android.AndroidDriver;
 public class AppiumTestBase {
 	public static AppiumDriver<MobileElement> driver;
 
+	public static Properties prop = new Properties();
+	InputStream input = null;
+	
 	@BeforeMethod
-	public void setUp() throws MalformedURLException {
+	public void setUp() throws IOException {
+		input = new FileInputStream("property/android.properties");
+		prop.load(input);
 		DesiredCapabilities caps = new DesiredCapabilities();
 		caps.setCapability("deviceName", "9111833b");
 		caps.setCapability("platformVersion", "5.0.2");
