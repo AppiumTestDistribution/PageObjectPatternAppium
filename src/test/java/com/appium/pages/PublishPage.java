@@ -1,15 +1,27 @@
 package com.appium.pages;
 
 import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
 
-import com.appium.config.Common;
+import com.appium.config.AppiumTestBase;
 
-public class PublishPage extends Common{
-	
-	public PostPage clickPostPage(WebDriver driver){
+import io.appium.java_client.AppiumDriver;
+import io.appium.java_client.MobileElement;
+import io.appium.java_client.pagefactory.AndroidFindBy;
+
+public class PublishPage extends AppiumTestBase {
+
+	public PublishPage(AppiumDriver<MobileElement> driver) {
+		super(driver);
+		loadPage();
+		// TODO Auto-generated constructor stub
+	}
+
+	@AndroidFindBy(xpath = ".//*[@text='Appium']")
+	MobileElement text_added;
+
+	public PostPage clickPostPage(AppiumDriver<MobileElement> driver) {
 		driver.findElement(By.xpath(".//*[@text='Blog Posts']")).click();
-		waitForPageToLoad(driver, By.xpath(".//*[@text='Appium']"));
-		return new PostPage();		
+		waitForPageToLoad(driver, text_added);
+		return new PostPage(driver);
 	}
 }

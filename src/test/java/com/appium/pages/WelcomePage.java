@@ -3,31 +3,47 @@ package com.appium.pages;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
-import com.appium.config.Common;
+import com.appium.config.AppiumTestBase;
 
-public class WelcomePage extends Common {
-	By WRITE_POST = By.id("org.wordpress.android:id/fab_button");
-	By TITLE = By.id("org.wordpress.android:id/post_title");
-	By POST_CONTENT = By.id("org.wordpress.android:id/post_content");
-	By PUBLISH = By.id("org.wordpress.android:id/menu_save_post");
+import io.appium.java_client.AppiumDriver;
+import io.appium.java_client.MobileElement;
+import io.appium.java_client.pagefactory.AndroidFindBy;
 
-	public WelcomePage writePost(WebDriver driver) {
-		driver.findElement(WRITE_POST).click();
-		return new WelcomePage();
+public class WelcomePage extends AppiumTestBase {
+
+	public WelcomePage(AppiumDriver<MobileElement> driver) {
+		super(driver);
+		loadPage();
 	}
 
-	public PublishPage writeContentAndPublish(WebDriver driver) {
+	@AndroidFindBy(id="org.wordpress.android:id/fab_button")
+	MobileElement WRITE_POST;
+	@AndroidFindBy(id="org.wordpress.android:id/post_title")
+	MobileElement TITLE;
+	
+	@AndroidFindBy(id="org.wordpress.android:id/post_title")
+	MobileElement POST_CONTENT;
+	
+	@AndroidFindBy(id="org.wordpress.android:id/menu_save_post")
+	MobileElement PUBLISH;
+
+	public WelcomePage writePost(AppiumDriver<MobileElement> driver) {
+		WRITE_POST.click();
+		return new WelcomePage(driver);
+	}
+
+	public PublishPage writeContentAndPublish(AppiumDriver<MobileElement> driver) {
 		waitForPageToLoad(driver, TITLE);
-		driver.findElement(TITLE).sendKeys("Appium");
-		driver.findElement(POST_CONTENT).sendKeys("Appium Rocks!!!!");
+		TITLE.sendKeys("Appium");
+		POST_CONTENT.sendKeys("Appium Rocks!!!!");
 		driver.navigate().back();
 		waitForPageToLoad(driver, PUBLISH);
-		driver.findElement(PUBLISH).click();
-		return new PublishPage();
+		PUBLISH.click();
+		return new PublishPage(driver);
 	}
-	
-	public PostPage clickPostPage(WebDriver driver){
+
+	public PostPage clickPostPage(AppiumDriver<MobileElement> driver) {
 		driver.findElement(By.xpath(".//*[@text='Blog Posts']")).click();
-		return new PostPage();		
+		return new PostPage(driver);
 	}
 }

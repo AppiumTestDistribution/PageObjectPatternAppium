@@ -2,29 +2,40 @@ package com.appium.pages;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.support.PageFactory;
 
-import com.appium.config.Common;
+import com.appium.config.AppiumTestBase;
+import com.appium.page.objects.PostPageObjects;
 
-public class PostPage extends Common {
-	By POST_TEXT = By.xpath(".//*[@text='Appium']");
-	By DELETE = By.id("org.wordpress.android:id/deletePost");
-	By DELETE_CONFIRMATION = By.xpath(".//*[@text='Yes']");
+import io.appium.java_client.AppiumDriver;
+import io.appium.java_client.MobileElement;
+import io.appium.java_client.pagefactory.AppiumFieldDecorator;
 
-	public boolean verifyPostIsSuccessfull(WebDriver driver) throws InterruptedException {
+public class PostPage extends AppiumTestBase {
+	PostPageObjects postPageObjects = new PostPageObjects();
+
+	public PostPage(AppiumDriver<MobileElement> driver) {
+		super(driver);
+		// loadPage();
+		PageFactory.initElements(new AppiumFieldDecorator(driver), postPageObjects);
+		// TODO Auto-generated constructor stub
+	}
+
+	public boolean verifyPostIsSuccessfull(AppiumDriver<MobileElement> driver) throws InterruptedException {
 		Thread.sleep(8000);
-		return driver.findElement(POST_TEXT).isDisplayed();
+		return postPageObjects.POST_TEXT.isDisplayed();
 
 	}
 
-	public PostPage deletePost(WebDriver driver) {
-		waitForElement(driver, POST_TEXT).click();
-		waitForElement(driver, DELETE).click();
-		waitForElement(driver, DELETE_CONFIRMATION);
-		return new PostPage();
+	public PostPage deletePost(AppiumDriver<MobileElement> driver) {
+		waitForElement(driver, postPageObjects.POST_TEXT).click();
+		waitForElement(driver, postPageObjects.DELETE).click();
+		waitForElement(driver, postPageObjects.DELETE_CONFIRMATION);
+		return new PostPage(driver);
 	}
 
 	public boolean verifyPostIsDeleted(WebDriver driver) {
-		return driver.findElements(POST_TEXT).size() == 0;
+		return driver.findElements(By.xpath(".//*[@text='Appium']")).size() == 0;
 	}
 
 }

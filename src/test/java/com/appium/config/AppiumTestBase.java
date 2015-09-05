@@ -1,47 +1,32 @@
 package com.appium.config;
 
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
 import java.io.IOException;
-import java.io.InputStream;
-import java.net.MalformedURLException;
-import java.net.URL;
-import java.util.Properties;
 
 import org.apache.commons.exec.CommandLine;
 import org.apache.commons.exec.DefaultExecuteResultHandler;
 import org.apache.commons.exec.DefaultExecutor;
 import org.apache.commons.exec.ExecuteException;
-import org.openqa.selenium.remote.DesiredCapabilities;
-import org.testng.annotations.AfterMethod;
-import org.testng.annotations.BeforeMethod;
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.PageFactory;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
 import io.appium.java_client.AppiumDriver;
 import io.appium.java_client.MobileElement;
-import io.appium.java_client.android.AndroidDriver;
+import io.appium.java_client.pagefactory.AppiumFieldDecorator;
 
-public class AppiumTestBase {
+public abstract class AppiumTestBase {
 	public static AppiumDriver<MobileElement> driver;
 
-	public static Properties prop = new Properties();
-	InputStream input = null;
-	
-	@BeforeMethod
-	public void setUp() throws IOException {
-		input = new FileInputStream("property/android.properties");
-		prop.load(input);
-		DesiredCapabilities caps = new DesiredCapabilities();
-		caps.setCapability("deviceName", "9111833b");
-		caps.setCapability("platformVersion", "5.0.2");
-		caps.setCapability("app", System.getProperty("user.dir") + "/build/wordpress.apk");
-		caps.setCapability("package", "org.wordpress.android");
-		caps.setCapability("appActivity", "org.wordpress.android.ui.WPLaunchActivity");
-		driver = new AndroidDriver<MobileElement>(new URL("http://127.0.0.1:4723/wd/hub"), caps);
+	public AppiumTestBase(AppiumDriver<MobileElement> driver) {
+		// TODO Auto-generated constructor stub
+		this.driver = driver;
 	}
 
-	@AfterMethod
-	public void tearDown() {
-		driver.quit();
+	public void loadPage() {
+		PageFactory.initElements(new AppiumFieldDecorator(driver), this);
 	}
 
 	public void setUpServer() throws ExecuteException, IOException, InterruptedException {
@@ -66,5 +51,16 @@ public class AppiumTestBase {
 		String[] command = { "/usr/bin/killall", "-KILL", "node" };
 		Runtime.getRuntime().exec(command);
 		System.out.println("Appium server stop");
+	}
+
+	public static void waitForPageToLoad(WebDriver driver, MobileElement id) {
+		WebDriverWait wait = new WebDriverWait(driver, 30);
+		wait.until(ExpectedConditions.elementToBeClickable(id));
+	}
+
+	public static WebElement waitForElement(WebDriver driver, MobileElement arg) {
+		waitForPageToLoad(driver, arg);
+		WebElement el = arg;
+		return el;
 	}
 }
