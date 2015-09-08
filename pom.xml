@@ -4,6 +4,18 @@
 	<groupId>com.pagepattern.appium</groupId>
 	<artifactId>PagePatternAppium</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
+	<parent>
+		<groupId>ru.yandex.qatools.allure</groupId>
+		<artifactId>allure-examples-parent</artifactId>
+		<version>1.0</version>
+	</parent>
+
+
+	<properties>
+		<allure.version>1.4.16</allure.version>
+		<aspectj.version>1.8.5</aspectj.version>
+	</properties>
+
 
 	<dependencies>
 		<dependency>
@@ -21,7 +33,7 @@
 		<dependency>
 			<groupId>org.testng</groupId>
 			<artifactId>testng</artifactId>
-			<version>6.7</version>
+			<version>6.8.5</version>
 			<scope>test</scope>
 		</dependency>
 
@@ -29,6 +41,12 @@
 			<groupId>com.github.genium-framework</groupId>
 			<artifactId>Appium-Support</artifactId>
 			<version>1.0.4</version>
+		</dependency>
+
+		<dependency>
+			<groupId>ru.yandex.qatools.allure</groupId>
+			<artifactId>allure-testng-adaptor</artifactId>
+			<version>${allure.version}</version>
 		</dependency>
 	</dependencies>
 	<build>
@@ -40,9 +58,52 @@
 				<configuration>
 					<systemPropertyVariables>
 						<platform>${env.PLATFORM}</platform>
-					</systemPropertyVariables>					
+					</systemPropertyVariables>
+				</configuration>
+			</plugin>
+
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-surefire-plugin</artifactId>
+				<version>2.18.1</version>
+				<configuration>
+					<testFailureIgnore>true</testFailureIgnore>
+					<argLine>
+						-javaagent:"${settings.localRepository}/org/aspectj/aspectjweaver/${aspectj.version}/aspectjweaver-${aspectj.version}.jar"
+					</argLine>
+				</configuration>
+				<dependencies>
+					<dependency>
+						<groupId>org.aspectj</groupId>
+						<artifactId>aspectjweaver</artifactId>
+						<version>${aspectj.version}</version>
+					</dependency>
+				</dependencies>
+			</plugin>
+
+			<!--Needed only to show reports locally. Run jetty:run and open localhost:8080 
+				to show the report -->
+			<plugin>
+				<groupId>org.eclipse.jetty</groupId>
+				<artifactId>jetty-maven-plugin</artifactId>
+				<version>9.2.10.v20150310</version>
+				<configuration>
+					<webAppSourceDirectory>${project.build.directory}/site/allure-maven-plugin</webAppSourceDirectory>
+					<stopKey>stop</stopKey>
+					<stopPort>1234</stopPort>
 				</configuration>
 			</plugin>
 		</plugins>
 	</build>
+	<reporting>
+		<excludeDefaults>true</excludeDefaults>
+		<plugins>
+			<plugin>
+				<groupId>ru.yandex.qatools.allure</groupId>
+				<artifactId>allure-maven-plugin</artifactId>
+				<version>2.2</version>
+			</plugin>
+		</plugins>
+	</reporting>
+
 </project>

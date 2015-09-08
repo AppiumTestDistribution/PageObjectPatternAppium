@@ -25,7 +25,7 @@ public class LoginPage extends AppiumTestBase {
 		loginPageObjects.username.sendKeys("calabash");
 		loginPageObjects.password.sendKeys("password");
 		driver.hideKeyboard();
-		loginPageObjects.add_self_site.click();
+		loginPageObjects.add_self_site.click();		
 		loginPageObjects.server_url.sendKeys("ec2-54-82-18-238.compute-1.amazonaws.com/wordpress");
 		loginPageObjects.sign_in.click();
 		return new LoginPage(driver);
