@@ -33,7 +33,7 @@ public class WritePostTest {
 
 	}
 
-	@Test(enabled = false)
+	@Test(priority = 2)
 	public void deleteTheCreatedPost() {
 		loginPage = new LoginPage(driver);
 		PostPage postpage = loginPage.enterValidCredentails(driver).waitForWelcomePage(driver).clickPostPage(driver)
