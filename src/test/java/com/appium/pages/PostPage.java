@@ -4,14 +4,15 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.PageFactory;
 
-import com.appium.config.AppiumTestBase;
+import com.appium.config.CommonAppiumTest;
+import com.appium.config.UserBaseTest;
 import com.appium.page.objects.PostPageObjects;
 
 import io.appium.java_client.AppiumDriver;
 import io.appium.java_client.MobileElement;
 import io.appium.java_client.pagefactory.AppiumFieldDecorator;
 
-public class PostPage extends AppiumTestBase {
+public class PostPage extends CommonAppiumTest {
 	PostPageObjects postPageObjects = new PostPageObjects();
 
 	public PostPage(AppiumDriver<MobileElement> driver) {
@@ -28,9 +29,9 @@ public class PostPage extends AppiumTestBase {
 	}
 
 	public PostPage deletePost(AppiumDriver<MobileElement> driver) {
-		waitForElement(driver, postPageObjects.POST_TEXT).click();
-		waitForElement(driver, postPageObjects.DELETE).click();
-		waitForElement(driver, postPageObjects.DELETE_CONFIRMATION);
+		waitForElement(postPageObjects.POST_TEXT).click();
+		waitForElement(postPageObjects.DELETE).click();
+		waitForElement(postPageObjects.DELETE_CONFIRMATION);
 		return new PostPage(driver);
 	}
 

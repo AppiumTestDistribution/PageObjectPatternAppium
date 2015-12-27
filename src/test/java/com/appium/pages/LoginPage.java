@@ -4,14 +4,15 @@ import java.util.concurrent.TimeUnit;
 
 import org.openqa.selenium.support.PageFactory;
 
-import com.appium.config.AppiumTestBase;
+import com.appium.config.CommonAppiumTest;
+import com.appium.config.UserBaseTest;
 import com.appium.page.objects.LoginPageObjects;
 
 import io.appium.java_client.AppiumDriver;
 import io.appium.java_client.MobileElement;
 import io.appium.java_client.pagefactory.AppiumFieldDecorator;
 
-public class LoginPage extends AppiumTestBase {
+public class LoginPage extends CommonAppiumTest {
 	LoginPageObjects loginPageObjects = new LoginPageObjects();
 
 	public LoginPage(AppiumDriver<MobileElement> driver) {
@@ -21,7 +22,7 @@ public class LoginPage extends AppiumTestBase {
 	}
 
 	public LoginPage enterValidCredentails(AppiumDriver<MobileElement> driver) {
-		waitForPageToLoad(driver, loginPageObjects.username);
+		waitForPageToLoad(loginPageObjects.username);
 		loginPageObjects.username.sendKeys("calabash");
 		loginPageObjects.password.sendKeys("password");
 		driver.hideKeyboard();
@@ -32,7 +33,7 @@ public class LoginPage extends AppiumTestBase {
 	}
 
 	public WelcomePage waitForWelcomePage(AppiumDriver<MobileElement> driver) {
-		waitForPageToLoad(driver, loginPageObjects.WELCOME_PAGE);
+		waitForPageToLoad(loginPageObjects.WELCOME_PAGE);
 		return new WelcomePage(driver);
 
 	}

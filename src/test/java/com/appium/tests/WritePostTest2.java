@@ -15,7 +15,7 @@ import com.appium.pages.PostPage;
 import io.appium.java_client.AppiumDriver;
 import io.appium.java_client.MobileElement;
 
-public class WritePostTest extends AppiumParallelTest{
+public class WritePostTest2 extends AppiumParallelTest{
 	public AppiumDriver<MobileElement> driver;
 	LoginPage loginPage;
 
