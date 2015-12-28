@@ -15,13 +15,13 @@ import com.appium.pages.PostPage;
 import io.appium.java_client.AppiumDriver;
 import io.appium.java_client.MobileElement;
 
-public class WritePostTest extends AppiumParallelTest{
+public class WritePostTest extends AppiumParallelTest {
 	public AppiumDriver<MobileElement> driver;
 	LoginPage loginPage;
 
 	@BeforeMethod(alwaysRun = true)
 	public void startDriver(Method method) throws Exception {
-		driver= startAppiumServerInParallel(method.getName());
+		driver = startAppiumServerInParallel(method.getName());
 	}
 
 	@Test
@@ -45,7 +45,7 @@ public class WritePostTest extends AppiumParallelTest{
 
 	@AfterMethod(alwaysRun = true)
 	public void afterClass(ITestResult result) {
-		killAppiumServer(result);	
+		killAppiumServer(result);
 	}
 
 }
