@@ -6,6 +6,7 @@ To Run the test
     
 
 1.Please make sure you give the absolute path of the apk in the config.properties
+
 2.RUNNER can be set with parallel and distribute(Parallel will run the same test across devices n distribute will split the test across devices)
 
 
