@@ -36,7 +36,8 @@ public class PostPage extends CommonAppiumTest {
 	}
 
 	public boolean verifyPostIsDeleted(WebDriver driver) {
-		return driver.findElements(By.xpath(".//*[@text='Appium']")).size() == 0;
+		//check with JD	
+		return postPageObjects.POST_TEXT.isDisplayed();
 	}
 
 }

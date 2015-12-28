@@ -8,5 +8,9 @@ public class WelcomePageObjects {
 	@AndroidFindBy(id = "org.wordpress.android:id/fab_button")
 	@SelendroidFindBy(id="fab_button")
 	public MobileElement WRITE_POST;
+	
+	@AndroidFindBy(xpath = ".//*[@text='Blog Posts']")
+	@SelendroidFindBy(xpath=".//*[@value='Blog Posts']")
+	public MobileElement BLOG_POST;
 
 }

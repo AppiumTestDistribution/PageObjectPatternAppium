@@ -24,19 +24,14 @@ public class PublishPage extends CommonAppiumTest {
 		// TODO Auto-generated constructor stub
 	}
 
-	public PublishPage writeContentAndPublish(AppiumDriver<MobileElement> driver) {
+	public WelcomePage writeContentAndPublish(AppiumDriver<MobileElement> driver) {
 		waitForPageToLoad(postPageObjects.TITLE);
 		postPageObjects.TITLE.sendKeys("Appium");
 		postPageObjects.POST_CONTENT.sendKeys("Appium Rocks!!!!");
 		driver.navigate().back();
 		waitForPageToLoad(postPageObjects.PUBLISH);
 		postPageObjects.PUBLISH.click();
-		return new PublishPage(driver);
+		return new WelcomePage(driver);
 	}
 
-	public PostPage clickPostPage(AppiumDriver<MobileElement> driver) {
-		driver.findElement(By.xpath(".//*[@text='Blog Posts']")).click();
-		waitForPageToLoad(postPageObjects.text_added);
-		return new PostPage(driver);
-	}
 }

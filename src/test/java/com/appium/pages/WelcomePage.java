@@ -30,7 +30,7 @@ public class WelcomePage extends CommonAppiumTest {
 
 	
 	public PostPage clickPostPage(AppiumDriver<MobileElement> driver) {
-		driver.findElement(By.xpath(".//*[@text='Blog Posts']")).click();
+		welcomePageObjects.BLOG_POST.click();
 		return new PostPage(driver);
 	}
 }

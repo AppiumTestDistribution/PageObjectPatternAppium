@@ -6,7 +6,7 @@ import io.appium.java_client.pagefactory.SelendroidFindBy;
 
 public class PostPageObjects {
 	@AndroidFindBy(xpath = ".//*[@text='Appium']")
-	@SelendroidFindBy(xpath = ".//*[@text='Appium']")
+	@SelendroidFindBy(xpath = ".//*[@value='Appium']")
 	public MobileElement POST_TEXT;
 
 	@AndroidFindBy(id = "org.wordpress.android:id/deletePost")
@@ -14,11 +14,11 @@ public class PostPageObjects {
 	public MobileElement DELETE;
 
 	@AndroidFindBy(xpath = ".//*[@text='Yes']")
-	@SelendroidFindBy(xpath = ".//*[@text='Yes']")
+	@SelendroidFindBy(xpath = ".//*[@value='Yes']")
 	public MobileElement DELETE_CONFIRMATION;
 	
 	@AndroidFindBy(xpath = ".//*[@text='Appium']")
-	@SelendroidFindBy(xpath = ".//*[@text='Appium']")
+	@SelendroidFindBy(xpath = ".//*[@value='Appium']")
 	public MobileElement text_added;
 	
 	@AndroidFindBy(id = "org.wordpress.android:id/post_title")
