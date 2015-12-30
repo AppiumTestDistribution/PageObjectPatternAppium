@@ -13,7 +13,7 @@ import io.appium.java_client.MobileElement;
 
 public class UserBaseTest extends AppiumParallelTest{
 	
-    public static AppiumDriver<MobileElement> driver;
+    public  AppiumDriver<MobileElement> driver;
     
 	@BeforeMethod
 	public void startDriver(Method method) throws Exception {
@@ -24,11 +24,6 @@ public class UserBaseTest extends AppiumParallelTest{
 	@AfterMethod
 	public void afterClass(ITestResult result) {
 		killAppiumServer(result);	
-	}
-
-
-	public static AppiumDriver<MobileElement> getDriver(){
-		 return driver;
 	}
 
 }

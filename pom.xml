@@ -4,11 +4,6 @@
 	<groupId>com.pagepattern.appium</groupId>
 	<artifactId>PagePatternAppium</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<parent>
-		<groupId>ru.yandex.qatools.allure</groupId>
-		<artifactId>allure-examples-parent</artifactId>
-		<version>1.0</version>
-	</parent>
 
 	<repositories>
 		<repository>
@@ -16,11 +11,6 @@
 			<url>https://jitpack.io</url>
 		</repository>
 	</repositories>
-	<properties>
-		<allure.version>1.4.16</allure.version>
-		<aspectj.version>1.8.5</aspectj.version>
-	</properties>
-
 
 	<dependencies>
 		<dependency>

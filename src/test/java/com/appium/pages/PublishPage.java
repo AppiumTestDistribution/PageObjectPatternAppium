@@ -2,13 +2,10 @@ package com.appium.pages;
 
 import java.util.concurrent.TimeUnit;
 
-import org.openqa.selenium.By;
 import org.openqa.selenium.support.PageFactory;
 
 import com.appium.config.CommonAppiumTest;
-import com.appium.config.UserBaseTest;
 import com.appium.page.objects.PostPageObjects;
-import com.sun.jna.platform.win32.Netapi32Util.User;
 
 import io.appium.java_client.AppiumDriver;
 import io.appium.java_client.MobileElement;
@@ -22,9 +19,9 @@ public class PublishPage extends CommonAppiumTest {
 		PageFactory.initElements(new AppiumFieldDecorator(driver, 5, TimeUnit.SECONDS), postPageObjects);
 		// loadPage();
 		// TODO Auto-generated constructor stub
-	}
+	}	
 
-	public WelcomePage writeContentAndPublish(AppiumDriver<MobileElement> driver) {
+	public WelcomePage writeContentAndPublish() {
 		waitForPageToLoad(postPageObjects.TITLE);
 		postPageObjects.TITLE.sendKeys("Appium");
 		postPageObjects.POST_CONTENT.sendKeys("Appium Rocks!!!!");
