@@ -1,5 +1,7 @@
 package com.appium.page.objects;
 
+import org.openqa.selenium.support.FindBy;
+
 import io.appium.java_client.MobileElement;
 import io.appium.java_client.pagefactory.AndroidFindBy;
 import io.appium.java_client.pagefactory.SelendroidFindBy;
@@ -10,11 +12,13 @@ public class LoginPageObjects {
 	@AndroidFindBy(id = "org.wordpress.android:id/nux_username")
 	@iOSFindBy(className = "UIATextField")
 	@SelendroidFindBy(id="nux_username")
+	@FindBy(id="user_login")
 	public MobileElement username;
 
 	@AndroidFindBy(id = "org.wordpress.android:id/nux_password")
 	@iOSFindBy(className = "UIASecureTextField")
 	@SelendroidFindBy(id="nux_password")
+	@FindBy(id="user_pass")
 	public MobileElement password;
 
 	@AndroidFindBy(id = "org.wordpress.android:id/switch_site")
@@ -30,6 +34,7 @@ public class LoginPageObjects {
 	@AndroidFindBy(xpath = ".//*[@text='Sign in']")
 	@iOSFindBy(xpath = ".//*[@name='Add Site']")
 	@SelendroidFindBy(id="nux_sign_in_button")
+	@FindBy(id="wp-submit")
 	public MobileElement sign_in;
 
 	@AndroidFindBy(id = "org.wordpress.android:id/nux_url")

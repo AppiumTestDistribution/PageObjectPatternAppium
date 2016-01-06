@@ -39,6 +39,6 @@ public class CommentPage extends CommonAppiumTest {
 	
 		return commentPageObjects.SELECT_TOPIC.get(0).getText().equals("Testing Comments");
 	}
-	
+
 	
 }
