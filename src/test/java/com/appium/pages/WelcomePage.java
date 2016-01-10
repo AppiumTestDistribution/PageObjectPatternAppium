@@ -1,7 +1,5 @@
 package com.appium.pages;
 
-import java.util.concurrent.TimeUnit;
-
 import org.openqa.selenium.support.PageFactory;
 
 import com.appium.config.CommonAppiumTest;
@@ -17,8 +15,8 @@ public class WelcomePage extends CommonAppiumTest {
 
 	public WelcomePage(AppiumDriver<MobileElement> driver) {
 		super(driver);
-		//loadPage();
-		PageFactory.initElements(new AppiumFieldDecorator(driver, 5, TimeUnit.SECONDS), welcomePageObjects);
+		// loadPage();
+		PageFactory.initElements(new AppiumFieldDecorator(driver), welcomePageObjects);
 	}
 
 	public PublishPage writePost() {
@@ -26,15 +24,19 @@ public class WelcomePage extends CommonAppiumTest {
 		return new PublishPage(driver);
 	}
 
-	
 	public PostPage clickPostPage() {
 		welcomePageObjects.BLOG_POST.click();
 		return new PostPage(driver);
 	}
-	
-	public CommentPage clickComments(){
+
+	public CommentPage clickComments() {
 		welcomePageObjects.COMMENT.click();
 		return new CommentPage(driver);
-		
+
 	}
+
+	public String verifyUserIsLoggedIn() {
+		return welcomePageObjects.LOGGED_IN_USER.getText();
+	}
+	
 }

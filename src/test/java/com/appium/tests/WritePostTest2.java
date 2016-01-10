@@ -4,17 +4,19 @@ import org.testng.Assert;
 import org.testng.annotations.Test;
 
 import com.appium.config.UserBaseTest;
+import com.appium.config.UserCredentials;
 import com.appium.pages.LoginPage;
 import com.appium.pages.PostPage;
 
 public class WritePostTest2 extends UserBaseTest {
 
 	LoginPage loginPage;
-
+    UserCredentials credentials;
 	@Test
 	public void writePost_1() throws InterruptedException {
 		loginPage = new LoginPage(driver);
-		PostPage postpage = loginPage.enterValidCredentails().waitForWelcomePage().writePost()
+		credentials = new UserCredentials("vodqa@gmail.com", "Hello12345678"); 
+		PostPage postpage = loginPage.enterValidCredentails(credentials.getUserName(),credentials.getPassWord()).waitForWelcomePage().writePost()
 				.writeContentAndPublish().clickPostPage();
 
 		Assert.assertTrue(postpage.verifyPostIsSuccessfull());
@@ -24,9 +26,10 @@ public class WritePostTest2 extends UserBaseTest {
 	@Test
 	public void deleteTheCreatedPost_1() {
 		loginPage = new LoginPage(driver);
-		PostPage postpage = loginPage.enterValidCredentails().waitForWelcomePage().clickPostPage()
+		credentials = new UserCredentials("vodqa@gmail.com", "Hello12345678"); 
+		PostPage postpage = loginPage.enterValidCredentails(credentials.getUserName(),credentials.getPassWord()).waitForWelcomePage().clickPostPage()
 				.deletePost();
-		Assert.assertTrue(postpage.verifyPostIsDeleted());
+		Assert.assertEquals(postpage.verifyPostIsDeleted(),"Deleting post");
 
 	}
 

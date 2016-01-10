@@ -18,7 +18,7 @@ public class CommentPage extends CommonAppiumTest {
 	public CommentPage(AppiumDriver<MobileElement> driver) {
 		super(driver);
 		// loadPage();
-		PageFactory.initElements(new AppiumFieldDecorator(driver, 5, TimeUnit.SECONDS), commentPageObjects);
+		PageFactory.initElements(new AppiumFieldDecorator(driver), commentPageObjects);
 	}
 
 	public CommentPage selectTopic(){

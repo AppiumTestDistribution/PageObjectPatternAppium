@@ -16,7 +16,7 @@ public class PublishPage extends CommonAppiumTest {
 
 	public PublishPage(AppiumDriver<MobileElement> driver) {
 		super(driver);
-		PageFactory.initElements(new AppiumFieldDecorator(driver, 5, TimeUnit.SECONDS), postPageObjects);
+		PageFactory.initElements(new AppiumFieldDecorator(driver), postPageObjects);
 		// loadPage();
 		// TODO Auto-generated constructor stub
 	}	

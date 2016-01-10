@@ -5,6 +5,8 @@ import io.appium.java_client.pagefactory.AndroidFindBy;
 import io.appium.java_client.pagefactory.SelendroidFindBy;
 
 public class PostPageObjects {
+
+
 	@AndroidFindBy(xpath = ".//*[@text='Appium']")
 	@SelendroidFindBy(xpath = ".//*[@value='Appium']")
 	public MobileElement POST_TEXT;
@@ -17,9 +19,6 @@ public class PostPageObjects {
 	@SelendroidFindBy(xpath = ".//*[@value='Yes']")
 	public MobileElement DELETE_CONFIRMATION;
 	
-	@AndroidFindBy(xpath = ".//*[@text='Appium']")
-	@SelendroidFindBy(xpath = ".//*[@value='Appium']")
-	public MobileElement text_added;
 	
 	@AndroidFindBy(id = "org.wordpress.android:id/post_title")
 	@SelendroidFindBy(id="post_title")
@@ -32,5 +31,8 @@ public class PostPageObjects {
 	@AndroidFindBy(id = "org.wordpress.android:id/menu_save_post")
 	@SelendroidFindBy(id="menu_save_post")
 	public MobileElement PUBLISH;
-
+	
+	@AndroidFindBy(id="android:id/message")
+	@SelendroidFindBy(id="message")
+	public MobileElement DELETE_POST;
 }

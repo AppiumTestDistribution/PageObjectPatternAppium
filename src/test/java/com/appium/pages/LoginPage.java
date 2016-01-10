@@ -16,14 +16,14 @@ public class LoginPage extends CommonAppiumTest {
 	
 	public LoginPage(AppiumDriver<MobileElement> driver) {
 		super(driver);
-		PageFactory.initElements(new AppiumFieldDecorator(driver, 5, TimeUnit.SECONDS), loginPageObjects);
+		PageFactory.initElements(new AppiumFieldDecorator(driver), loginPageObjects);
 
 	}
 
-	public LoginPage enterValidCredentails() {
+	public LoginPage enterValidCredentails(String username,String password) {
 		waitForPageToLoad(loginPageObjects.username);
-		loginPageObjects.username.sendKeys("vodqa@gmail.com");
-		loginPageObjects.password.sendKeys("Hello12345678");
+		loginPageObjects.username.sendKeys(username);
+		loginPageObjects.password.sendKeys(password);
 		driver.hideKeyboard();
 		loginPageObjects.add_self_site.click();		
 		loginPageObjects.server_url.sendKeys("https://vodqademo.wordpress.com");
@@ -35,6 +35,14 @@ public class LoginPage extends CommonAppiumTest {
 		waitForPageToLoad(loginPageObjects.WELCOME_PAGE);
 		return new WelcomePage(driver);
 
+	}
+	
+	public String validateErrorMessage(){
+		return driver.getPageSource();
+	}
+	
+	public boolean validateUserNameFieldIsDisplayed(){
+		return loginPageObjects.username.isDisplayed();
 	}
 
 }

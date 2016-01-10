@@ -19,5 +19,9 @@ public class WelcomePageObjects {
 	@AndroidFindBy(id="org.wordpress.android:id/my_site_comments_text_view")
 	@SelendroidFindBy(id="my_site_comments_text_view")
 	public MobileElement COMMENT;
+	
+	@AndroidFindBy(id="org.wordpress.android:id/my_site_title_label")
+	@SelendroidFindBy(id="my_site_title_label")
+	public MobileElement LOGGED_IN_USER;
 
 }

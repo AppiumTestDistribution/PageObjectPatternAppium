@@ -1,3 +1,4 @@
 test-output/*
 target/*
 *.html
+src/test/java/com/appium/config/Sample.java
