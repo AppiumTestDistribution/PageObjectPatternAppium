@@ -6,13 +6,15 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
+import com.appium.page.objects.LoginPageObjects;
+
 import io.appium.java_client.AppiumDriver;
 import io.appium.java_client.MobileElement;
 import io.appium.java_client.SwipeElementDirection;
 
-public abstract class CommonAppiumTest {
+public class CommonAppiumTest{
 	protected AppiumDriver<MobileElement> driver;
-
+	public LoginPageObjects loginPageObjects = new LoginPageObjects();
 	public CommonAppiumTest(AppiumDriver<MobileElement> driver) {
 		this.driver = driver;
 	}
@@ -65,5 +67,20 @@ public abstract class CommonAppiumTest {
 	public void scrollDirection(String Id, SwipeElementDirection arg) {
 		MobileElement e = (MobileElement) driver.findElementById(Id);
 		e.swipe(arg, 1000);
+	}
+	
+
+	public void enterUserAndPassword(String username,String password) {
+		// TODO Auto-generated method stub
+		waitForPageToLoad(loginPageObjects.username);
+		loginPageObjects.username.sendKeys(username);
+		loginPageObjects.password.sendKeys(password);
+	}
+
+	public void signIn() {
+		// TODO Auto-generated method stub
+		loginPageObjects.add_self_site.click();		
+		loginPageObjects.server_url.sendKeys("https://vodqademo.wordpress.com");
+		loginPageObjects.sign_in.click();
 	}
 }
