@@ -1,7 +1,5 @@
 package com.appium.pages;
 
-import java.util.concurrent.TimeUnit;
-
 import org.openqa.selenium.support.PageFactory;
 
 import com.appium.config.CommonAppiumTest;

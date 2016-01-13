@@ -18,8 +18,7 @@ import io.appium.java_client.MobileElement;
 public class UserBaseTest extends AppiumParallelTest{
 
     public WebDriverWait wait;
-    public ViewFactory viewFactory = new ViewFactory();
-    public DeviceInterface runnerInfo;
+  
 
     @BeforeMethod()
     public void startApp(Method name) throws Exception {
@@ -39,8 +38,7 @@ public class UserBaseTest extends AppiumParallelTest{
     @BeforeClass()
     public void beforeClass() throws Exception {
         driver = startAppiumServerInParallel(getClass().getSimpleName());
-        runnerInfo = viewFactory.getMobilePlatform("android");   
-        
+      
     }
 
     @AfterClass()
