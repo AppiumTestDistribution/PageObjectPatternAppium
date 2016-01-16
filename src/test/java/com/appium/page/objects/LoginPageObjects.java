@@ -21,10 +21,6 @@ public class LoginPageObjects {
 	@FindBy(id="user_pass")
 	public MobileElement password;
 
-	@AndroidFindBy(id = "org.wordpress.android:id/switch_site")
-	@iOSFindBy(className = "UIATableCell")
-	@SelendroidFindBy(id="switch_site")
-	public MobileElement WELCOME_PAGE;
 
 	@iOSFindBy(xpath = ".//*[@name='Add Self-Hosted Site']")
 	@AndroidFindBy(id = "org.wordpress.android:id/nux_add_selfhosted_button")
@@ -32,7 +28,7 @@ public class LoginPageObjects {
 	public MobileElement add_self_site;
 
 	@AndroidFindBy(xpath = ".//*[@text='Sign in']")
-	@iOSFindBy(xpath = ".//*[@name='Add Site']")
+	@iOSFindBy(id = "Sign In")
 	@SelendroidFindBy(id="nux_sign_in_button")
 	@FindBy(id="wp-submit")
 	public MobileElement sign_in;

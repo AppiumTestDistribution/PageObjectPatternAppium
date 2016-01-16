@@ -13,8 +13,9 @@ import io.appium.java_client.MobileElement;
 import io.appium.java_client.SwipeElementDirection;
 
 public class CommonAppiumTest{
-	protected AppiumDriver<MobileElement> driver;
-	public LoginPageObjects loginPageObjects = new LoginPageObjects();
+	public  AppiumDriver<MobileElement> driver;
+	
+	
 	public CommonAppiumTest(AppiumDriver<MobileElement> driver) {
 		this.driver = driver;
 	}
@@ -70,17 +71,5 @@ public class CommonAppiumTest{
 	}
 	
 
-	public void enterUserAndPassword(String username,String password) {
-		// TODO Auto-generated method stub
-		waitForPageToLoad(loginPageObjects.username);
-		loginPageObjects.username.sendKeys(username);
-		loginPageObjects.password.sendKeys(password);
-	}
-
-	public void signIn() {
-		// TODO Auto-generated method stub
-		loginPageObjects.add_self_site.click();		
-		loginPageObjects.server_url.sendKeys("https://vodqademo.wordpress.com");
-		loginPageObjects.sign_in.click();
-	}
+	
 }

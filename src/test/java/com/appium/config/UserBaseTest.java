@@ -15,20 +15,22 @@ import com.appium.manager.AppiumParallelTest;
 import io.appium.java_client.AppiumDriver;
 import io.appium.java_client.MobileElement;
 
-public class UserBaseTest extends AppiumParallelTest{
+public class UserBaseTest extends Utils{
 
     public WebDriverWait wait;
   
 
     @BeforeMethod()
-    public void startApp(Method name) throws Exception {
-    	startLogResults(name.getName());
+    public void startApp() throws Exception {
+    	//startLogResults(name.getName());
+    	
     }
 
     @AfterMethod()
     public void killServer(ITestResult result) {
-    	endLogTestResults(result);  
+    	//endLogTestResults(result);  
         getDriver().resetApp();
+    	
     }
 
     public AppiumDriver<MobileElement> getDriver() {
@@ -37,12 +39,14 @@ public class UserBaseTest extends AppiumParallelTest{
 
     @BeforeClass()
     public void beforeClass() throws Exception {
-        driver = startAppiumServerInParallel(getClass().getSimpleName());
-      
+       // driver = startAppiumServerInParallel(getClass().getSimpleName());
+    	//iosSetup();
+    	androidSetup();
     }
 
     @AfterClass()
     public void afterClass() throws InterruptedException, IOException {;
-        killAppiumServer();
+       // killAppiumServer();
+       
     }
 }

@@ -7,7 +7,6 @@ import com.appium.config.UserBaseTest;
 import com.appium.config.UserCredentials;
 import com.appium.pages.AccountsPage;
 import com.appium.pages.LoginPage;
-import com.appium.pages.WelcomePage;
 
 public class LoginTest extends UserBaseTest {
 
@@ -29,8 +28,8 @@ public class LoginTest extends UserBaseTest {
 	public void loginWithInValidUser() throws InterruptedException {
 		loginPage = new LoginPage(driver);
 		credentials = new UserCredentials("vodqa123@gmail.com", "Hello12342225678");
-		String userNameLoggedIn = loginPage.enterValidCredentails(credentials.getUserName(), credentials.getPassWord())
-				.validateErrorMessage();
+		loginPage.enterValidCredentails(credentials.getUserName(), credentials.getPassWord());
+		String userNameLoggedIn = loginPage.validateErrorMessage();
 		Assert.assertEquals(userNameLoggedIn, "The username or password you entered is incorrect");
 	}
 
@@ -39,9 +38,9 @@ public class LoginTest extends UserBaseTest {
 		loginPage = new LoginPage(driver);
 		accountsPage = new AccountsPage(driver);
 		credentials = new UserCredentials("vodqa@gmail.com", "Hello12345678");
-		loginPage.enterValidCredentails(credentials.getUserName(), credentials.getPassWord())
-				.waitForWelcomePage().swipeRightUntilTextExists("Disconnect from WordPress.com");
-		Assert.assertTrue(accountsPage.logOut().validateUserNameFieldIsDisplayed());
+		Boolean validateUserIsLoggedOut = loginPage.enterValidCredentails(credentials.getUserName(), credentials.getPassWord()).waitForWelcomePage()
+				.moveToDisconnect().logOut().validateUserNameFieldIsDisplayed();
+		Assert.assertTrue(validateUserIsLoggedOut,"Failed to log out users");
 	}
 
 }

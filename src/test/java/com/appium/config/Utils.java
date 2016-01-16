@@ -17,12 +17,12 @@ import io.appium.java_client.android.AndroidDriver;
 import io.appium.java_client.ios.IOSDriver;
 
 public class Utils {
-	private static DesiredCapabilities caps = new DesiredCapabilities();
-	private static AppiumDriver<MobileElement> driver;
+	DesiredCapabilities caps = new DesiredCapabilities();
+	public AppiumDriver<MobileElement> driver;
 	public static Properties prop = new Properties();
 	static InputStream input = null;
-	
-	public static AppiumDriver<MobileElement> getDriver() throws IOException {
+
+	public AppiumDriver<MobileElement> getDriver() throws IOException {
 		input = new FileInputStream("property/android.properties");
 		prop.load(input);
 		if (prop.getProperty("platform").equals("android")) {
@@ -35,8 +35,8 @@ public class Utils {
 		driver.manage().timeouts().implicitlyWait(3, TimeUnit.SECONDS);
 		return driver;
 	}
-	
-	public static void androidSetup() throws MalformedURLException {
+
+	public void androidSetup() throws MalformedURLException {
 		caps.setCapability("deviceName", "9111833b");
 		caps.setCapability("platformVersion", "5.0.2");
 		caps.setCapability("app", System.getProperty("user.dir") + "/build/wordpress.apk");
@@ -45,14 +45,13 @@ public class Utils {
 		driver = new AndroidDriver<MobileElement>(new URL("http://127.0.0.1:4723/wd/hub"), caps);
 	}
 
-	public static void iosSetup() throws MalformedURLException {
+	public void iosSetup() throws MalformedURLException {
 		File classpathRoot = new File(System.getProperty("user.dir"));
 		File appDir = new File(classpathRoot, "/build/");
-		File app = new File(appDir, "ios.app");
-		DesiredCapabilities capabilities = new DesiredCapabilities();
-		capabilities.setCapability("platformVersion", "8.4");
-		capabilities.setCapability("deviceName", "iPhone 6");
-		capabilities.setCapability("app", app.getAbsolutePath());
-		driver = new IOSDriver<MobileElement>(new URL("http://127.0.0.1:4723/wd/hub"), capabilities);
+		File app = new File(appDir, "WordPress.app");
+		caps.setCapability("platformVersion", "9.0");
+		caps.setCapability("deviceName", "iPhone 6s");
+		caps.setCapability("app", app.getAbsolutePath());
+		driver = new IOSDriver<MobileElement>(new URL("http://127.0.0.1:4723/wd/hub"), caps);
 	}
 }

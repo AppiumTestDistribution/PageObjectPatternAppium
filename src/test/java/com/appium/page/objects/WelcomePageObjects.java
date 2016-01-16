@@ -3,25 +3,40 @@ package com.appium.page.objects;
 import io.appium.java_client.MobileElement;
 import io.appium.java_client.pagefactory.AndroidFindBy;
 import io.appium.java_client.pagefactory.SelendroidFindBy;
+import io.appium.java_client.pagefactory.iOSFindBy;
 
 public class WelcomePageObjects {
 
-
 	@AndroidFindBy(id = "org.wordpress.android:id/fab_button")
-	@SelendroidFindBy(id="fab_button")
+	@SelendroidFindBy(id = "fab_button")
 	public MobileElement WRITE_POST;
-	
+
 	@AndroidFindBy(xpath = ".//*[@text='Blog Posts']")
-	@SelendroidFindBy(xpath=".//*[@value='Blog Posts']")
+	@SelendroidFindBy(xpath = ".//*[@value='Blog Posts']")
 	public MobileElement BLOG_POST;
-	
-	
-	@AndroidFindBy(id="org.wordpress.android:id/my_site_comments_text_view")
-	@SelendroidFindBy(id="my_site_comments_text_view")
+
+	@AndroidFindBy(id = "org.wordpress.android:id/my_site_comments_text_view")
+	@SelendroidFindBy(id = "my_site_comments_text_view")
 	public MobileElement COMMENT;
-	
-	@AndroidFindBy(id="org.wordpress.android:id/my_site_title_label")
-	@SelendroidFindBy(id="my_site_title_label")
+
+	@AndroidFindBy(id = "org.wordpress.android:id/my_site_title_label")
+	@SelendroidFindBy(id = "my_site_title_label")
+	@iOSFindBy(id="vodqademo")
 	public MobileElement LOGGED_IN_USER;
+
+	@iOSFindBy(id = "new-editor-modal-dismiss-button")
+	public MobileElement ACCEPT_TIP;
+
+	@AndroidFindBy(id = "org.wordpress.android:id/switch_site")
+	@iOSFindBy(className = "UIATableCell")
+	@SelendroidFindBy(id = "switch_site")
+	public MobileElement WELCOME_PAGE;
+	
+	
+	@iOSFindBy(className="UIATableCell")
+    public MobileElement SELECT_BLOG;
+	
+	@iOSFindBy(accessibility="Me")
+	public MobileElement SELECT_ME;
 
 }
