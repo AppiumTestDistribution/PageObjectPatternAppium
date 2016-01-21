@@ -1,21 +1,26 @@
 package com.appium.config;
 
+import java.lang.reflect.Method;
+import java.util.Set;
+
+import org.apache.log4j.Logger;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Dimension;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
-import com.appium.page.objects.LoginPageObjects;
+import com.appium.manager.AppiumParallelTest;
 
 import io.appium.java_client.AppiumDriver;
 import io.appium.java_client.MobileElement;
 import io.appium.java_client.SwipeElementDirection;
 
-public class CommonAppiumTest{
-	public  AppiumDriver<MobileElement> driver;
-	
-	
+public class CommonAppiumTest {
+	public AppiumDriver<MobileElement> driver;
+
+	Logger logger = Logger.getLogger(CommonAppiumTest.class);
+
 	public CommonAppiumTest(AppiumDriver<MobileElement> driver) {
 		this.driver = driver;
 	}
@@ -38,16 +43,16 @@ public class CommonAppiumTest{
 
 	public void swipeRightUntilTextExists(String expected) {
 		do {
-			 swipeRight();
+			swipeRight();
 		} while (!driver.getPageSource().contains(expected));
 	}
 
 	public void swipeLeftUntilTextExists(String expected) {
 		do {
-			 swipeLeft();
+			swipeLeft();
 		} while (!driver.getPageSource().contains(expected));
 	}
-	
+
 	public void swipeRight() {
 		Dimension size = driver.manage().window().getSize();
 		int startx = (int) (size.width * 0.9);
@@ -55,21 +60,47 @@ public class CommonAppiumTest{
 		int starty = size.height / 2;
 		driver.swipe(startx, starty, endx, starty, 1000);
 	}
-	
-	public void swipeLeft(){
-		Dimension size = driver.manage().window().getSize(); 
-		int startx = (int) (size.width * 0.8); 
-		int endx = (int) (size.width * 0.20); 
-		int starty = size.height / 2; 
+
+	public void swipeLeft() {
+		Dimension size = driver.manage().window().getSize();
+		int startx = (int) (size.width * 0.8);
+		int endx = (int) (size.width * 0.20);
+		int starty = size.height / 2;
 		driver.swipe(startx, starty, endx, starty, 1000);
 	}
-	
-	
+
 	public void scrollDirection(String Id, SwipeElementDirection arg) {
 		MobileElement e = (MobileElement) driver.findElementById(Id);
 		e.swipe(arg, 1000);
 	}
-	
 
+	/**
+	 * method to set the context to required view.
+	 * 
+	 * @param context
+	 *            view to be set
+	 */
+	public void setContext(String context) {
+
+		Set<String> contextNames = driver.getContextHandles();
+
+		if (contextNames.contains(context)) {
+			driver.context(context);
+			logger.info("Context changed successfully");
+		} else {
+			logger.info(context + "not found on this page");
+		}
+
+		logger.info("Current context" + driver.getContext());
+	}
 	
+	public void clickBackButton(){
+		driver.navigate().back();
+	}
+	
+	
+	public String getCurrentMethodName() {
+        return Thread.currentThread().getStackTrace()[2].getMethodName();
+    }
+
 }

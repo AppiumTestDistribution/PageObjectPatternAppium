@@ -26,16 +26,27 @@ public class CommentPage extends CommonAppiumTest {
 	
 	
 	public CommentPage enterComments(){
+		try {
+			Thread.sleep(2000);
+		} catch (InterruptedException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		commentPageObjects.ENTER_COMMENTS.click();
 		commentPageObjects.ENTER_COMMENTS.sendKeys("Testing Comments");
 		commentPageObjects.SUBMIT_COMMENTS.click();
-		waitForElementToDisAppear(commentPageObjects.PROGRESS_SUBMIT);
 		driver.navigate().back();
 		return new CommentPage(driver);
 	}
 	
-	public boolean verifyCommentIsAdded(){
-	
-		return commentPageObjects.SELECT_TOPIC.get(0).getText().equals("Testing Comments");
+	public boolean verifyCommentIsAdded(){	
+		try {
+			Thread.sleep(3000);
+		} catch (InterruptedException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return commentPageObjects.SELECT_TOPIC.get(0).getAttribute("name").contains("Testing Comments");
 	}
 
 	

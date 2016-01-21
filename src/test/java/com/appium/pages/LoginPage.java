@@ -6,6 +6,7 @@ import com.appium.config.CommonAppiumTest;
 import com.appium.config.DeviceInterface;
 import com.appium.config.ViewFactory;
 import com.appium.page.objects.LoginPageObjects;
+import com.report.factory.ExtentTestManager;
 
 import io.appium.java_client.AppiumDriver;
 import io.appium.java_client.MobileElement;
@@ -19,11 +20,12 @@ public class LoginPage extends CommonAppiumTest {
 	public LoginPage(AppiumDriver<MobileElement> driver) {
 		super(driver);
 		PageFactory.initElements(new AppiumFieldDecorator(driver), loginPageObjects);
-		runnerInfo = viewFactory.getMobilePlatform("android");
+		runnerInfo = viewFactory.getMobilePlatform(System.getenv("PLATFORM"));
 	}
 
 	public WelcomePage enterValidCredentails(String username, String password) {
 		runnerInfo.login(this, username, password);
+		ExtentTestManager.logOutPut("User is logged in succesfully");
 		return new WelcomePage(driver);
 	}
 
@@ -32,6 +34,7 @@ public class LoginPage extends CommonAppiumTest {
 	}
 
 	public boolean validateUserNameFieldIsDisplayed() {
+		ExtentTestManager.logOutPut("UserNameFieldIsDisplayed");
 		return loginPageObjects.username.isDisplayed();
 	}
 

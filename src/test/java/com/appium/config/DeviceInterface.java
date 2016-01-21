@@ -1,7 +1,7 @@
 package com.appium.config;
 
-import com.appium.pages.AccountsPage;
 import com.appium.pages.LoginPage;
+import com.appium.pages.PublishPage;
 import com.appium.pages.WelcomePage;
 
 public interface DeviceInterface {
@@ -12,4 +12,5 @@ public interface DeviceInterface {
 	
 	public void moveToLogOutScreen(WelcomePage welcomePage);
 
+	public void writeContent(PublishPage publishPage);
 }

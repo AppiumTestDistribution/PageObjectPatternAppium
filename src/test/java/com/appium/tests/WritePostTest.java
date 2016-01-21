@@ -33,5 +33,5 @@ public class WritePostTest extends UserBaseTest {
 		Assert.assertEquals(postpage.verifyPostIsDeleted(),"Deleting post");
 
 	}
-
+	
 }

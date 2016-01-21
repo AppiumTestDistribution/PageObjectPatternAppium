@@ -15,6 +15,7 @@ import io.appium.java_client.AppiumDriver;
 import io.appium.java_client.MobileElement;
 import io.appium.java_client.android.AndroidDriver;
 import io.appium.java_client.ios.IOSDriver;
+import io.appium.java_client.remote.MobileCapabilityType;
 
 public class Utils {
 	DesiredCapabilities caps = new DesiredCapabilities();
@@ -42,6 +43,7 @@ public class Utils {
 		caps.setCapability("app", System.getProperty("user.dir") + "/build/wordpress.apk");
 		caps.setCapability("package", "org.wordpress.android");
 		caps.setCapability("appActivity", "org.wordpress.android.ui.WPLaunchActivity");
+		caps.setCapability(MobileCapabilityType.APP_WAIT_ACTIVITY, "org.wordpress.android.ui.accounts.SignInActivity");
 		driver = new AndroidDriver<MobileElement>(new URL("http://127.0.0.1:4723/wd/hub"), caps);
 	}
 

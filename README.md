@@ -2,7 +2,7 @@
 
 To Run the test
 
-    * mvn clean -Dtest=Runner test
+    * PLATFORM="android" mvn clean -Dtest=Runner test
     
 
 1.Please make sure you give the absolute path of the apk in the config.properties
