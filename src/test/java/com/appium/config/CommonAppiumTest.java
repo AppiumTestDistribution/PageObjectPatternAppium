@@ -1,6 +1,5 @@
 package com.appium.config;
 
-import java.lang.reflect.Method;
 import java.util.Set;
 
 import org.apache.log4j.Logger;
@@ -9,8 +8,6 @@ import org.openqa.selenium.Dimension;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
-
-import com.appium.manager.AppiumParallelTest;
 
 import io.appium.java_client.AppiumDriver;
 import io.appium.java_client.MobileElement;

@@ -8,7 +8,7 @@ import com.appium.config.UserCredentials;
 import com.appium.pages.LoginPage;
 import com.appium.pages.PostPage;
 
-public class WritePostTest2 extends UserBaseTest {
+public class WritePostTest1 extends UserBaseTest {
 
 	LoginPage loginPage;
 	UserCredentials credentials;
@@ -24,7 +24,7 @@ public class WritePostTest2 extends UserBaseTest {
 
 	}
 
-	@Test
+/*	@Test
 	public void deleteTheCreatedPost_1() {
 		loginPage = new LoginPage(driver);
 		credentials = new UserCredentials("vodqa@gmail.com", "Hello12345678");
@@ -32,6 +32,6 @@ public class WritePostTest2 extends UserBaseTest {
 				.waitForWelcomePage().clickPostPage().deletePost();
 		Assert.assertEquals(postpage.verifyPostIsDeleted(), "Deleting post");
 
-	}
+	}*/
 
 }

@@ -15,6 +15,7 @@ public class WritePostTest extends UserBaseTest {
 
 	@Test
 	public void writePost() throws InterruptedException {
+
 		loginPage = new LoginPage(driver);
 		credentials = new UserCredentials("vodqa@gmail.com", "Hello12345678");
 		PostPage postpage = loginPage.enterValidCredentails(credentials.getUserName(), credentials.getPassWord())

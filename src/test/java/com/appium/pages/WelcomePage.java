@@ -60,11 +60,11 @@ public class WelcomePage extends CommonAppiumTest {
 	}
 
 	public void acceptEditorToolTip() {
-		waitForElement(welcomePageObjects.ACCEPT_TIP).click();
+		//waitForElement(welcomePageObjects.ACCEPT_TIP).click();
 	}
 
 	public void selectBlog() {
-		welcomePageObjects.SELECT_BLOG.get(0).click();
+		waitForElement(driver.findElementById("vodqademo.wordpress.com")).click();
 	}
 
 	public AccountsPage clickOnMe() {
