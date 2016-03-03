@@ -1,0 +1,13 @@
+<component name="libraryTable">
+  <library name="Maven: com.relevantcodes:extentreports:2.40.1">
+    <CLASSES>
+      <root url="jar://$MAVEN_REPOSITORY$/com/relevantcodes/extentreports/2.40.1/extentreports-2.40.1.jar!/" />
+    </CLASSES>
+    <JAVADOC>
+      <root url="jar://$MAVEN_REPOSITORY$/com/relevantcodes/extentreports/2.40.1/extentreports-2.40.1-javadoc.jar!/" />
+    </JAVADOC>
+    <SOURCES>
+      <root url="jar://$MAVEN_REPOSITORY$/com/relevantcodes/extentreports/2.40.1/extentreports-2.40.1-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>

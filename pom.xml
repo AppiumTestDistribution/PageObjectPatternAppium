@@ -16,7 +16,7 @@
 		<dependency>
 			<groupId>com.github.saikrishna321</groupId>
 			<artifactId>AppiumTestDistribution</artifactId>
-			<version>3.0.5</version>
+			<version>4.0.0</version>
 		</dependency>
 
 		<dependency>
