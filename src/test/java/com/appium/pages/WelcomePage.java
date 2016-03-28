@@ -20,7 +20,7 @@ public class WelcomePage extends CommonAppiumTest {
 	public WelcomePage(AppiumDriver<MobileElement> driver) {
 		super(driver);
 		PageFactory.initElements(new AppiumFieldDecorator(driver), welcomePageObjects);
-		runnerInfo = viewFactory.getMobilePlatform(System.getenv("PLATFORM"));
+		runnerInfo = viewFactory.getMobilePlatform(driver.toString().split(":")[0].toString());
 	}
 
 	public WelcomePage waitForWelcomePage() {

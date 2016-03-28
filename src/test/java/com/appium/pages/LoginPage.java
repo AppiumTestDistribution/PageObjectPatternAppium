@@ -20,7 +20,7 @@ public class LoginPage extends CommonAppiumTest {
 	public LoginPage(AppiumDriver<MobileElement> driver) {
 		super(driver);
 		PageFactory.initElements(new AppiumFieldDecorator(driver), loginPageObjects);
-		runnerInfo = viewFactory.getMobilePlatform(System.getenv("PLATFORM"));
+		runnerInfo = viewFactory.getMobilePlatform(driver.toString().split(":")[0].toString());
 	}
 
 	public WelcomePage enterValidCredentails(String username, String password) {
