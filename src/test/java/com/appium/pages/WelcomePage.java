@@ -1,18 +1,16 @@
 package com.appium.pages;
 
-import java.util.List;
-
-import org.openqa.selenium.support.PageFactory;
-
 import com.appium.config.CommonAppiumTest;
 import com.appium.config.DeviceInterface;
 import com.appium.config.ViewFactory;
 import com.appium.page.objects.WelcomePageObjects;
 import com.report.factory.ExtentTestManager;
-
 import io.appium.java_client.AppiumDriver;
 import io.appium.java_client.MobileElement;
 import io.appium.java_client.pagefactory.AppiumFieldDecorator;
+import org.openqa.selenium.support.PageFactory;
+
+import java.util.List;
 
 public class WelcomePage extends CommonAppiumTest {
 	public ViewFactory viewFactory = new ViewFactory(driver);
@@ -60,7 +58,7 @@ public class WelcomePage extends CommonAppiumTest {
 	}
 
 	public void acceptEditorToolTip() {
-		//waitForElement(welcomePageObjects.ACCEPT_TIP).click();
+		waitForElement(welcomePageObjects.ACCEPT_TIP).click();
 	}
 
 	public void selectBlog() {
@@ -75,6 +73,11 @@ public class WelcomePage extends CommonAppiumTest {
 	public AccountsPage moveToDisconnect() {
 		runnerInfo.moveToLogOutScreen(this);
 		return new AccountsPage(driver);
+	}
+
+	public ViewSitePage clickViewSite(){
+		waitForElement(welcomePageObjects.VIEW_SITE).click();
+		return new ViewSitePage(driver);
 	}
 
 }

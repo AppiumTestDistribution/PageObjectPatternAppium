@@ -1,11 +1,11 @@
 package com.appium.page.objects;
 
-import java.util.List;
-
 import io.appium.java_client.MobileElement;
 import io.appium.java_client.pagefactory.AndroidFindBy;
 import io.appium.java_client.pagefactory.SelendroidFindBy;
 import io.appium.java_client.pagefactory.iOSFindBy;
+
+import java.util.List;
 
 public class WelcomePageObjects {
 
@@ -45,5 +45,9 @@ public class WelcomePageObjects {
 	
 	@iOSFindBy(accessibility="Me")
 	public MobileElement SELECT_ME;
+
+	@AndroidFindBy(id="org.wordpress.android:id/my_site_view_site_text_view")
+	@iOSFindBy(id="View Site")
+	public MobileElement VIEW_SITE;
 
 }
