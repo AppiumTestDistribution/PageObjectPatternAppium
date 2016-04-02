@@ -12,6 +12,7 @@ import org.testng.annotations.BeforeMethod;
 
 import java.io.IOException;
 import java.lang.reflect.Method;
+import java.net.URISyntaxException;
 
 public class UserBaseTest extends AppiumParallelTest {
 
@@ -24,7 +25,7 @@ public class UserBaseTest extends AppiumParallelTest {
 	}
 
 	@AfterMethod()
-	public void killServer(ITestResult result) throws InterruptedException, IOException {
+	public void killServer(ITestResult result) throws InterruptedException, IOException, URISyntaxException {
 		endLogTestResults(result);
 		getDriver().quit();
 		//deleteAppIOS("com.tesco.sample");

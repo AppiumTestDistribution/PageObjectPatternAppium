@@ -77,7 +77,11 @@ public class CommonAppiumTest {
 	 *            view to be set
 	 */
 	public void setContext(String context) {
-
+		try {
+			Thread.sleep(20000);
+		} catch (InterruptedException e) {
+			e.printStackTrace();
+		}
 		Set<String> contextNames = driver.getContextHandles();
 		for (String contextName : contextNames) {
 			System.out.println(contextName); //prints out something like NATIVE_APP \n WEBVIEW_1

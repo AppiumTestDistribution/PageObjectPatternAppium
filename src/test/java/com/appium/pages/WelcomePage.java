@@ -4,7 +4,6 @@ import com.appium.config.CommonAppiumTest;
 import com.appium.config.DeviceInterface;
 import com.appium.config.ViewFactory;
 import com.appium.page.objects.WelcomePageObjects;
-import com.report.factory.ExtentTestManager;
 import io.appium.java_client.AppiumDriver;
 import io.appium.java_client.MobileElement;
 import io.appium.java_client.pagefactory.AppiumFieldDecorator;
@@ -25,7 +24,6 @@ public class WelcomePage extends CommonAppiumTest {
 
 	public WelcomePage waitForWelcomePage() {
 		runnerInfo.waitForHomePage(this);
-		ExtentTestManager.logOutPut("WelcomePage is displayed");
 		return new WelcomePage(driver);
 
 	}

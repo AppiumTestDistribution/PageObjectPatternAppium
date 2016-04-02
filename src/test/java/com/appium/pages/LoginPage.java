@@ -1,16 +1,13 @@
 package com.appium.pages;
 
-import org.openqa.selenium.support.PageFactory;
-
 import com.appium.config.CommonAppiumTest;
 import com.appium.config.DeviceInterface;
 import com.appium.config.ViewFactory;
 import com.appium.page.objects.LoginPageObjects;
-import com.report.factory.ExtentTestManager;
-
 import io.appium.java_client.AppiumDriver;
 import io.appium.java_client.MobileElement;
 import io.appium.java_client.pagefactory.AppiumFieldDecorator;
+import org.openqa.selenium.support.PageFactory;
 
 public class LoginPage extends CommonAppiumTest {
 	public ViewFactory viewFactory = new ViewFactory(driver);
@@ -25,7 +22,6 @@ public class LoginPage extends CommonAppiumTest {
 
 	public WelcomePage enterValidCredentails(String username, String password) {
 		runnerInfo.login(this, username, password);
-		ExtentTestManager.logOutPut("User is logged in succesfully");
 		return new WelcomePage(driver);
 	}
 
@@ -34,7 +30,6 @@ public class LoginPage extends CommonAppiumTest {
 	}
 
 	public boolean validateUserNameFieldIsDisplayed() {
-		ExtentTestManager.logOutPut("UserNameFieldIsDisplayed");
 		return loginPageObjects.username.isDisplayed();
 	}
 
