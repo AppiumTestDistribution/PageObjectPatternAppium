@@ -1,8 +1,8 @@
 package com.appium.config;
 
-import java.lang.reflect.Method;
-import java.util.Set;
-
+import io.appium.java_client.AppiumDriver;
+import io.appium.java_client.MobileElement;
+import io.appium.java_client.SwipeElementDirection;
 import org.apache.log4j.Logger;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Dimension;
@@ -10,11 +10,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
-import com.appium.manager.AppiumParallelTest;
-
-import io.appium.java_client.AppiumDriver;
-import io.appium.java_client.MobileElement;
-import io.appium.java_client.SwipeElementDirection;
+import java.util.Set;
 
 public class CommonAppiumTest {
 	public AppiumDriver<MobileElement> driver;
@@ -81,15 +77,16 @@ public class CommonAppiumTest {
 	 *            view to be set
 	 */
 	public void setContext(String context) {
-
-		Set<String> contextNames = driver.getContextHandles();
-
-		if (contextNames.contains(context)) {
-			driver.context(context);
-			logger.info("Context changed successfully");
-		} else {
-			logger.info(context + "not found on this page");
+		try {
+			Thread.sleep(20000);
+		} catch (InterruptedException e) {
+			e.printStackTrace();
 		}
+		Set<String> contextNames = driver.getContextHandles();
+		for (String contextName : contextNames) {
+			System.out.println(contextName); //prints out something like NATIVE_APP \n WEBVIEW_1
+		}
+		driver.context((String) contextNames.toArray()[1]); // set context to WEBVIEW_1
 
 		logger.info("Current context" + driver.getContext());
 	}

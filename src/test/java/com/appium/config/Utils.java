@@ -1,5 +1,14 @@
 package com.appium.config;
 
+import io.appium.java_client.AppiumDriver;
+import io.appium.java_client.MobileElement;
+import io.appium.java_client.android.AndroidDriver;
+import io.appium.java_client.ios.IOSDriver;
+import io.appium.java_client.remote.MobileCapabilityType;
+import org.openqa.selenium.remote.DesiredCapabilities;
+import org.testng.annotations.AfterClass;
+import org.testng.annotations.BeforeClass;
+
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
@@ -9,20 +18,13 @@ import java.net.URL;
 import java.util.Properties;
 import java.util.concurrent.TimeUnit;
 
-import org.openqa.selenium.remote.DesiredCapabilities;
-
-import io.appium.java_client.AppiumDriver;
-import io.appium.java_client.MobileElement;
-import io.appium.java_client.android.AndroidDriver;
-import io.appium.java_client.ios.IOSDriver;
-import io.appium.java_client.remote.MobileCapabilityType;
-
 public class Utils {
 	DesiredCapabilities caps = new DesiredCapabilities();
 	public AppiumDriver<MobileElement> driver;
 	public static Properties prop = new Properties();
 	static InputStream input = null;
 
+	@BeforeClass
 	public AppiumDriver<MobileElement> getDriver() throws IOException {
 		input = new FileInputStream("property/android.properties");
 		prop.load(input);
@@ -51,9 +53,13 @@ public class Utils {
 		File classpathRoot = new File(System.getProperty("user.dir"));
 		File appDir = new File(classpathRoot, "/build/");
 		File app = new File(appDir, "WordPress.app");
-		caps.setCapability("platformVersion", "9.0");
-		caps.setCapability("deviceName", "iPhone 6s");
+		caps.setCapability("platformVersion", "9.2");
+		caps.setCapability("deviceName", "iPhone 6");
 		caps.setCapability("app", app.getAbsolutePath());
 		driver = new IOSDriver<MobileElement>(new URL("http://127.0.0.1:4723/wd/hub"), caps);
+	}
+	@AfterClass
+	public void tearDown(){
+		driver.quit();
 	}
 }

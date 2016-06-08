@@ -1,12 +1,13 @@
 package com.appium.tests;
 
-import org.testng.Assert;
-import org.testng.annotations.Test;
-
+import com.annotation.values.RetryCount;
 import com.appium.config.UserBaseTest;
 import com.appium.config.UserCredentials;
 import com.appium.pages.AccountsPage;
 import com.appium.pages.LoginPage;
+import com.appium.utils.Retry;
+import org.testng.Assert;
+import org.testng.annotations.Test;
 
 public class LoginTest extends UserBaseTest {
 
@@ -24,7 +25,8 @@ public class LoginTest extends UserBaseTest {
 
 	}
 
-	@Test
+	@Test(retryAnalyzer=Retry.class)
+	@RetryCount(maxRetryCount=2)
 	public void loginWithInValidUser() throws InterruptedException {
 		loginPage = new LoginPage(driver);
 		credentials = new UserCredentials("vodqa123@gmail.com", "Hello12342225678");

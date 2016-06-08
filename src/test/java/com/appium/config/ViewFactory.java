@@ -20,14 +20,14 @@ public class ViewFactory extends CommonAppiumTest {
 		if (platform == null) {
 			return null;
 		}
-		if (platform.equalsIgnoreCase("android")) {
+		if (platform.equalsIgnoreCase("AndroidDriver")) {
 			if (androidFlow == null) {
 				return androidFlow = new AndroidFlow(driver);
 			}
 			return androidFlow;
 		}
 
-		if (platform.equalsIgnoreCase("ios")) {
+		if (platform.equalsIgnoreCase("IOSDriver")) {
 			if (iosFlow == null) {
 				return iosFlow = new iOSFlow(driver);
 			}

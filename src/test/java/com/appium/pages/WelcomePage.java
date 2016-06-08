@@ -1,18 +1,15 @@
 package com.appium.pages;
 
-import java.util.List;
-
-import org.openqa.selenium.support.PageFactory;
-
 import com.appium.config.CommonAppiumTest;
 import com.appium.config.DeviceInterface;
 import com.appium.config.ViewFactory;
 import com.appium.page.objects.WelcomePageObjects;
-import com.report.factory.ExtentTestManager;
-
 import io.appium.java_client.AppiumDriver;
 import io.appium.java_client.MobileElement;
 import io.appium.java_client.pagefactory.AppiumFieldDecorator;
+import org.openqa.selenium.support.PageFactory;
+
+import java.util.List;
 
 public class WelcomePage extends CommonAppiumTest {
 	public ViewFactory viewFactory = new ViewFactory(driver);
@@ -22,12 +19,11 @@ public class WelcomePage extends CommonAppiumTest {
 	public WelcomePage(AppiumDriver<MobileElement> driver) {
 		super(driver);
 		PageFactory.initElements(new AppiumFieldDecorator(driver), welcomePageObjects);
-		runnerInfo = viewFactory.getMobilePlatform(System.getenv("PLATFORM"));
+		runnerInfo = viewFactory.getMobilePlatform(driver.toString().split(":")[0].toString());
 	}
 
 	public WelcomePage waitForWelcomePage() {
 		runnerInfo.waitForHomePage(this);
-		ExtentTestManager.logOutPut("WelcomePage is displayed");
 		return new WelcomePage(driver);
 
 	}
@@ -64,7 +60,7 @@ public class WelcomePage extends CommonAppiumTest {
 	}
 
 	public void selectBlog() {
-		welcomePageObjects.SELECT_BLOG.get(0).click();
+		waitForElement(driver.findElementById("vodqademo.wordpress.com")).click();
 	}
 
 	public AccountsPage clickOnMe() {
@@ -75,6 +71,11 @@ public class WelcomePage extends CommonAppiumTest {
 	public AccountsPage moveToDisconnect() {
 		runnerInfo.moveToLogOutScreen(this);
 		return new AccountsPage(driver);
+	}
+
+	public ViewSitePage clickViewSite(){
+		waitForElement(welcomePageObjects.VIEW_SITE).click();
+		return new ViewSitePage(driver);
 	}
 
 }
