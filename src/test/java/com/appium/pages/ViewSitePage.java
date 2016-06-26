@@ -24,12 +24,12 @@ public class ViewSitePage extends CommonAppiumTest {
         runnerInfo = viewFactory.getMobilePlatform(driver.toString().split(":")[0].toString());
     }
 
-    public ViewSitePage switchToWebView(){
+    public ViewSitePage switchToWebView() {
         setContext("WEBVIEW_");
         return new ViewSitePage(driver);
     }
 
-    public ViewSitePage clickShow(){
+    public ViewSitePage clickShow() {
         try {
             Thread.sleep(5000);
         } catch (InterruptedException e) {

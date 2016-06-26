@@ -8,6 +8,5 @@ import org.openqa.selenium.support.FindBy;
  */
 public class ViewSitePageObject {
 
-    @FindBy(xpath = "//*[@id='masthead']/button/span")
-    public WebElement CLICK_SHOW;
+    @FindBy(xpath = "//*[@id='masthead']/button/span") public WebElement CLICK_SHOW;
 }

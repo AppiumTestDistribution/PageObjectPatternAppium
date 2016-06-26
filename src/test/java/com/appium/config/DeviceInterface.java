@@ -6,11 +6,11 @@ import com.appium.pages.WelcomePage;
 
 public interface DeviceInterface {
 
-	public void login(LoginPage loginPage, String username,String password);
-	
-	public void waitForHomePage(WelcomePage welcomePage);
-	
-	public void moveToLogOutScreen(WelcomePage welcomePage);
+    public void login(LoginPage loginPage, String username, String password);
 
-	public void writeContent(PublishPage publishPage);
+    public void waitForHomePage(WelcomePage welcomePage);
+
+    public void moveToLogOutScreen(WelcomePage welcomePage);
+
+    public void writeContent(PublishPage publishPage);
 }
