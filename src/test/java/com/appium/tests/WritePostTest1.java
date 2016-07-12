@@ -23,14 +23,14 @@ public class WritePostTest1 extends UserBaseTest {
 
     }
 
-/*	@Test
-  public void deleteTheCreatedPost_1() {
-		loginPage = new LoginPage(driver);
-		credentials = new UserCredentials("vodqa@gmail.com", "Hello12345678");
-		PostPage postpage = loginPage.enterValidCredentails(credentials.getUserName(), credentials.getPassWord())
-				.waitForWelcomePage().clickPostPage().deletePost();
-		Assert.assertEquals(postpage.verifyPostIsDeleted(), "Deleting post");
+    @Test public void deleteTheCreatedPost_1() {
+        loginPage = new LoginPage(driver);
+        credentials = new UserCredentials("vodqa@gmail.com", "Hello12345678");
+        PostPage postpage =
+            loginPage.enterValidCredentails(credentials.getUserName(), credentials.getPassWord())
+                .waitForWelcomePage().clickPostPage().deletePost();
+        Assert.assertEquals(postpage.verifyPostIsDeleted(), "Deleting post");
 
-	}*/
+    }
 
 }

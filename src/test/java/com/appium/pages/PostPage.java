@@ -16,7 +16,6 @@ public class PostPage extends CommonAppiumTest {
     }
 
     public boolean verifyPostIsSuccessfull() throws InterruptedException {
-        Thread.sleep(8000);
         return postPageObjects.POST_TEXT.isDisplayed();
 
     }
