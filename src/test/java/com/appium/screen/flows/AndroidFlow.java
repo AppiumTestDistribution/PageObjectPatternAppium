@@ -10,35 +10,35 @@ import io.appium.java_client.MobileElement;
 
 public class AndroidFlow extends CommonAppiumTest implements DeviceInterface {
 
-	public AndroidFlow(AppiumDriver<MobileElement> driver) {
-		super(driver);
-	}
+    public AndroidFlow(AppiumDriver<MobileElement> driver) {
+        super(driver);
+    }
 
-	public void login(LoginPage loginPage, String username, String password) {
-		loginPage.enterUserAndPassword(username, password);
-		driver.hideKeyboard();
-		loginPage.enterSiteURL();
-		loginPage.signIn();
-	}
+    public void login(LoginPage loginPage, String username, String password) {
+        loginPage.enterUserAndPassword(username, password);
+        driver.hideKeyboard();
+        loginPage.enterSiteURL();
+        loginPage.signIn();
+    }
 
-	public void waitForHomePage(WelcomePage welcomePage) {
-		welcomePage.waitForHomePageToLoad();
-	}
+    public void waitForHomePage(WelcomePage welcomePage) {
+        welcomePage.waitForHomePageToLoad();
+    }
 
-	public void moveToLogOutScreen() {
-		swipeRightUntilTextExists("Disconnect from WordPress.com");
-	}
+    public void moveToLogOutScreen() {
+        swipeRightUntilTextExists("Disconnect from WordPress.com");
+    }
 
-	public void moveToLogOutScreen(WelcomePage welcomePage) {
-		// TODO Auto-generated method stub
-		moveToLogOutScreen();
-	}
+    public void moveToLogOutScreen(WelcomePage welcomePage) {
+        // TODO Auto-generated method stub
+        moveToLogOutScreen();
+    }
 
-	public void writeContent(PublishPage publishPage) {
-		publishPage.writeContentAndPost();
-		publishPage.clickBackButton();
-		publishPage.clickPublish();
-		
-	}
+    public void writeContent(PublishPage publishPage) {
+        publishPage.writeContentAndPost();
+        publishPage.clickBackButton();
+        publishPage.clickPublish();
+
+    }
 
 }
