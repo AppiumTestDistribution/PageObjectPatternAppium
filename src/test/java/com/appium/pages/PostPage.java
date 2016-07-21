@@ -8,28 +8,28 @@ import io.appium.java_client.pagefactory.AppiumFieldDecorator;
 import org.openqa.selenium.support.PageFactory;
 
 public class PostPage extends CommonAppiumTest {
-    PostPageObjects postPageObjects = new PostPageObjects();
+	PostPageObjects postPageObjects = new PostPageObjects();
 
-    public PostPage(AppiumDriver<MobileElement> driver) {
-        super(driver);
-        PageFactory.initElements(new AppiumFieldDecorator(driver), postPageObjects);
-    }
+	public PostPage(AppiumDriver<MobileElement> driver) {
+		super(driver);
+		PageFactory.initElements(new AppiumFieldDecorator(driver), postPageObjects);
+	}
 
-    public boolean verifyPostIsSuccessfull() throws InterruptedException {
-        Thread.sleep(8000);
-        return postPageObjects.POST_TEXT.isDisplayed();
+	public boolean verifyPostIsSuccessfull() throws InterruptedException {
+		Thread.sleep(8000);
+		return postPageObjects.POST_TEXT.isDisplayed();
 
-    }
+	}
 
-    public PostPage deletePost() {
-        waitForElement(postPageObjects.POST_TEXT).click();
-        waitForElement(postPageObjects.DELETE).click();
-        waitForElement(postPageObjects.DELETE_CONFIRMATION).click();
-        return new PostPage(driver);
-    }
+	public PostPage deletePost() {
+		waitForElement(postPageObjects.POST_TEXT).click();
+		waitForElement(postPageObjects.DELETE).click();
+		waitForElement(postPageObjects.DELETE_CONFIRMATION).click();
+		return new PostPage(driver);
+	}
 
-    public String verifyPostIsDeleted() {
-        return postPageObjects.DELETE_POST.getText();
-    }
+	public String verifyPostIsDeleted() {
+		return postPageObjects.DELETE_POST.getText();
+	}
 
 }

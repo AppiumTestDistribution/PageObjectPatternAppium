@@ -9,16 +9,16 @@ import org.testng.annotations.Test;
 
 public class AddCommentTest extends UserBaseTest {
 
-    LoginPage loginPage;
-    UserCredentials credentials = new UserCredentials("vodqa@gmail.com", "Hello12345678");
+	LoginPage loginPage;
+	UserCredentials credentials = new UserCredentials("vodqa@gmail.com", "Hello12345678");
 
-    @Test public void addComment() throws InterruptedException {
-        loginPage = new LoginPage(driver);
-        CommentPage commentsPage =
-            loginPage.enterValidCredentails(credentials.getUserName(), credentials.getPassWord())
-                .waitForWelcomePage().clickComments().enterComments();
-        Assert.assertTrue(commentsPage.verifyCommentIsAdded());
+	@Test
+	public void addComment() throws InterruptedException {
+		loginPage = new LoginPage(driver);
+		CommentPage commentsPage = loginPage.enterValidCredentails(credentials.getUserName(), credentials.getPassWord())
+				.waitForWelcomePage().clickComments().enterComments();
+		Assert.assertTrue(commentsPage.verifyCommentIsAdded());
 
-    }
+	}
 
 }

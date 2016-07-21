@@ -7,15 +7,18 @@ import org.testng.annotations.Test;
 
 public class WebTest extends UserBaseTest {
 
-    LoginPage loginPage;
-    UserCredentials credentials;
+	LoginPage loginPage;
+	UserCredentials credentials;
 
-    @Test public void webTest() throws InterruptedException {
+	// https://github.com/appium/appium/issues/6627
+	// https://github.com/appium/appium/issues/6634
+	@Test
+	public void webTest() throws InterruptedException {
 
-        loginPage = new LoginPage(driver);
-        credentials = new UserCredentials("vodqa@gmail.com", "Hello12345678");
-        loginPage.enterValidCredentails(credentials.getUserName(), credentials.getPassWord())
-            .waitForWelcomePage().clickViewSite().switchToWebView().clickShow();
+		loginPage = new LoginPage(driver);
+		credentials = new UserCredentials("vodqa@gmail.com", "Hello12345678");
+		loginPage.enterValidCredentails(credentials.getUserName(), credentials.getPassWord()).waitForWelcomePage()
+				.clickViewSite().switchToWebView().clickShow();
+	}
 
-    }
 }

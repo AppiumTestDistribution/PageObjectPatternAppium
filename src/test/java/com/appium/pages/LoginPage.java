@@ -10,44 +10,44 @@ import io.appium.java_client.pagefactory.AppiumFieldDecorator;
 import org.openqa.selenium.support.PageFactory;
 
 public class LoginPage extends CommonAppiumTest {
-    public ViewFactory viewFactory = new ViewFactory(driver);
-    public DeviceInterface runnerInfo;
-    public LoginPageObjects loginPageObjects = new LoginPageObjects();
+	public ViewFactory viewFactory = new ViewFactory(driver);
+	public DeviceInterface runnerInfo;
+	public LoginPageObjects loginPageObjects = new LoginPageObjects();
 
-    public LoginPage(AppiumDriver<MobileElement> driver) {
-        super(driver);
-        PageFactory.initElements(new AppiumFieldDecorator(driver), loginPageObjects);
-        runnerInfo = viewFactory.getMobilePlatform(driver.toString().split(":")[0].toString());
-    }
+	public LoginPage(AppiumDriver<MobileElement> driver) {
+		super(driver);
+		PageFactory.initElements(new AppiumFieldDecorator(driver), loginPageObjects);
+		runnerInfo = viewFactory.getMobilePlatform(driver.toString().split(":")[0].toString());
+	}
 
-    public WelcomePage enterValidCredentails(String username, String password) {
-        runnerInfo.login(this, username, password);
-        return new WelcomePage(driver);
-    }
+	public WelcomePage enterValidCredentails(String username, String password) {
+		runnerInfo.login(this, username, password);
+		return new WelcomePage(driver);
+	}
 
-    public String validateErrorMessage() {
-        return driver.getPageSource();
-    }
+	public String validateErrorMessage() {
+		return driver.getPageSource();
+	}
 
-    public boolean validateUserNameFieldIsDisplayed() {
-        return loginPageObjects.username.isDisplayed();
-    }
+	public boolean validateUserNameFieldIsDisplayed() {
+		return loginPageObjects.username.isDisplayed();
+	}
 
-    public void enterUserAndPassword(String user, String pass) {
-        // TODO Auto-generated method stub
-        waitForPageToLoad(loginPageObjects.username);
-        loginPageObjects.username.sendKeys(user);
-        loginPageObjects.password.sendKeys(pass);
-    }
+	public void enterUserAndPassword(String user, String pass) {
+		// TODO Auto-generated method stub
+		waitForPageToLoad(loginPageObjects.username);
+		loginPageObjects.username.sendKeys(user);
+		loginPageObjects.password.sendKeys(pass);
+	}
 
-    public void signIn() {
-        loginPageObjects.sign_in.click();
-    }
+	public void signIn() {
+		loginPageObjects.sign_in.click();
+	}
 
-    public void enterSiteURL() {
-        // TODO Auto-generated method stub
-        loginPageObjects.add_self_site.click();
-        loginPageObjects.server_url.sendKeys("https://vodqademo.wordpress.com");
-    }
+	public void enterSiteURL() {
+		// TODO Auto-generated method stub
+		loginPageObjects.add_self_site.click();
+		loginPageObjects.server_url.sendKeys("https://vodqademo.wordpress.com");
+	}
 
 }

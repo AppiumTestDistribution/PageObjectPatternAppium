@@ -14,35 +14,35 @@ import org.openqa.selenium.support.PageFactory;
  */
 public class ViewSitePage extends CommonAppiumTest {
 
-    public ViewFactory viewFactory = new ViewFactory(driver);
-    public DeviceInterface runnerInfo;
-    ViewSitePageObject viewSitePageObjects = new ViewSitePageObject();
+	public ViewFactory viewFactory = new ViewFactory(driver);
+	public DeviceInterface runnerInfo;
+	ViewSitePageObject viewSitePageObjects = new ViewSitePageObject();
 
-    public ViewSitePage(AppiumDriver<MobileElement> driver) {
-        super(driver);
-        PageFactory.initElements(new AppiumFieldDecorator(driver), viewSitePageObjects);
-        runnerInfo = viewFactory.getMobilePlatform(driver.toString().split(":")[0].toString());
-    }
+	public ViewSitePage(AppiumDriver<MobileElement> driver) {
+		super(driver);
+		PageFactory.initElements(new AppiumFieldDecorator(driver), viewSitePageObjects);
+		runnerInfo = viewFactory.getMobilePlatform(driver.toString().split(":")[0].toString());
+	}
 
-    public ViewSitePage switchToWebView() {
-        setContext("WEBVIEW_");
-        return new ViewSitePage(driver);
-    }
+	public ViewSitePage switchToWebView() {
+		setContext("WEBVIEW_");
+		return new ViewSitePage(driver);
+	}
 
-    public ViewSitePage clickShow() {
-        try {
-            Thread.sleep(5000);
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
-        System.out.println(driver.getPageSource());
-        viewSitePageObjects.CLICK_SHOW.click();
-        try {
-            Thread.sleep(5000);
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
-        return new ViewSitePage(driver);
-    }
+	public ViewSitePage clickShow() {
+		try {
+			Thread.sleep(5000);
+		} catch (InterruptedException e) {
+			e.printStackTrace();
+		}
+		System.out.println(driver.getPageSource()); // ?? Why is this needed
+		viewSitePageObjects.CLICK_SHOW.click();
+		try {
+			Thread.sleep(5000);
+		} catch (InterruptedException e) {
+			e.printStackTrace();
+		}
+		return new ViewSitePage(driver);
+	}
 
 }

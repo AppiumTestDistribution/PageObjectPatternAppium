@@ -9,29 +9,28 @@ import org.testng.annotations.Test;
 
 public class WritePostTest extends UserBaseTest {
 
-    LoginPage loginPage;
-    UserCredentials credentials;
+	LoginPage loginPage;
+	UserCredentials credentials;
 
-    @Test public void writePost() throws InterruptedException {
+	@Test
+	public void writePost() throws InterruptedException {
 
-        loginPage = new LoginPage(driver);
-        credentials = new UserCredentials("vodqa@gmail.com", "Hello12345678");
-        PostPage postpage =
-            loginPage.enterValidCredentails(credentials.getUserName(), credentials.getPassWord())
-                .waitForWelcomePage().writePost().writeContentAndPublish().clickPostPage();
+		loginPage = new LoginPage(driver);
+		credentials = new UserCredentials("vodqa@gmail.com", "Hello12345678");
+		PostPage postpage = loginPage.enterValidCredentails(credentials.getUserName(), credentials.getPassWord())
+				.waitForWelcomePage().writePost().writeContentAndPublish().clickPostPage();
 
-        Assert.assertTrue(postpage.verifyPostIsSuccessfull());
+		Assert.assertTrue(postpage.verifyPostIsSuccessfull());
+	}
 
-    }
+	@Test
+	public void deleteTheCreatedPost() {
+		loginPage = new LoginPage(driver);
+		credentials = new UserCredentials("vodqa@gmail.com", "Hello12345678");
+		PostPage postpage = loginPage.enterValidCredentails(credentials.getUserName(), credentials.getPassWord())
+				.waitForWelcomePage().clickPostPage().deletePost();
+		Assert.assertEquals(postpage.verifyPostIsDeleted(), "Deleting post");
 
-    @Test public void deleteTheCreatedPost() {
-        loginPage = new LoginPage(driver);
-        credentials = new UserCredentials("vodqa@gmail.com", "Hello12345678");
-        PostPage postpage =
-            loginPage.enterValidCredentails(credentials.getUserName(), credentials.getPassWord())
-                .waitForWelcomePage().clickPostPage().deletePost();
-        Assert.assertEquals(postpage.verifyPostIsDeleted(), "Deleting post");
-
-    }
+	}
 
 }

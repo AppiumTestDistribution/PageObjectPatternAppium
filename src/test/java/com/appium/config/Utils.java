@@ -13,6 +13,7 @@ import org.testng.annotations.Test;
 
 import com.appium.pages.AccountsPage;
 import com.appium.pages.LoginPage;
+import com.appium.pages.PostPage;
 
 import java.io.File;
 import java.io.FileInputStream;
@@ -23,6 +24,8 @@ import java.net.URL;
 import java.util.Properties;
 import java.util.concurrent.TimeUnit;
 
+import com.appium.config.UserCredentials;
+import com.appium.config.UserBaseTest;
 /*
 // ------------- READ ME --------------
 // 1. This is place to run single test case on single device for debug purpose only.
@@ -32,50 +35,51 @@ import java.util.concurrent.TimeUnit;
 */
 
 public class Utils {
-    DesiredCapabilities caps = new DesiredCapabilities();
-    public AppiumDriver<MobileElement> driver;
-    public static Properties prop = new Properties();
-    static InputStream input = null;
+	DesiredCapabilities caps = new DesiredCapabilities();
+	public AppiumDriver<MobileElement> driver;
+	public static Properties prop = new Properties();
+	static InputStream input = null;
 
-    LoginPage loginPage;
-    AccountsPage accountsPage;
-    UserCredentials credentials;
-    
-    @BeforeClass
-    public AppiumDriver<MobileElement> getDriver() throws IOException {
-        input = new FileInputStream("property/android.properties");
-        prop.load(input);
-        if (prop.getProperty("platform").equals("android")) {
-            androidSetup();
-        } else {
-            if (prop.getProperty("platform").equals("ios")) {
-                iosSetup();
-            }
-        }
-        driver.manage().timeouts().implicitlyWait(3, TimeUnit.SECONDS);
-        return driver;
-    }
+	LoginPage loginPage;
+	AccountsPage accountsPage;
+	UserCredentials credentials;
+	UserBaseTest loginDetails;
 
-    public void androidSetup() throws MalformedURLException {
-        caps.setCapability("deviceName","dummy"); // "Nexus_S2_API_23");
-        caps.setCapability("platformVersion", "0.0"); //"6.0");
-        caps.setCapability("app", System.getProperty("user.dir") + "/build/wordpress.apk");
-        caps.setCapability("package", "org.wordpress.android");
-        caps.setCapability("appActivity", "org.wordpress.android.ui.WPLaunchActivity");
-        caps.setCapability(AndroidMobileCapabilityType.APP_WAIT_ACTIVITY,
-            "org.wordpress.android.ui.accounts.SignInActivity");
-        driver = new AndroidDriver<MobileElement>(new URL("http://127.0.0.1:4723/wd/hub"), caps);
-    }
+	@BeforeClass
+	public AppiumDriver<MobileElement> getDriver() throws IOException {
+		input = new FileInputStream("property/android.properties");
+		prop.load(input);
+		if (prop.getProperty("platform").equals("android")) {
+			androidSetup();
+		} else {
+			if (prop.getProperty("platform").equals("ios")) {
+				iosSetup();
+			}
+		}
+		driver.manage().timeouts().implicitlyWait(3, TimeUnit.SECONDS);
+		return driver;
+	}
 
-    public void iosSetup() throws MalformedURLException {
-        File classpathRoot = new File(System.getProperty("user.dir"));
-        File appDir = new File(classpathRoot, "/build/");
-        File app = new File(appDir, "WordPress.app");
-        caps.setCapability("platformVersion", "9.2");
-        caps.setCapability("deviceName", "iPhone 6");
-        caps.setCapability("app", app.getAbsolutePath());
-        driver = new IOSDriver<MobileElement>(new URL("http://127.0.0.1:4723/wd/hub"), caps);
-    }
+	public void androidSetup() throws MalformedURLException {
+		caps.setCapability("deviceName", "dummy"); // "Nexus_S2_API_23");
+		caps.setCapability("platformVersion", "6.0");
+		caps.setCapability("app", System.getProperty("user.dir") + "/build/wordpress.apk");
+		caps.setCapability("package", "org.wordpress.android");
+		caps.setCapability("appActivity", "org.wordpress.android.ui.WPLaunchActivity");
+		caps.setCapability(AndroidMobileCapabilityType.APP_WAIT_ACTIVITY,
+				"org.wordpress.android.ui.accounts.SignInActivity");
+		driver = new AndroidDriver<MobileElement>(new URL("http://127.0.0.1:4723/wd/hub"), caps);
+	}
+
+	public void iosSetup() throws MalformedURLException {
+		File classpathRoot = new File(System.getProperty("user.dir"));
+		File appDir = new File(classpathRoot, "/build/");
+		File app = new File(appDir, "WordPress.app");
+		caps.setCapability("platformVersion", "9.2");
+		caps.setCapability("deviceName", "iPhone 6");
+		caps.setCapability("app", app.getAbsolutePath());
+		driver = new IOSDriver<MobileElement>(new URL("http://127.0.0.1:4723/wd/hub"), caps);
+	}
 
     @AfterClass 
     public void tearDown() {
@@ -90,7 +94,6 @@ public class Utils {
             loginPage.enterValidCredentails(credentials.getUserName(), credentials.getPassWord())
                 .waitForWelcomePage().verifyUserIsLoggedIn();
         Assert.assertEquals(userNameLoggedIn, "vodqademo");
-
     }
         
 }
