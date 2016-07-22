@@ -1,5 +1,6 @@
 package com.appium.config;
 
+import com.appium.manager.AppiumParallelTest;
 import io.appium.java_client.AppiumDriver;
 import io.appium.java_client.MobileElement;
 import io.appium.java_client.SwipeElementDirection;
@@ -10,11 +11,12 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
+import java.io.IOException;
 import java.util.Set;
 
 public class CommonAppiumTest {
     public AppiumDriver<MobileElement> driver;
-
+    public AppiumParallelTest appiumParallelTest = new AppiumParallelTest();
     Logger logger = Logger.getLogger(CommonAppiumTest.class);
 
     public CommonAppiumTest(AppiumDriver<MobileElement> driver) {
@@ -22,12 +24,12 @@ public class CommonAppiumTest {
     }
 
     public void waitForPageToLoad(MobileElement id) {
-        WebDriverWait wait = new WebDriverWait(driver, 30);
+        WebDriverWait wait = new WebDriverWait(driver, 10);
         wait.until(ExpectedConditions.elementToBeClickable(id));
     }
 
     public void waitForElementToDisAppear(String id) {
-        WebDriverWait wait = new WebDriverWait(driver, 30);
+        WebDriverWait wait = new WebDriverWait(driver, 10);
         wait.until(ExpectedConditions.invisibilityOfElementLocated(By.id(id)));
     }
 
@@ -77,7 +79,7 @@ public class CommonAppiumTest {
      */
     public void setContext(String context) {
         try {
-            Thread.sleep(20000);
+            Thread.sleep(4000);
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
