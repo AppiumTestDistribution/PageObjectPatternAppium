@@ -15,15 +15,16 @@ public class MultiLoginTest extends UserBaseTest {
     LoginPage loginPage;
     UserCredentials credentials;
 
-    @Test public void loginWithValidUser() throws InterruptedException {
+    @Test
+    public void loginWithValidUser() throws InterruptedException {
         loginPage = new LoginPage(driver);
         credentials = new UserCredentials(getUserName(), getPassword());
         String userNameLoggedIn =
             loginPage.enterValidCredentails(credentials.getUserName(), credentials.getPassWord())
-                .waitForWelcomePage().verifyUserIsLoggedIn();
+                     .waitForWelcomePage()
+                     .verifyUserIsLoggedIn();
         Assert.assertEquals(userNameLoggedIn, JSonParser.getUserData(
             Integer.parseInt(Thread.currentThread().getName().toString().split("_")[1]))
             .get("welcomeName"));
-
     }
 }
