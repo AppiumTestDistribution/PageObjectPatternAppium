@@ -93,7 +93,8 @@ public class CommonAppiumTest {
     }
 
     public void clickBackButton() {
-        driver.navigate().back();
+        driver.navigate().back(); //Closes keyboard
+        driver.navigate().back(); //Comes out of edit mode
     }
 
 
