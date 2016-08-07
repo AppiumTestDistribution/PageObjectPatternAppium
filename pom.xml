@@ -35,6 +35,11 @@
             <artifactId>log4j</artifactId>
             <version>LATEST</version>
         </dependency>
+        <dependency>
+            <groupId>net.masterthought</groupId>
+            <artifactId>cucumber-reporting</artifactId>
+            <version>LATEST</version>
+        </dependency>
     </dependencies>
     <build>
         <plugins>
