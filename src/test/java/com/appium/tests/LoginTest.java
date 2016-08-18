@@ -1,5 +1,6 @@
 package com.appium.tests;
 
+import com.annotation.values.Author;
 import com.appium.config.UserBaseTest;
 import com.appium.config.UserCredentials;
 import com.appium.pages.AccountsPage;
@@ -14,13 +15,13 @@ public class LoginTest extends UserBaseTest {
     UserCredentials credentials;
 
     @Test
+    @Author(name = "Sai")
     public void loginWithValidUser() throws InterruptedException {
         loginPage = new LoginPage(driver);
         credentials = new UserCredentials("vodqa@gmail.com", "Hello12345678");
         String userNameLoggedIn =
             loginPage.enterValidCredentails(credentials.getUserName(), credentials.getPassWord())
-                     .waitForWelcomePage()
-                     .verifyUserIsLoggedIn();
+                .waitForWelcomePage().verifyUserIsLoggedIn();
         Assert.assertEquals(userNameLoggedIn, "vodqademo");
     }
 
@@ -33,17 +34,14 @@ public class LoginTest extends UserBaseTest {
         Assert.assertEquals(userNameLoggedIn, "The username or password you entered is incorrect");
     }
 
-    @Test
-    public void logOutTest() throws InterruptedException {
+    @Test public void logOutTest() throws InterruptedException {
         loginPage = new LoginPage(driver);
         accountsPage = new AccountsPage(driver);
         credentials = new UserCredentials("vodqa@gmail.com", "Hello12345678");
         Boolean validateUserIsLoggedOut =
             loginPage.enterValidCredentails(credentials.getUserName(), credentials.getPassWord())
-                     .waitForWelcomePage()
-                     .moveToDisconnect()
-                     .logOut()
-                     .validateUserNameFieldIsDisplayed();
+                .waitForWelcomePage().moveToDisconnect().logOut()
+                .validateUserNameFieldIsDisplayed();
         Assert.assertTrue(validateUserIsLoggedOut, "Failed to log out users");
     }
 
