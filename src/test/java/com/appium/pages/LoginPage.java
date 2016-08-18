@@ -1,5 +1,6 @@
 package com.appium.pages;
 
+import com.annotation.values.PageName;
 import com.appium.config.CommonAppiumTest;
 import com.appium.config.DeviceInterface;
 import com.appium.config.ViewFactory;
@@ -9,6 +10,7 @@ import io.appium.java_client.MobileElement;
 import io.appium.java_client.pagefactory.AppiumFieldDecorator;
 import org.openqa.selenium.support.PageFactory;
 
+@PageName("Login Page")
 public class LoginPage extends CommonAppiumTest {
     public ViewFactory viewFactory = new ViewFactory(driver);
     public DeviceInterface runnerInfo;
@@ -36,7 +38,9 @@ public class LoginPage extends CommonAppiumTest {
     public void enterUserAndPassword(String user, String pass) {
         // TODO Auto-generated method stub
         waitForPageToLoad(loginPageObjects.username);
+        logStepIntoExtentReport(getPageObjectElemetDescription(loginPageObjects,"username"),"SendKeys",user);
         loginPageObjects.username.sendKeys(user);
+        logStepIntoExtentReport(getPageObjectElemetDescription(loginPageObjects,"password"),"SendKeys",pass);
         loginPageObjects.password.sendKeys(pass);
     }
 

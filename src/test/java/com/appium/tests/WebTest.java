@@ -10,15 +10,11 @@ public class WebTest extends UserBaseTest {
     LoginPage loginPage;
     UserCredentials credentials;
 
-    @Test
-    public void webTest() throws InterruptedException {
+    @Test public void webTest() throws InterruptedException {
 
         loginPage = new LoginPage(driver);
         credentials = new UserCredentials("vodqa@gmail.com", "Hello12345678");
         loginPage.enterValidCredentails(credentials.getUserName(), credentials.getPassWord())
-                 .waitForWelcomePage()
-                 .clickViewSite()
-                 .switchToWebView()
-                 .clickShow();
-     }
+            .waitForWelcomePage().clickViewSite().switchToWebView().clickShow();
+    }
 }

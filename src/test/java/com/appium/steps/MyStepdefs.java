@@ -24,13 +24,11 @@ public class MyStepdefs extends ExtentCucumberFormatter {
     WelcomePage welcomePage = new WelcomePage(getDriver());
     CommentPage commentsPage;
 
-    @Given("^i'm on landing page$")
-    public void splashScreen() {
+    @Given("^i'm on landing page$") public void splashScreen() {
         System.out.println("Waiting for login screen");
     }
 
-    @When("^i login with valid credentials")
-    public void iLoginWithValidCredentails()
+    @When("^i login with valid credentials") public void iLoginWithValidCredentails()
         throws Throwable {
         loginPage = new LoginPage(getDriver());
         credentials = new UserCredentials("vodqa@gmail.com", "Hello12345678");
@@ -40,14 +38,12 @@ public class MyStepdefs extends ExtentCucumberFormatter {
 
     }
 
-    @Then("^i should see the welcome page$")
-    public void iShouldSeeTheWelcomePage()
+    @Then("^i should see the welcome page$") public void iShouldSeeTheWelcomePage()
         throws Throwable {
         Assert.assertEquals(userNameLoggedIn, "vodqademo");
     }
 
-    @When("^i login with invalid credentials$")
-    public void iLoginWithInvalidCredentials()
+    @When("^i login with invalid credentials$") public void iLoginWithInvalidCredentials()
         throws Throwable {
         loginPage = new LoginPage(getDriver());
         credentials = new UserCredentials("vodqa123@gmail.com", "Hello12342225678");
@@ -55,15 +51,13 @@ public class MyStepdefs extends ExtentCucumberFormatter {
 
     }
 
-    @Then("^i should see validation message$")
-    public void iShouldSeeValidationMessage()
+    @Then("^i should see validation message$") public void iShouldSeeValidationMessage()
         throws Throwable {
         String userNameLoggedIn = loginPage.validateErrorMessage();
         Assert.assertEquals(userNameLoggedIn, "The username or password you entered is incorrect");
     }
 
-    @And("^i write post and publish$")
-    public void iWritePostAndPublish() throws Throwable {
+    @And("^i write post and publish$") public void iWritePostAndPublish() throws Throwable {
         welcomePage = new WelcomePage(getDriver());
         postpage =
             welcomePage.waitForWelcomePage().writePost().writeContentAndPublish().clickPostPage();
@@ -75,8 +69,7 @@ public class MyStepdefs extends ExtentCucumberFormatter {
         ;
     }
 
-    @And("^i delete the post published$")
-    public void iDeleteThePostPublished() throws Throwable {
+    @And("^i delete the post published$") public void iDeleteThePostPublished() throws Throwable {
         postpage = welcomePage.waitForWelcomePage().clickPostPage().deletePost();
 
     }
@@ -86,14 +79,12 @@ public class MyStepdefs extends ExtentCucumberFormatter {
         Assert.assertEquals(postpage.verifyPostIsDeleted(), "Deleting post");
     }
 
-    @And("^i add comments to the published post$")
-    public void iAddCommentsToThePublishedPost()
+    @And("^i add comments to the published post$") public void iAddCommentsToThePublishedPost()
         throws Throwable {
         commentsPage = welcomePage.waitForWelcomePage().clickComments().enterComments();
     }
 
-    @Then("^i should see the comment saved$")
-    public void iShouldSeeTheCommentSaved()
+    @Then("^i should see the comment saved$") public void iShouldSeeTheCommentSaved()
         throws Throwable {
         Assert.assertTrue(commentsPage.verifyCommentIsAdded());
     }
