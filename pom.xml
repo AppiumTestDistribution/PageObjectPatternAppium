@@ -35,14 +35,8 @@
             <artifactId>log4j</artifactId>
             <version>LATEST</version>
         </dependency>
-        <dependency>
-            <groupId>net.masterthought</groupId>
-            <artifactId>cucumber-reporting</artifactId>
-            <version>LATEST</version>
-        </dependency>
     </dependencies>
     <build>
-        <pluginManagement>
             <plugins>
                 <plugin>
                     <groupId>org.apache.maven.plugins</groupId>
@@ -74,7 +68,6 @@
                     </executions>
                 </plugin>
             </plugins>
-        </pluginManagement>
     </build>
 </project>
 
