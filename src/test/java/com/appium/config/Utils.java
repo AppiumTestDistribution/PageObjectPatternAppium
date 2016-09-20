@@ -57,7 +57,6 @@ public class Utils {
 
     public void androidSetup() throws MalformedURLException {
         caps.setCapability("deviceName", "9111833b");
-        caps.setCapability("platformVersion", "5.0.2");
         caps.setCapability("app", System.getProperty("user.dir") + "/build/wordpress.apk");
         caps.setCapability("package", "org.wordpress.android");
         caps.setCapability("appActivity", "org.wordpress.android.ui.WPLaunchActivity");

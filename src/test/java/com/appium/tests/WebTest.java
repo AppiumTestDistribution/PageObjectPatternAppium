@@ -10,7 +10,7 @@ public class WebTest extends UserBaseTest {
     LoginPage loginPage;
     UserCredentials credentials;
 
-    @Test public void webTest() throws InterruptedException {
+    @Test(groups = "smoke") public void webTest() throws InterruptedException {
 
         loginPage = new LoginPage(driver);
         credentials = new UserCredentials("vodqa@gmail.com", "Hello12345678");
