@@ -18,12 +18,12 @@ public class UserBaseTest extends AppiumParallelTest {
 
     JSonParser jSonParser = new JSonParser();
 
-    @BeforeMethod() public void startApp(Method name) throws Exception {
+    @BeforeMethod(alwaysRun = true) public void startApp(Method name) throws Exception {
         driver = startAppiumServerInParallel(name.getName());
         startLogResults(name.getName());
     }
 
-    @AfterMethod() public void killServer(ITestResult result)
+    @AfterMethod(alwaysRun = true) public void killServer(ITestResult result)
         throws InterruptedException, IOException, URISyntaxException {
         endLogTestResults(result);
         getDriver().quit();
@@ -34,11 +34,11 @@ public class UserBaseTest extends AppiumParallelTest {
     }
 
     @BeforeClass() public void beforeClass() throws Exception {
-        startAppiumServer(getClass().getSimpleName());
+        //startAppiumServer(getClass().getSimpleName());
     }
 
     @AfterClass() public void afterClass() throws InterruptedException, IOException {
-        killAppiumServer();
+        //killAppiumServer();
     }
 
     public String getUserName() {

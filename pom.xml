@@ -23,7 +23,7 @@
         <dependency>
             <groupId>com.github.saikrishna321</groupId>
             <artifactId>AppiumTestDistribution</artifactId>
-            <version>2dcc0b9476</version>
+            <version>93e1a9d1f9</version>
         </dependency>
         <dependency>
             <groupId>com.github.saikrishna321</groupId>
@@ -62,7 +62,7 @@
                                 <featuresDirectory>src/test/resources/features/</featuresDirectory>
                                 <cucumberOutputDir>target</cucumberOutputDir>
                                 <tags>"@smoke"</tags>
-                                <useTestNG>false</useTestNG>
+                                <useTestNG>true</useTestNG>
                             </configuration>
                         </execution>
                     </executions>
