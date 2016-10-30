@@ -7,3 +7,4 @@ src/test/java/com/appium/config/Sample.java
 *.iml
 Report.json
 src/test/java/output/*.java
+/target/
