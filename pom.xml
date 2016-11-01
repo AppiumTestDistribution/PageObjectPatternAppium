@@ -1,73 +1,138 @@
-<project xmlns="http://maven.apache.org/POM/4.0.0"
-         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
-    <modelVersion>4.0.0</modelVersion>
-    <groupId>com.pagepattern.appium</groupId>
-    <artifactId>PagePatternAppium</artifactId>
-    <version>0.0.1-SNAPSHOT</version>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<groupId>com.pagepattern.appium</groupId>
+	<artifactId>PagePatternAppium</artifactId>
+	<version>0.0.1-SNAPSHOT</version>
 
-    <repositories>
-        <repository>
-            <id>jitpack.io</id>
-            <url>https://jitpack.io</url>
-        </repository>
-    </repositories>
-    <pluginRepositories>
-        <pluginRepository>
-            <id>jitpack.io</id>
-            <url>https://jitpack.io</url>
-        </pluginRepository>
-    </pluginRepositories>
+	<repositories>
+		<repository>
+			<id>jitpack.io</id>
+			<url>https://jitpack.io</url>
+		</repository>
+	</repositories>
+	<pluginRepositories>
+		<pluginRepository>
+			<id>jitpack.io</id>
+			<url>https://jitpack.io</url>
+		</pluginRepository>
+	</pluginRepositories>
 
-    <dependencies>
-        <dependency>
-            <groupId>com.github.saikrishna321</groupId>
-            <artifactId>AppiumTestDistribution</artifactId>
-            <version>93e1a9d1f9</version>
+	<dependencies>
+<!-- 		<dependency> -->
+<!-- 			<groupId>com.github.saikrishna321</groupId> -->
+<!-- 			<artifactId>AppiumTestDistribution</artifactId> -->
+<!-- 			<version>93e1a9d1f9</version> -->
+<!-- 		</dependency> -->
+		<dependency>
+			<groupId>com.github.saikrishna321</groupId>
+			<artifactId>cucumber-jvm-parallel-plugin</artifactId>
+			<version>2.0.9</version>
+		</dependency>
+		<dependency>
+			<groupId>net.masterthought</groupId>
+			<artifactId>cucumber-reporting</artifactId>
+			<version>3.1.0</version>
+		</dependency>
+		<dependency>
+            <groupId>org.reflections</groupId>
+            <artifactId>reflections</artifactId>
+            <version>0.9.10</version>
         </dependency>
         <dependency>
-            <groupId>com.github.saikrishna321</groupId>
-            <artifactId>cucumber-jvm-parallel-plugin</artifactId>
-            <version>2.0.9</version>
+            <groupId>org.testng</groupId>
+            <artifactId>testng</artifactId>
+            <version>6.9.10</version>
         </dependency>
         <dependency>
-            <groupId>log4j</groupId>
-            <artifactId>log4j</artifactId>
-            <version>LATEST</version>
+            <groupId>info.cukes</groupId>
+            <artifactId>cucumber-testng</artifactId>
+            <version>1.2.4</version>
         </dependency>
-    </dependencies>
-    <build>
-            <plugins>
-                <plugin>
-                    <groupId>org.apache.maven.plugins</groupId>
-                    <artifactId>maven-surefire-plugin</artifactId>
-                    <version>2.18.1</version>
-                </plugin>
-                <plugin>
-                    <groupId>com.github.saikrishna321</groupId>
-                    <artifactId>cucumber-jvm-parallel-plugin</artifactId>
-                    <version>2.0.9</version>
-                    <executions>
-                        <execution>
-                            <id>generateRunners</id>
-                            <phase>validate</phase>
-                            <goals>
-                                <goal>generateRunners</goal>
-                            </goals>
-                            <configuration>
-                                <!-- outputDirectory should always point to src/test/java/output -->
-                                <outputDirectory>src/test/java/output</outputDirectory>
-                                <!-- -->
-                                <glue>com.appium.steps</glue>
-                                <featuresDirectory>src/test/resources/features/</featuresDirectory>
-                                <cucumberOutputDir>target</cucumberOutputDir>
-                                <tags>"@smoke"</tags>
-                                <useTestNG>true</useTestNG>
-                            </configuration>
-                        </execution>
-                    </executions>
-                </plugin>
-            </plugins>
-    </build>
+        <dependency>
+            <groupId>org.im4java</groupId>
+            <artifactId>im4java</artifactId>
+            <version>1.4.0</version>
+        </dependency>
+        <dependency>
+            <groupId>io.appium</groupId>
+            <artifactId>java-client</artifactId>
+            <version>4.1.2</version>
+        </dependency>
+        <dependency>
+            <groupId>com.relevantcodes</groupId>
+            <artifactId>extentreports</artifactId>
+            <version>2.41.0</version>
+        </dependency>
+        <dependency>
+            <groupId>com.github.lalyos</groupId>
+            <artifactId>jfiglet</artifactId>
+            <version>0.0.7</version>
+        </dependency>
+        <dependency>
+            <groupId>com.madgag</groupId>
+            <artifactId>animated-gif-lib</artifactId>
+            <version>1.2</version>
+        </dependency>
+        <dependency>
+            <groupId>info.cukes</groupId>
+            <artifactId>cucumber-java</artifactId>
+            <version>1.2.4</version>
+        </dependency>
+        <dependency>
+            <groupId>com.googlecode.json-simple</groupId>
+            <artifactId>json-simple</artifactId>
+            <version>1.1</version>
+        </dependency>
+        <dependency>
+            <groupId>com.google.code.gson</groupId>
+            <artifactId>gson</artifactId>
+            <version>2.6.2</version>
+        </dependency>
+        <dependency>
+            <groupId>org.jdom</groupId>
+            <artifactId>jdom2</artifactId>
+            <version>2.0.6</version>
+        </dependency>
+		<dependency>
+			<groupId>log4j</groupId>
+			<artifactId>log4j</artifactId>
+			<version>LATEST</version>
+		</dependency>
+	</dependencies>
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-surefire-plugin</artifactId>
+				<version>2.18.1</version>
+			</plugin>
+
+			<plugin>
+				<groupId>com.github.saikrishna321</groupId>
+				<artifactId>cucumber-jvm-parallel-plugin</artifactId>
+				<version>2.0.9</version>
+				<executions>
+					<execution>
+						<id>generateRunners</id>
+						<phase>validate</phase>
+						<goals>
+							<goal>generateRunners</goal>
+						</goals>
+						<configuration>
+							<!-- outputDirectory should always point to src/test/java/output -->
+							<outputDirectory>src/test/java/output</outputDirectory>
+							<!-- -->
+							<glue>com.appium.steps</glue>
+							<featuresDirectory>src/test/resources/features/</featuresDirectory>
+							<cucumberOutputDir>target</cucumberOutputDir>
+							<tags>"@smoke"</tags>
+							<useTestNG>true</useTestNG>
+						</configuration>
+					</execution>
+				</executions>
+			</plugin>
+		</plugins>
+	</build>
 </project>
 
