@@ -23,7 +23,7 @@
         <dependency>
             <groupId>com.github.saikrishna321</groupId>
             <artifactId>AppiumTestDistribution</artifactId>
-            <version>93e1a9d1f9</version>
+            <version>a98e7c425a</version>
         </dependency>
         <dependency>
             <groupId>com.github.saikrishna321</groupId>

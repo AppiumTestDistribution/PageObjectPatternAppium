@@ -22,7 +22,7 @@ public class LoginTest extends UserBaseTest {
         String userNameLoggedIn =
             loginPage.enterValidCredentails(credentials.getUserName(), credentials.getPassWord())
                 .waitForWelcomePage().verifyUserIsLoggedIn();
-        Assert.assertEquals(userNameLoggedIn, "vodqademo");
+        Assert.assertEquals(userNameLoggedIn, "Testing");
     }
 
     @Test
