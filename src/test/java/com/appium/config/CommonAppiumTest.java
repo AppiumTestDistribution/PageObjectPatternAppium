@@ -3,7 +3,9 @@ package com.appium.config;
 import com.annotation.values.ElementDescription;
 import com.annotation.values.PageName;
 import com.appium.manager.AppiumParallelTest;
-import com.relevantcodes.extentreports.LogStatus;
+
+
+import com.aventstack.extentreports.Status;
 import com.report.factory.ExtentTestManager;
 import io.appium.java_client.AppiumDriver;
 import io.appium.java_client.MobileElement;
@@ -11,6 +13,7 @@ import io.appium.java_client.SwipeElementDirection;
 import org.apache.log4j.Logger;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Dimension;
+import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
@@ -42,10 +45,20 @@ public class CommonAppiumTest {
         return el;
     }
 
-    public void swipeRightUntilTextExists(String expected) {
+    public void swipeRightUntilLogOutScreen() {
         do {
             swipeRight();
-        } while (!driver.getPageSource().contains(expected));
+        } while (!isElementPresent(By.id("org.wordpress.android:id/me_login_logout_text_view")));
+    }
+
+    public boolean isElementPresent(By by) {
+        try {
+            driver.findElement(by);
+            return true;
+        } catch (NoSuchElementException e) {
+            return false;
+        }
+
     }
 
     public void swipeLeftUntilTextExists(String expected) {
@@ -59,7 +72,7 @@ public class CommonAppiumTest {
         int startx = (int) (size.width * 0.9);
         int endx = (int) (size.width * 0.20);
         int starty = size.height / 2;
-        driver.swipe(startx, starty, endx, starty, 1000);
+        driver.swipe(startx, starty, endx, starty, 5000);
     }
 
     public void swipeLeft() {
@@ -106,7 +119,7 @@ public class CommonAppiumTest {
     }
 
     public void logStepIntoExtentReport(String elementDescription, String action,String typeString) {
-        ExtentTestManager.getTest().log(LogStatus.INFO, withBoldHTML(action),
+        ExtentTestManager.getTest().log(Status.INFO,
             elementDescription + "; " + withBoldHTML("Text") + ": " + typeString);
     }
 
@@ -122,7 +135,7 @@ public class CommonAppiumTest {
         try {
             return this.getClass().getAnnotation(PageName.class).value() + "::" +
                 pageObject.getClass().getField(fieldName).getAnnotation(ElementDescription.class)
-                .value();
+                    .value();
         } catch (NoSuchFieldException e) {
 
             e.printStackTrace();

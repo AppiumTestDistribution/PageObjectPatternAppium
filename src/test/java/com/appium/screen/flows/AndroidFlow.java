@@ -26,7 +26,7 @@ public class AndroidFlow extends CommonAppiumTest implements DeviceInterface {
     }
 
     public void moveToLogOutScreen() {
-        swipeRightUntilTextExists("Disconnect from WordPress.com");
+        swipeRightUntilLogOutScreen();
     }
 
     public void moveToLogOutScreen(WelcomePage welcomePage) {
