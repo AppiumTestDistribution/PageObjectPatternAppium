@@ -35,7 +35,6 @@ public class ViewSitePage extends CommonAppiumTest {
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
-        System.out.println(driver.getPageSource());
         viewSitePageObjects.CLICK_SHOW.click();
         try {
             Thread.sleep(5000);

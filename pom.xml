@@ -23,7 +23,7 @@
         <dependency>
             <groupId>com.github.saikrishna321</groupId>
             <artifactId>AppiumTestDistribution</artifactId>
-            <version>5.0.1</version>
+            <version>a98e7c425a</version>
         </dependency>
         <dependency>
             <groupId>com.github.saikrishna321</groupId>
@@ -37,37 +37,37 @@
         </dependency>
     </dependencies>
     <build>
-        <plugins>
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-surefire-plugin</artifactId>
-                <version>2.18.1</version>
-            </plugin>
-            <plugin>
-                <groupId>com.github.saikrishna321</groupId>
-                <artifactId>cucumber-jvm-parallel-plugin</artifactId>
-                <version>2.0.9</version>
-                <executions>
-                    <execution>
-                        <id>generateRunners</id>
-                        <phase>validate</phase>
-                        <goals>
-                            <goal>generateRunners</goal>
-                        </goals>
-                        <configuration>
-                            <!-- outputDirectory should always point to src/test/java/output -->
-                            <outputDirectory>src/test/java/output</outputDirectory>
-                            <!-- -->
-                            <glue>com.appium.steps</glue>
-                            <featuresDirectory>src/test/resources/features/</featuresDirectory>
-                            <cucumberOutputDir>target</cucumberOutputDir>
-                            <tags>"@smoke"</tags>
-                            <useTestNG>false</useTestNG>
-                        </configuration>
-                    </execution>
-                </executions>
-            </plugin>
-        </plugins>
+            <plugins>
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-surefire-plugin</artifactId>
+                    <version>2.18.1</version>
+                </plugin>
+                <plugin>
+                    <groupId>com.github.saikrishna321</groupId>
+                    <artifactId>cucumber-jvm-parallel-plugin</artifactId>
+                    <version>2.0.9</version>
+                    <executions>
+                        <execution>
+                            <id>generateRunners</id>
+                            <phase>validate</phase>
+                            <goals>
+                                <goal>generateRunners</goal>
+                            </goals>
+                            <configuration>
+                                <!-- outputDirectory should always point to src/test/java/output -->
+                                <outputDirectory>src/test/java/output</outputDirectory>
+                                <!-- -->
+                                <glue>com.appium.steps</glue>
+                                <featuresDirectory>src/test/resources/features/</featuresDirectory>
+                                <cucumberOutputDir>target</cucumberOutputDir>
+                                <tags>"@smoke"</tags>
+                                <useTestNG>true</useTestNG>
+                            </configuration>
+                        </execution>
+                    </executions>
+                </plugin>
+            </plugins>
     </build>
 </project>
 
