@@ -10,11 +10,18 @@ To Run the Cucumber test
     * mvn clean -Dtest=RunnerCukes test
     
 
-1.Please make sure you give the absolute path of the apk in the config.properties
+1. Please make sure you give the absolute path of the apk in the config.properties
 
-2.RUNNER value in config.properties can be set with parallel or distribute. (Parallel will run the same test cases across devices & distribute will split the test cases randomly across devices)
+2. RUNNER value in config.properties can be set with parallel or distribute. (Parallel will run the same test cases across devices & distribute will split the test cases randomly across devices)
 
-3.NO need to start appium server externally , framework takes case of starting and shutting down the server for you.
+3. ANDROID_HOME should be set
+
+4. EMULATOR/s OR device/s in connected state, up and running
+
+5. appium should be installed with npm
+
+6. NO need to start appium server externally , framework takes case of starting and shutting down the server for you.
+
 
 Post Run :
 
