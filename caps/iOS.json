@@ -1,0 +1,15 @@
+[
+  {
+    "platformName": "iOS",
+    "app": "./packages/.ipa",
+    "bundleId":"",
+    "deviceName": "iPhone",
+    "usePrebuiltWDA":true,
+    "wdaLaunchTimeout":"800000",
+    "wdaConnectionTimeout":"800000",
+    "preventWDAAttachments":true,
+    "clearSystemFiles":true,
+    "shouldUseSingletonTestManager":false,
+    "simpleIsVisibleCheck": true
+  }
+]

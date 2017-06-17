@@ -4,11 +4,13 @@ import com.appium.config.CommonAppiumTest;
 import com.appium.config.DeviceInterface;
 import com.appium.config.ViewFactory;
 import com.appium.page.objects.WelcomePageObjects;
+import com.appium.utils.ScreenShotManager;
 import io.appium.java_client.AppiumDriver;
 import io.appium.java_client.MobileElement;
 import io.appium.java_client.pagefactory.AppiumFieldDecorator;
 import org.openqa.selenium.support.PageFactory;
 
+import java.io.IOException;
 import java.util.List;
 
 public class WelcomePage extends CommonAppiumTest {
@@ -47,7 +49,8 @@ public class WelcomePage extends CommonAppiumTest {
 
     }
 
-    public String verifyUserIsLoggedIn() {
+    public String verifyUserIsLoggedIn() throws IOException, InterruptedException {
+        new ScreenShotManager().captureScreenShot("LoggedInUser");
         return welcomePageObjects.LOGGED_IN_USER.getText();
     }
 
@@ -68,8 +71,9 @@ public class WelcomePage extends CommonAppiumTest {
         return new AccountsPage(driver);
     }
 
-    public AccountsPage moveToDisconnect() {
+    public AccountsPage moveToDisconnect() throws IOException, InterruptedException {
         runnerInfo.moveToLogOutScreen(this);
+        new ScreenShotManager().captureScreenShot("LogoutPage");
         return new AccountsPage(driver);
     }
 

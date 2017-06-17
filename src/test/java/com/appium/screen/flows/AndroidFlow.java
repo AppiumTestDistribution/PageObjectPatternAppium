@@ -8,13 +8,15 @@ import com.appium.pages.WelcomePage;
 import io.appium.java_client.AppiumDriver;
 import io.appium.java_client.MobileElement;
 
+import java.io.IOException;
+
 public class AndroidFlow extends CommonAppiumTest implements DeviceInterface {
 
     public AndroidFlow(AppiumDriver<MobileElement> driver) {
         super(driver);
     }
 
-    public void login(LoginPage loginPage, String username, String password) {
+    public void login(LoginPage loginPage, String username, String password) throws IOException, InterruptedException {
         loginPage.enterUserAndPassword(username, password);
         driver.hideKeyboard();
         loginPage.enterSiteURL();

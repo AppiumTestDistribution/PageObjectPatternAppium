@@ -12,6 +12,8 @@ import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
 import org.testng.Assert;
 
+import static com.appium.manager.AppiumDriverManager.getDriver;
+
 /**
  * Created by saikrisv on 22/04/16.
  */
@@ -23,6 +25,9 @@ public class MyStepdefs extends ExtentCucumberFormatter {
     PostPage postpage;
     WelcomePage welcomePage = new WelcomePage(getDriver());
     CommentPage commentsPage;
+
+    public MyStepdefs() throws Exception {
+    }
 
     @Given("^i'm on landing page$") public void splashScreen() {
         System.out.println("Waiting for login screen");

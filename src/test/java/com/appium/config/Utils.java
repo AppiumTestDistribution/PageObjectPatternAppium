@@ -80,7 +80,7 @@ public class Utils {
     }
 
     //test case to be debugged individually
-    @Test public void loginWithValidUser() throws InterruptedException {
+    @Test public void loginWithValidUser() throws InterruptedException, IOException {
         loginPage = new LoginPage(driver);
         credentials = new UserCredentials("vodqa@gmail.com", "Hello12345678");
         String userNameLoggedIn =

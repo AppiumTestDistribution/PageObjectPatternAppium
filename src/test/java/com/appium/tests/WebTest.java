@@ -1,18 +1,20 @@
 package com.appium.tests;
 
-import com.appium.config.UserBaseTest;
 import com.appium.config.UserCredentials;
+import com.appium.manager.AppiumDriverManager;
 import com.appium.pages.LoginPage;
 import org.testng.annotations.Test;
 
-public class WebTest extends UserBaseTest {
+import java.io.IOException;
+
+public class WebTest {
 
     LoginPage loginPage;
     UserCredentials credentials;
 
-    @Test(groups = "smoke") public void webTest() throws InterruptedException {
+    @Test(groups = "smoke") public void webTest() throws InterruptedException, IOException {
 
-        loginPage = new LoginPage(driver);
+        loginPage = new LoginPage(AppiumDriverManager.getDriver());
         credentials = new UserCredentials("vodqa@gmail.com", "Hello12345678");
         loginPage.enterValidCredentails(credentials.getUserName(), credentials.getPassWord())
             .waitForWelcomePage().clickViewSite().switchToWebView().clickShow();

@@ -2,9 +2,6 @@ package com.appium.config;
 
 import com.annotation.values.ElementDescription;
 import com.annotation.values.PageName;
-import com.appium.manager.AppiumParallelTest;
-
-
 import com.aventstack.extentreports.Status;
 import com.report.factory.ExtentTestManager;
 import io.appium.java_client.AppiumDriver;
@@ -22,7 +19,6 @@ import java.util.Set;
 
 public class CommonAppiumTest {
     public AppiumDriver driver;
-    public AppiumParallelTest appiumParallelTest = new AppiumParallelTest();
     Logger logger = Logger.getLogger(CommonAppiumTest.class);
 
     public CommonAppiumTest(AppiumDriver<MobileElement> driver) {

@@ -2,11 +2,14 @@ package com.appium.pages;
 
 import com.appium.config.CommonAppiumTest;
 import com.appium.page.objects.CommentPageObjects;
+import com.appium.utils.ScreenShotManager;
 import io.appium.java_client.AppiumDriver;
 import io.appium.java_client.MobileElement;
 import io.appium.java_client.SwipeElementDirection;
 import io.appium.java_client.pagefactory.AppiumFieldDecorator;
 import org.openqa.selenium.support.PageFactory;
+
+import java.io.IOException;
 
 public class CommentPage extends CommonAppiumTest {
 
@@ -38,8 +41,9 @@ public class CommentPage extends CommonAppiumTest {
         return new CommentPage(driver);
     }
 
-    public boolean verifyCommentIsAdded() {
+    public boolean verifyCommentIsAdded() throws IOException, InterruptedException {
         scrollDirection(commentPageObjects.SELECT_TOPIC.get(0), SwipeElementDirection.DOWN);
+        new ScreenShotManager().captureScreenShot("Comments Added");
         return commentPageObjects.SELECT_TOPIC.get(0).getAttribute("name")
             .contains("Testing Comments");
     }

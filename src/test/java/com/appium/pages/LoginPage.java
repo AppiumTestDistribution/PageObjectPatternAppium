@@ -5,10 +5,13 @@ import com.appium.config.CommonAppiumTest;
 import com.appium.config.DeviceInterface;
 import com.appium.config.ViewFactory;
 import com.appium.page.objects.LoginPageObjects;
+import com.appium.utils.ScreenShotManager;
 import io.appium.java_client.AppiumDriver;
 import io.appium.java_client.MobileElement;
 import io.appium.java_client.pagefactory.AppiumFieldDecorator;
 import org.openqa.selenium.support.PageFactory;
+
+import java.io.IOException;
 
 @PageName("Login Page")
 public class LoginPage extends CommonAppiumTest {
@@ -22,7 +25,7 @@ public class LoginPage extends CommonAppiumTest {
         runnerInfo = viewFactory.getMobilePlatform(driver.toString().split(":")[0].toString());
     }
 
-    public WelcomePage enterValidCredentails(String username, String password) {
+    public WelcomePage enterValidCredentails(String username, String password) throws IOException, InterruptedException {
         runnerInfo.login(this, username, password);
         return new WelcomePage(driver);
     }
@@ -35,13 +38,15 @@ public class LoginPage extends CommonAppiumTest {
         return loginPageObjects.username.isDisplayed();
     }
 
-    public void enterUserAndPassword(String user, String pass) {
+    public void enterUserAndPassword(String user, String pass) throws IOException, InterruptedException {
         // TODO Auto-generated method stub
         waitForPageToLoad(loginPageObjects.username);
         logStepIntoExtentReport(getPageObjectElemetDescription(loginPageObjects,"username"),"SendKeys",user);
         loginPageObjects.username.sendKeys(user);
+        new ScreenShotManager().captureScreenShot("UserName");
         logStepIntoExtentReport(getPageObjectElemetDescription(loginPageObjects,"password"),"SendKeys",pass);
         loginPageObjects.password.sendKeys(pass);
+        new ScreenShotManager().captureScreenShot("Password");
     }
 
     public void signIn() {
