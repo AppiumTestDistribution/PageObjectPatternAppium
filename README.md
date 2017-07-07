@@ -6,7 +6,7 @@ To Run the TestNG test on android
 
  To Run the TestNG test on iOS
   
-    * Platorm="android" mvn clean -Dtest=Runner test
+    * Platorm="ios" mvn clean -Dtest=Runner test
 
  To Run the TestNG test on iOS and android both in parallel
   
