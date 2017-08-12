@@ -40,11 +40,13 @@ public class LoginPage extends CommonAppiumTest {
 
     public void enterUserAndPassword(String user, String pass) throws IOException, InterruptedException {
         // TODO Auto-generated method stub
-        waitForPageToLoad(loginPageObjects.username);
+        waitForElement(loginPageObjects.logInButton).click();
         logStepIntoExtentReport(getPageObjectElemetDescription(loginPageObjects,"username"),"SendKeys",user);
         loginPageObjects.username.sendKeys(user);
         new ScreenShotManager().captureScreenShot("UserName");
         logStepIntoExtentReport(getPageObjectElemetDescription(loginPageObjects,"password"),"SendKeys",pass);
+        loginPageObjects.nextButton.click();
+        waitForElement(loginPageObjects.enterPasswordLink).click();
         loginPageObjects.password.sendKeys(pass);
         new ScreenShotManager().captureScreenShot("Password");
     }

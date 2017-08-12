@@ -24,7 +24,7 @@ public class iOSFlow extends CommonAppiumTest implements DeviceInterface {
     public void waitForHomePage(WelcomePage welcomePage) {
         // TODO Auto-generated method stub
         welcomePage.acceptEditorToolTip();
-        welcomePage.selectBlog();
+       // welcomePage.selectBlog();
 
     }
 

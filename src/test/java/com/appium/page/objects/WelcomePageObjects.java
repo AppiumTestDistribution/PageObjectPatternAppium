@@ -4,6 +4,7 @@ import io.appium.java_client.MobileElement;
 import io.appium.java_client.pagefactory.AndroidFindBy;
 import io.appium.java_client.pagefactory.SelendroidFindBy;
 import io.appium.java_client.pagefactory.iOSFindBy;
+import io.appium.java_client.pagefactory.iOSXCUITFindBy;
 
 import java.util.List;
 
@@ -22,15 +23,19 @@ public class WelcomePageObjects {
     public MobileElement COMMENT;
 
     @AndroidFindBy(id = "org.wordpress.android:id/my_site_title_label")
-    @SelendroidFindBy(id = "my_site_title_label") @iOSFindBy(id = "vodqademo") public MobileElement
+    @SelendroidFindBy(id = "my_site_title_label") @iOSXCUITFindBy( iOSNsPredicate= "label contains 'vodqademo'") public MobileElement
         LOGGED_IN_USER;
 
-    @iOSFindBy(id = "new-editor-modal-dismiss-button") public MobileElement ACCEPT_TIP;
+    @iOSFindBy(id = "Try It") public MobileElement ACCEPT_TIP;
+
+    @iOSFindBy(accessibility = "Beta") public MobileElement clickBetaPopUp;
 
     @AndroidFindBy(id = "org.wordpress.android:id/switch_site")
     @iOSFindBy(className = "UIATableCell") @SelendroidFindBy(id = "switch_site")
     public MobileElement WELCOME_PAGE;
 
+    @iOSFindBy(accessibility = "Continue")
+    public MobileElement continueButton;
 
     @iOSFindBy(className = "UIATableCell") @AndroidFindBy(id = "org.wordpress.android:id/title")
     @SelendroidFindBy(id = "title") public List<MobileElement> SELECT_BLOG;

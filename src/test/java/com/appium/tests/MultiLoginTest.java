@@ -21,7 +21,7 @@ public class MultiLoginTest {
     @Test public void loginWithValidUser() throws InterruptedException, IOException {
         loginPage = new LoginPage(AppiumDriverManager.getDriver());
         credentials = new UserCredentials(getUserName(), getPassword());
-        String userNameLoggedIn =
+        boolean userNameLoggedIn =
             loginPage.enterValidCredentails(credentials.getUserName(), credentials.getPassWord())
                 .waitForWelcomePage().verifyUserIsLoggedIn();
         Assert.assertEquals(userNameLoggedIn, JSonParser.getUserData(

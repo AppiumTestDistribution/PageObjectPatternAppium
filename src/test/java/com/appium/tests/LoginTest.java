@@ -16,15 +16,15 @@ public class LoginTest {
     AccountsPage accountsPage;
     UserCredentials credentials;
 
-    @Test(groups = "smoke")
+    @Test(groups = "Parallel")
     @Author(name = "Sai")
     public void loginWithValidUser() throws InterruptedException, IOException {
         loginPage = new LoginPage(AppiumDriverManager.getDriver());
         credentials = new UserCredentials("vodqa@gmail.com", "Hello12345678");
-        String userNameLoggedIn =
+        boolean userNameLoggedIn =
             loginPage.enterValidCredentails(credentials.getUserName(), credentials.getPassWord())
                 .waitForWelcomePage().verifyUserIsLoggedIn();
-        Assert.assertEquals(userNameLoggedIn, "Testing");
+        Assert.assertTrue(userNameLoggedIn);
     }
 
     @Test

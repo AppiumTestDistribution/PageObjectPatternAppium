@@ -49,9 +49,9 @@ public class WelcomePage extends CommonAppiumTest {
 
     }
 
-    public String verifyUserIsLoggedIn() throws IOException, InterruptedException {
+    public boolean verifyUserIsLoggedIn() throws IOException, InterruptedException {
         new ScreenShotManager().captureScreenShot("LoggedInUser");
-        return welcomePageObjects.LOGGED_IN_USER.getText();
+        return welcomePageObjects.LOGGED_IN_USER.isDisplayed();
     }
 
     public void waitForHomePageToLoad() {
@@ -59,7 +59,9 @@ public class WelcomePage extends CommonAppiumTest {
     }
 
     public void acceptEditorToolTip() {
-        waitForElement(welcomePageObjects.ACCEPT_TIP).click();
+        waitForElement(welcomePageObjects.continueButton).click();
+        welcomePageObjects.ACCEPT_TIP.click();
+        welcomePageObjects.clickBetaPopUp.click();
     }
 
     public void selectBlog() {

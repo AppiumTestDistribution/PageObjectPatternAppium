@@ -1,12 +1,11 @@
 [
   {
     "platformName": "iOS",
-    "app": "./packages/.ipa",
-    "bundleId":"",
+    "app": "./build/WordPress.zip",
     "deviceName": "iPhone",
     "usePrebuiltWDA":true,
-    "wdaLaunchTimeout":"800000",
-    "wdaConnectionTimeout":"800000",
+    "wdaLaunchTimeout":"80000",
+    "wdaConnectionTimeout":"80000",
     "preventWDAAttachments":true,
     "clearSystemFiles":true,
     "shouldUseSingletonTestManager":false,

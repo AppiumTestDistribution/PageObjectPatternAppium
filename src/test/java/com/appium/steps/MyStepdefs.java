@@ -21,7 +21,7 @@ public class MyStepdefs extends ExtentCucumberFormatter {
 
     LoginPage loginPage;
     UserCredentials credentials;
-    String userNameLoggedIn;
+    boolean userNameLoggedIn;
     PostPage postpage;
     WelcomePage welcomePage = new WelcomePage(getDriver());
     CommentPage commentsPage;

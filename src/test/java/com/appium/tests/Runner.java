@@ -12,8 +12,6 @@ import java.util.List;
             ParallelThread parallelThread = new ParallelThread();
             List<String> test = new ArrayList<String>();
             test.add("LoginTest");
-            test.add("AddCommentTest");
-            test.add("WritePostTest");
             parallelThread.runner("com.appium.tests",test);
         }
 

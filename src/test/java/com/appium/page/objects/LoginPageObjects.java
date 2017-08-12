@@ -6,6 +6,7 @@ import io.appium.java_client.MobileElement;
 import io.appium.java_client.pagefactory.AndroidFindBy;
 import io.appium.java_client.pagefactory.SelendroidFindBy;
 import io.appium.java_client.pagefactory.iOSFindBy;
+import io.appium.java_client.pagefactory.iOSXCUITFindBy;
 import org.openqa.selenium.support.CacheLookup;
 import org.openqa.selenium.support.FindBy;
 
@@ -13,12 +14,22 @@ public class LoginPageObjects {
 
     @CacheLookup
     @AndroidFindBy(id = "org.wordpress.android:id/nux_username")
-    @iOSFindBy(className = "UIATextField") @SelendroidFindBy(id = "nux_username")
+    @iOSXCUITFindBy(accessibility = "Email address")
+    @SelendroidFindBy(id = "nux_username")
     @FindBy(id = "user_login") @ElementDescription("UserName Field") public MobileElement username;
+
+    @iOSXCUITFindBy(iOSNsPredicate = "label contains 'Log In'")
+    public MobileElement logInButton;
+
+    @iOSXCUITFindBy(accessibility = "Next Button")
+    public MobileElement nextButton;
+
+    @iOSXCUITFindBy(accessibility = "Enter your password instead.")
+    public MobileElement enterPasswordLink;
 
     @CacheLookup
     @AndroidFindBy(id = "org.wordpress.android:id/nux_password")
-    @iOSFindBy(className = "UIASecureTextField") @SelendroidFindBy(id = "nux_password")
+    @iOSXCUITFindBy(accessibility = "Password") @SelendroidFindBy(id = "nux_password")
     @FindBy(id = "user_pass") @ElementDescription("Password Field") public MobileElement password;
 
 
@@ -28,7 +39,8 @@ public class LoginPageObjects {
     @SelendroidFindBy(id = "nux_add_selfhosted_button") public MobileElement add_self_site;
 
     @CacheLookup
-    @AndroidFindBy(xpath = ".//*[@text='Sign in']") @iOSFindBy(id = "Sign In")
+    @AndroidFindBy(xpath = ".//*[@text='Sign in']")
+    @iOSXCUITFindBy(accessibility = "Log In Button")
     @SelendroidFindBy(id = "nux_sign_in_button") @FindBy(id = "wp-submit") public MobileElement
         sign_in;
 
