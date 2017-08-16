@@ -30,4 +30,8 @@ Once the test run is completed, HTML report will b generated at target/ExtentRep
 If you have used ScreenshotManager to capture screenshots on runtime, you can execute generate_report.sh to view detailed reports
 
 
+### Parallel Simulator Test
+[![ScreenShot](https://i.imgur.com/JDuyRX9.jpg)](https://www.youtube.com/watch?v=sf0YARF5ppQ&t=2s)
+
+
 Please refer the AppiumTestDistribution Framework for hacks :: https://github.com/saikrishna321/AppiumTestDistribution
