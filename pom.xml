@@ -23,7 +23,19 @@
         <dependency>
             <groupId>com.github.saikrishna321</groupId>
             <artifactId>AppiumTestDistribution</artifactId>
-            <version>db9757d2f4</version>
+            <version>9367d90</version>
+            <exclusions>
+                <exclusion>
+                    <groupId>io.appium</groupId>
+                    <artifactId>java-client</artifactId>
+                </exclusion>
+            </exclusions>
+        </dependency>
+        <dependency>
+            <groupId>io.appium</groupId>
+            <artifactId>java-client</artifactId>
+            <version>5.0.0-BETA9</version>
+            <scope>test</scope>
         </dependency>
         <dependency>
             <groupId>com.github.saikrishna321</groupId>

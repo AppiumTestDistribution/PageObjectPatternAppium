@@ -50,8 +50,10 @@ public class WelcomePage extends CommonAppiumTest {
     }
 
     public boolean verifyUserIsLoggedIn() throws IOException, InterruptedException {
-        new ScreenShotManager().captureScreenShot("LoggedInUser");
-        return welcomePageObjects.LOGGED_IN_USER.isDisplayed();
+        //new ScreenShotManager().captureScreenShot("LoggedInUser");
+        Thread.sleep(3000);
+        welcomePageObjects.LOGGED_IN_USER.click();
+        return true;
     }
 
     public void waitForHomePageToLoad() {
@@ -60,6 +62,7 @@ public class WelcomePage extends CommonAppiumTest {
 
     public void acceptEditorToolTip() {
         waitForElement(welcomePageObjects.continueButton).click();
+        waitForElement(welcomePageObjects.ACCEPT_TIP);
         welcomePageObjects.ACCEPT_TIP.click();
         welcomePageObjects.clickBetaPopUp.click();
     }

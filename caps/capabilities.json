@@ -1,0 +1,39 @@
+[
+  {
+    "android": {
+      "platformName": "android",
+      "platformVersion": "7.0",
+      "app": "./build/wordpress.apk",
+      "appPackage":"org.wordpress.android",
+      "appActivity": "org.wordpress.android.ui.WPLaunchActivity",
+      "deviceName": "android",
+      "noSign":true
+    }
+  },
+  {
+    "iOS": {
+      "platformName": "iOS",
+      "app": "./build/WordPress.zip",
+      "deviceName": "iPhone",
+      "usePrebuiltWDA":true,
+      "wdaLaunchTimeout":"80000",
+      "wdaConnectionTimeout":"80000",
+      "preventWDAAttachments":true,
+      "clearSystemFiles":true,
+      "shouldUseSingletonTestManager":false,
+      "simpleIsVisibleCheck": true
+    }
+  },
+  {
+    "simulators": [
+      {
+        "deviceName": "iPhone 6",
+        "OS": "11.0"
+      },
+      {
+        "deviceName": "iPhone 6s",
+        "OS": "11.0"
+      }
+    ]
+  }
+]

@@ -23,10 +23,11 @@ public class WelcomePageObjects {
     public MobileElement COMMENT;
 
     @AndroidFindBy(id = "org.wordpress.android:id/my_site_title_label")
-    @SelendroidFindBy(id = "my_site_title_label") @iOSXCUITFindBy( iOSNsPredicate= "label contains 'vodqademo'") public MobileElement
-        LOGGED_IN_USER;
+    @SelendroidFindBy(id = "my_site_title_label")
+    @iOSXCUITFindBy(accessibility = "meTabButton")
+    public MobileElement LOGGED_IN_USER;
 
-    @iOSFindBy(id = "Try It") public MobileElement ACCEPT_TIP;
+    @iOSFindBy(accessibility = "Try It") public MobileElement ACCEPT_TIP;
 
     @iOSFindBy(accessibility = "Beta") public MobileElement clickBetaPopUp;
 
