@@ -24,12 +24,12 @@ public class WelcomePageObjects {
 
     @AndroidFindBy(id = "org.wordpress.android:id/my_site_title_label")
     @SelendroidFindBy(id = "my_site_title_label")
-    @iOSXCUITFindBy(accessibility = "meTabButton")
+    @iOSXCUITFindBy(accessibility = "vodqademo.wordpress.com")
     public MobileElement LOGGED_IN_USER;
 
-    @iOSFindBy(accessibility = "Try It") public MobileElement ACCEPT_TIP;
+    @iOSFindBy(accessibility = "Not Now") public MobileElement ACCEPT_TIP;
 
-    @iOSFindBy(accessibility = "Beta") public MobileElement clickBetaPopUp;
+    @iOSFindBy(accessibility = "Not Now") public MobileElement clickBetaPopUp;
 
     @AndroidFindBy(id = "org.wordpress.android:id/switch_site")
     @iOSFindBy(className = "UIATableCell") @SelendroidFindBy(id = "switch_site")
