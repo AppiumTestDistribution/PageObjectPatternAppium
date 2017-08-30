@@ -21,9 +21,9 @@
 
     <dependencies>
         <dependency>
-            <groupId>com.github.saikrishna321</groupId>
-            <artifactId>AppiumTestDistribution</artifactId>
-            <version>9367d90</version>
+                <groupId>com.github.saikrishna321</groupId>
+                <artifactId>AppiumTestDistribution</artifactId>
+                <version>single-server-session-SNAPSHOT</version>
             <exclusions>
                 <exclusion>
                     <groupId>io.appium</groupId>
@@ -38,9 +38,9 @@
             <scope>test</scope>
         </dependency>
         <dependency>
-            <groupId>com.github.saikrishna321</groupId>
-            <artifactId>cucumber-jvm-parallel-plugin</artifactId>
-            <version>2.0.9</version>
+            <groupId>net.masterthought</groupId>
+            <artifactId>cucumber-reporting</artifactId>
+            <version>3.8.0</version>
         </dependency>
         <dependency>
             <groupId>log4j</groupId>
@@ -56,9 +56,9 @@
                     <version>2.18.1</version>
                 </plugin>
                 <plugin>
-                    <groupId>com.github.saikrishna321</groupId>
+                    <groupId>com.github.temyers</groupId>
                     <artifactId>cucumber-jvm-parallel-plugin</artifactId>
-                    <version>2.0.9</version>
+                    <version>4.2.0</version>
                     <executions>
                         <execution>
                             <id>generateRunners</id>
@@ -68,13 +68,25 @@
                             </goals>
                             <configuration>
                                 <!-- outputDirectory should always point to src/test/java/output -->
-                                <outputDirectory>src/test/java/output</outputDirectory>
+                                <outputDirectory>src/test/java</outputDirectory>
                                 <!-- -->
                                 <glue>com.appium.steps</glue>
-                                <featuresDirectory>src/test/resources/features/</featuresDirectory>
+                                <featuresDirectory>src/test/resources/features</featuresDirectory>
                                 <cucumberOutputDir>target</cucumberOutputDir>
-                                <tags>"@smoke"</tags>
+                                <tags>
+                                    <tag>@login</tag>
+                                </tags>
+                                <namingScheme>simple</namingScheme>
+                                <!-- The class naming pattern to use.  Only required/used if naming scheme is 'pattern'.-->
+                                <namingPattern>Parallel{c}IT</namingPattern>
+                                <parallelScheme>SCENARIO</parallelScheme>
+                                <packageName>output</packageName>
                                 <useTestNG>true</useTestNG>
+                                <plugins>
+                                    <plugin>
+                                        <name>com.cucumber.listener.ExtentCucumberFormatter</name>
+                                    </plugin>
+                                </plugins>
                             </configuration>
                         </execution>
                     </executions>

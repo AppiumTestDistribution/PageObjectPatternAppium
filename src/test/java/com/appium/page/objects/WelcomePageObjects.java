@@ -10,7 +10,8 @@ import java.util.List;
 
 public class WelcomePageObjects {
 
-    @AndroidFindBy(id = "org.wordpress.android:id/fab_button") @SelendroidFindBy(id = "fab_button")
+    @AndroidFindBy(id = "org.wordpress.android:id/fab_button")
+    @SelendroidFindBy(id = "fab_button")
     @iOSFindBy(id = "New Post") public MobileElement WRITE_POST;
 
     @AndroidFindBy(xpath = ".//*[@text='Blog Posts']")
@@ -27,7 +28,8 @@ public class WelcomePageObjects {
     @iOSXCUITFindBy(accessibility = "vodqademo.wordpress.com")
     public MobileElement LOGGED_IN_USER;
 
-    @iOSFindBy(accessibility = "Not Now") public MobileElement ACCEPT_TIP;
+    @iOSFindBy(accessibility = "Not Now")
+    @AndroidFindBy(id = "promo_dialog_button_negative") public MobileElement ACCEPT_TIP;
 
     @iOSFindBy(accessibility = "Not Now") public MobileElement clickBetaPopUp;
 

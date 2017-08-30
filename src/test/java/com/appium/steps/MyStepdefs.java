@@ -1,6 +1,7 @@
 package com.appium.steps;
 
 import com.appium.config.UserCredentials;
+import com.appium.manager.AppiumDriverManager;
 import com.appium.pages.CommentPage;
 import com.appium.pages.LoginPage;
 import com.appium.pages.PostPage;
@@ -17,16 +18,16 @@ import static com.appium.manager.AppiumDriverManager.getDriver;
 /**
  * Created by saikrisv on 22/04/16.
  */
-public class MyStepdefs extends ExtentCucumberFormatter {
+public class MyStepdefs {
 
     LoginPage loginPage;
     UserCredentials credentials;
     boolean userNameLoggedIn;
     PostPage postpage;
-    WelcomePage welcomePage = new WelcomePage(getDriver());
     CommentPage commentsPage;
 
     public MyStepdefs() throws Exception {
+
     }
 
     @Given("^i'm on landing page$") public void splashScreen() {
@@ -35,7 +36,7 @@ public class MyStepdefs extends ExtentCucumberFormatter {
 
     @When("^i login with valid credentials") public void iLoginWithValidCredentails()
         throws Throwable {
-        loginPage = new LoginPage(getDriver());
+        loginPage = new LoginPage(AppiumDriverManager.getDriver());
         credentials = new UserCredentials("vodqa@gmail.com", "Hello12345678");
         userNameLoggedIn =
             loginPage.enterValidCredentails(credentials.getUserName(), credentials.getPassWord())
@@ -50,7 +51,7 @@ public class MyStepdefs extends ExtentCucumberFormatter {
 
     @When("^i login with invalid credentials$") public void iLoginWithInvalidCredentials()
         throws Throwable {
-        loginPage = new LoginPage(getDriver());
+        loginPage = new LoginPage(AppiumDriverManager.getDriver());
         credentials = new UserCredentials("vodqa123@gmail.com", "Hello12342225678");
         loginPage.enterValidCredentails(credentials.getUserName(), credentials.getPassWord());
 
@@ -63,9 +64,8 @@ public class MyStepdefs extends ExtentCucumberFormatter {
     }
 
     @And("^i write post and publish$") public void iWritePostAndPublish() throws Throwable {
-        welcomePage = new WelcomePage(getDriver());
         postpage =
-            welcomePage.waitForWelcomePage().writePost().writeContentAndPublish().clickPostPage();
+                new WelcomePage(AppiumDriverManager.getDriver()).waitForWelcomePage().writePost().writeContentAndPublish().clickPostPage();
     }
 
     @Then("^i should see the post published successfully$")
@@ -75,7 +75,7 @@ public class MyStepdefs extends ExtentCucumberFormatter {
     }
 
     @And("^i delete the post published$") public void iDeleteThePostPublished() throws Throwable {
-        postpage = welcomePage.waitForWelcomePage().clickPostPage().deletePost();
+        postpage = new WelcomePage(AppiumDriverManager.getDriver()).waitForWelcomePage().clickPostPage().deletePost();
 
     }
 
@@ -86,7 +86,7 @@ public class MyStepdefs extends ExtentCucumberFormatter {
 
     @And("^i add comments to the published post$") public void iAddCommentsToThePublishedPost()
         throws Throwable {
-        commentsPage = welcomePage.waitForWelcomePage().clickComments().enterComments();
+        commentsPage = new WelcomePage(AppiumDriverManager.getDriver()).waitForWelcomePage().clickComments().enterComments();
     }
 
     @Then("^i should see the comment saved$") public void iShouldSeeTheCommentSaved()

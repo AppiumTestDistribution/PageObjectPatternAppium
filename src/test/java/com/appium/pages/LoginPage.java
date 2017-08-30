@@ -40,7 +40,6 @@ public class LoginPage extends CommonAppiumTest {
 
     public void enterUserAndPassword(String user, String pass) throws IOException, InterruptedException {
         // TODO Auto-generated method stub
-        waitForElement(loginPageObjects.logInButton).click();
         logStepIntoExtentReport(getPageObjectElemetDescription(loginPageObjects,"username"),"SendKeys",user);
         loginPageObjects.username.sendKeys(user);
         new ScreenShotManager().captureScreenShot("UserName");

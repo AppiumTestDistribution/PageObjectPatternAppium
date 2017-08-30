@@ -14,7 +14,7 @@ To Run the TestNG test on android
     
 To Run the Cucumber test
 
-    * mvn clean -Dtest=RunnerCukes test
+    * mvn clean validate && mvn clean -Dtest=RunnerCukes test
     
 
 1.Please make sure you have android.json or iOS.json with capabilities under caps folder.
