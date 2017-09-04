@@ -23,24 +23,7 @@
         <dependency>
                 <groupId>com.github.saikrishna321</groupId>
                 <artifactId>AppiumTestDistribution</artifactId>
-                <version>single-server-session-SNAPSHOT</version>
-            <exclusions>
-                <exclusion>
-                    <groupId>io.appium</groupId>
-                    <artifactId>java-client</artifactId>
-                </exclusion>
-            </exclusions>
-        </dependency>
-        <dependency>
-            <groupId>io.appium</groupId>
-            <artifactId>java-client</artifactId>
-            <version>5.0.0-BETA9</version>
-            <scope>test</scope>
-        </dependency>
-        <dependency>
-            <groupId>net.masterthought</groupId>
-            <artifactId>cucumber-reporting</artifactId>
-            <version>3.8.0</version>
+                <version>7.0.0</version>
         </dependency>
         <dependency>
             <groupId>log4j</groupId>
