@@ -2,15 +2,15 @@
 
 To Run the TestNG test on android
     
-    * Platorm="android" mvn clean -Dtest=Runner test
+    * Platform="android" mvn clean -Dtest=Runner test
 
  To Run the TestNG test on iOS
   
-    * Platorm="ios" mvn clean -Dtest=Runner test
+    * Platform="ios" mvn clean -Dtest=Runner test
 
  To Run the TestNG test on iOS and android both in parallel
   
-    * Platorm="both" mvn clean -Dtest=Runner test
+    * Platform="both" mvn clean -Dtest=Runner test
     
 To Run the Cucumber test
 
@@ -29,6 +29,8 @@ Once the test run is completed, HTML report will b generated at target/ExtentRep
 
 If you have used ScreenshotManager to capture screenshots on runtime, you can execute generate_report.sh to view detailed reports
 
+### Please Raise Issues 
+https://github.com/saikrishna321/AppiumTestDistribution
 
 ### Parallel Simulator Test
 [![ScreenShot](https://i.imgur.com/JDuyRX9.jpg)](https://www.youtube.com/watch?v=sf0YARF5ppQ&t=2s)
