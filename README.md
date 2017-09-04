@@ -14,10 +14,10 @@ To Run the TestNG test on android
     
 To Run the Cucumber test
 
-    * mvn clean -Dtest=RunnerCukes test
+    * mvn validate && Platorm="android" mvn clean -Dtest=RunnerCukes test
     
 
-1.Please make sure you have android.json or iOS.json with capabilities under caps folder.
+1.Please make sure you have capabilities.json  under caps folder.
 
 2.RUNNER value in config.properties can be set with parallel or distribute. (Parallel will run the same test cases across devices & distribute will split the test cases randomly across devices)
 

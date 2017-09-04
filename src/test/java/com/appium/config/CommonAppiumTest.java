@@ -6,7 +6,7 @@ import com.aventstack.extentreports.Status;
 import com.report.factory.ExtentTestManager;
 import io.appium.java_client.AppiumDriver;
 import io.appium.java_client.MobileElement;
-import io.appium.java_client.SwipeElementDirection;
+import io.appium.java_client.TouchAction;
 import org.apache.log4j.Logger;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Dimension;
@@ -15,6 +15,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
+import java.time.Duration;
 import java.util.Set;
 
 public class CommonAppiumTest {
@@ -68,7 +69,9 @@ public class CommonAppiumTest {
         int startx = (int) (size.width * 0.9);
         int endx = (int) (size.width * 0.20);
         int starty = size.height / 2;
-        driver.swipe(startx, starty, endx, starty, 5000);
+        new TouchAction(driver).press(startx, starty)
+                .waitAction(Duration.ofSeconds(2))
+                .moveTo(endx,starty).release().perform();
     }
 
     public void swipeLeft() {
@@ -76,12 +79,9 @@ public class CommonAppiumTest {
         int startx = (int) (size.width * 0.8);
         int endx = (int) (size.width * 0.20);
         int starty = size.height / 2;
-        driver.swipe(startx, starty, endx, starty, 1000);
-    }
-
-    public void scrollDirection(MobileElement Id, SwipeElementDirection arg) {
-        MobileElement e = Id;
-        e.swipe(arg, 1000);
+        new TouchAction(driver).press(startx, starty)
+                .waitAction(Duration.ofSeconds(3000))
+                .moveTo(endx,starty).release();
     }
 
     /**
