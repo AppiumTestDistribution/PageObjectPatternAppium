@@ -5,7 +5,6 @@ import com.appium.page.objects.CommentPageObjects;
 import com.appium.utils.ScreenShotManager;
 import io.appium.java_client.AppiumDriver;
 import io.appium.java_client.MobileElement;
-import io.appium.java_client.SwipeElementDirection;
 import io.appium.java_client.pagefactory.AppiumFieldDecorator;
 import org.openqa.selenium.support.PageFactory;
 
@@ -42,7 +41,7 @@ public class CommentPage extends CommonAppiumTest {
     }
 
     public boolean verifyCommentIsAdded() throws IOException, InterruptedException {
-        scrollDirection(commentPageObjects.SELECT_TOPIC.get(0), SwipeElementDirection.DOWN);
+        //scrollDirection(commentPageObjects.SELECT_TOPIC.get(0), SwipeElementDirection.DOWN);
         new ScreenShotManager().captureScreenShot("Comments Added");
         return commentPageObjects.SELECT_TOPIC.get(0).getAttribute("name")
             .contains("Testing Comments");

@@ -22,7 +22,7 @@ public class LoginPage extends CommonAppiumTest {
     public LoginPage(AppiumDriver<MobileElement> driver) {
         super(driver);
         PageFactory.initElements(new AppiumFieldDecorator(driver), loginPageObjects);
-        runnerInfo = viewFactory.getMobilePlatform(driver.toString().split(":")[0].toString());
+        runnerInfo = viewFactory.getMobilePlatform(driver.getPlatformName());
     }
 
     public WelcomePage enterValidCredentails(String username, String password) throws IOException, InterruptedException {

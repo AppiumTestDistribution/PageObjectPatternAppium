@@ -6,7 +6,6 @@ import com.aventstack.extentreports.Status;
 import com.report.factory.ExtentTestManager;
 import io.appium.java_client.AppiumDriver;
 import io.appium.java_client.MobileElement;
-import io.appium.java_client.SwipeElementDirection;
 import org.apache.log4j.Logger;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Dimension;
@@ -68,7 +67,7 @@ public class CommonAppiumTest {
         int startx = (int) (size.width * 0.9);
         int endx = (int) (size.width * 0.20);
         int starty = size.height / 2;
-        driver.swipe(startx, starty, endx, starty, 5000);
+        //driver.swipe(startx, starty, endx, starty, 5000);
     }
 
     public void swipeLeft() {
@@ -76,12 +75,10 @@ public class CommonAppiumTest {
         int startx = (int) (size.width * 0.8);
         int endx = (int) (size.width * 0.20);
         int starty = size.height / 2;
-        driver.swipe(startx, starty, endx, starty, 1000);
+        //driver.swipe(startx, starty, endx, starty, 1000);
     }
 
-    public void scrollDirection(MobileElement Id, SwipeElementDirection arg) {
-        MobileElement e = Id;
-        e.swipe(arg, 1000);
+    public void scrollDirection(MobileElement Id) {
     }
 
     /**
@@ -115,8 +112,6 @@ public class CommonAppiumTest {
     }
 
     public void logStepIntoExtentReport(String elementDescription, String action,String typeString) {
-        ExtentTestManager.getTest().log(Status.INFO,
-            elementDescription + "; " + withBoldHTML("Text") + ": " + typeString);
     }
 
     public String withBoldHTML(String string) {

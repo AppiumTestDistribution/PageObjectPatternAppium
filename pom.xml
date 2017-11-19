@@ -23,7 +23,8 @@
         <dependency>
                 <groupId>com.github.saikrishna321</groupId>
                 <artifactId>AppiumTestDistribution</artifactId>
-                <version>7.0.0</version>
+                <!--<version>c4ff66ccc7</version>-->
+                <version>c4ff66ccc7</version>
         </dependency>
         <dependency>
             <groupId>log4j</groupId>
