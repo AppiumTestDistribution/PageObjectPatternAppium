@@ -1,36 +1,38 @@
-[
-  {
-    "android": {
-      "platformName": "android",
-      "platformVersion": "7.0",
-      "app": "./build/wordpress.apk",
-      "appPackage":"org.wordpress.android",
-      "appActivity": "org.wordpress.android.ui.WPLaunchActivity",
-      "deviceName": "android",
-      "noSign":true
-    }
+{
+  "android": {
+    "platformName": "android",
+    "platformVersion": "7.0",
+    "app": "./build/wordpress.apk",
+    "appPackage": "org.wordpress.android",
+    "appActivity": "org.wordpress.android.ui.WPLaunchActivity",
+    "deviceName": "android",
+    "noSign": true
   },
-  {
-    "iOS": {
-      "platformName": "iOS",
-      "app": "./build/WordPress.zip",
-      "deviceName": "iPhone",
-      "usePrebuiltWDA":true,
-      "noReset":true,
-      "wdaLaunchTimeout":"80000",
-      "wdaConnectionTimeout":"80000",
-      "preventWDAAttachments":true,
-      "clearSystemFiles":true,
-      "shouldUseSingletonTestManager":false,
-      "simpleIsVisibleCheck": true
-    }
+  "iOS": {
+    "platformName": "iOS",
+    "app": {
+      "device": "./packages/BuyNowMobile-TocProduct.ipa",
+      "simulator": "./packages/BuyNowMobile-TocProduct.ipa"
+    },
+    "deviceName": "iPhone",
+    "usePrebuiltWDA": true,
+    "wdaLaunchTimeout": "80000",
+    "wdaConnectionTimeout": "80000",
+    "preventWDAAttachments": true,
+    "clearSystemFiles": true,
+    "shouldUseSingletonTestManager": false,
+    "simpleIsVisibleCheck": true,
+    "maxTypingFrequency": 10
   },
-  {
-    "simulators": [
-      {
-        "deviceName": "iPhone 6",
-        "OS": "11.0"
-      }
-    ]
-  }
-]
+  "hostMachines": [
+    {
+      "machineIP": "127.0.0.1",
+      "simulators": [
+        {
+          "deviceName": "iPhone 6",
+          "OS": "11.2"
+        }
+      ]
+    }
+  ]
+}
