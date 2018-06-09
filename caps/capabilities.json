@@ -11,13 +11,12 @@
   "iOS": {
     "platformName": "iOS",
     "app": {
-      "device": "./packages/BuyNowMobile-TocProduct.ipa",
-      "simulator": "./packages/BuyNowMobile-TocProduct.ipa"
+      "simulator": "./build/WordPress.zip"
     },
     "deviceName": "iPhone",
     "usePrebuiltWDA": true,
-    "wdaLaunchTimeout": "80000",
-    "wdaConnectionTimeout": "80000",
+    "wdaLaunchTimeout": 80000,
+    "wdaConnectionTimeout": 80000,
     "preventWDAAttachments": true,
     "clearSystemFiles": true,
     "shouldUseSingletonTestManager": false,
