@@ -35,6 +35,11 @@ public class WelcomePage extends CommonAppiumTest {
         return new PublishPage(driver);
     }
 
+    public WelcomePage acceptToolTip() {
+        waitForElement(welcomePageObjects.ACCEPT_TIP).click();
+        return this;
+    }
+
     public PostPage clickPostPage() {
         welcomePageObjects.BLOG_POST.click();
         return new PostPage(driver);

@@ -18,13 +18,11 @@ public class AndroidFlow extends CommonAppiumTest implements DeviceInterface {
 
     public void login(LoginPage loginPage, String username, String password) throws IOException, InterruptedException {
         loginPage.enterUserAndPassword(username, password);
-        driver.hideKeyboard();
-        loginPage.enterSiteURL();
         loginPage.signIn();
     }
 
     public void waitForHomePage(WelcomePage welcomePage) {
-        welcomePage.waitForHomePageToLoad();
+        welcomePage.acceptToolTip();
     }
 
     public void moveToLogOutScreen() {

@@ -22,9 +22,11 @@ public class LoginPageObjects {
     public MobileElement logInButton;
 
     @iOSXCUITFindBy(accessibility = "Next Button")
+    @AndroidFindBy(id="nux_sign_in_button")
     public MobileElement nextButton;
 
     @iOSXCUITFindBy(accessibility = "Enter your password instead.")
+    @AndroidFindBy(id = "password_layout")
     public MobileElement enterPasswordLink;
 
     @CacheLookup
@@ -39,7 +41,7 @@ public class LoginPageObjects {
     @SelendroidFindBy(id = "nux_add_selfhosted_button") public MobileElement add_self_site;
 
     @CacheLookup
-    @AndroidFindBy(xpath = ".//*[@text='Sign in']")
+    @AndroidFindBy(xpath = ".//*[@text='Log in']")
     @iOSXCUITFindBy(accessibility = "Log In Button")
     @SelendroidFindBy(id = "nux_sign_in_button") @FindBy(id = "wp-submit") public MobileElement
         sign_in;

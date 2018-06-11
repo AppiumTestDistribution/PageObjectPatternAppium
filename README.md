@@ -14,8 +14,8 @@ To Run the TestNG test on android
     
 To Run the Cucumber test
 
-    * mvn validate && Platorm="android" mvn clean -Dtest=RunnerCukes test
-    
+
+    * mvn validate && Platorm="android" mvn clean -Dtest=RunnerCukes test    
 
 1.Please make sure you have capabilities.json  under caps folder.
 

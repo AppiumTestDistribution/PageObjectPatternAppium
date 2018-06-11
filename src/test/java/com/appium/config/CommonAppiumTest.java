@@ -115,8 +115,6 @@ public class CommonAppiumTest {
     }
 
     public void logStepIntoExtentReport(String elementDescription, String action,String typeString) {
-        ExtentTestManager.getTest().log(Status.INFO,
-            elementDescription + "; " + withBoldHTML("Text") + ": " + typeString);
     }
 
     public String withBoldHTML(String string) {
