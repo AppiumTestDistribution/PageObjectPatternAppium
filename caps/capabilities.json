@@ -29,7 +29,11 @@
       "simulators": [
         {
           "deviceName": "iPhone 6",
-          "OS": "11.2"
+          "OS": "11.0"
+        },
+        {
+          "deviceName": "iPhone 7",
+          "OS": "11.0"
         }
       ]
     }

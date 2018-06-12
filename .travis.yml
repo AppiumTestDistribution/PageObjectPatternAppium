@@ -1,0 +1,16 @@
+language: java
+
+sudo: required
+
+matrix:
+  include:
+    - language: java
+      os: osx
+      osx_image: xcode9.2
+      before_install:
+        - brew update
+        - brew outdated xctool || brew upgrade xctool
+        - xcrun simctl list -j devices
+        - npm install -g appium
+      script:
+      - Platform="ios" mvn clean -Dtest=Runner test
