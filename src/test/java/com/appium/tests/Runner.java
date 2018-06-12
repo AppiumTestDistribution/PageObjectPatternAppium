@@ -12,7 +12,7 @@ import java.util.List;
             ParallelThread parallelThread = new ParallelThread();
             List<String> test = new ArrayList<String>();
             test.add("LoginTest");
-            parallelThread.runner("com.appium.tests",test);
+            parallelThread.runner("com.appium.tests");
         }
 
 }
