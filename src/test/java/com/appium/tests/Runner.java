@@ -1,6 +1,7 @@
 package com.appium.tests;
 
 import com.appium.manager.ParallelThread;
+import org.testng.Assert;
 import org.testng.annotations.Test;
 
 import java.util.ArrayList;
@@ -12,7 +13,7 @@ import java.util.List;
             ParallelThread parallelThread = new ParallelThread();
             List<String> test = new ArrayList<String>();
             test.add("LoginTest");
-            parallelThread.runner("com.appium.tests");
+            Assert.assertTrue(parallelThread.runner("com.appium.tests"));
         }
 
 }

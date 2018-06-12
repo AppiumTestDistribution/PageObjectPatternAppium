@@ -7,6 +7,8 @@ import com.report.factory.ExtentTestManager;
 import io.appium.java_client.AppiumDriver;
 import io.appium.java_client.MobileElement;
 import io.appium.java_client.TouchAction;
+import io.appium.java_client.touch.WaitOptions;
+import io.appium.java_client.touch.offset.PointOption;
 import org.apache.log4j.Logger;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Dimension;
@@ -69,9 +71,9 @@ public class CommonAppiumTest {
         int startx = (int) (size.width * 0.9);
         int endx = (int) (size.width * 0.20);
         int starty = size.height / 2;
-        new TouchAction(driver).press(startx, starty)
-                .waitAction(Duration.ofSeconds(2))
-                .moveTo(endx,starty).release().perform();
+        new TouchAction(driver).press(PointOption.point(startx, starty))
+                .waitAction(WaitOptions.waitOptions(Duration.ofSeconds(2)))
+                .moveTo(PointOption.point(endx,starty)).release().perform();
     }
 
     public void swipeLeft() {
@@ -79,9 +81,9 @@ public class CommonAppiumTest {
         int startx = (int) (size.width * 0.8);
         int endx = (int) (size.width * 0.20);
         int starty = size.height / 2;
-        new TouchAction(driver).press(startx, starty)
-                .waitAction(Duration.ofSeconds(3000))
-                .moveTo(endx,starty).release();
+        new TouchAction(driver).press(PointOption.point(startx, starty))
+                .waitAction(WaitOptions.waitOptions(Duration.ofSeconds(2)))
+                .moveTo(PointOption.point(endx,starty)).release();
     }
 
     /**
