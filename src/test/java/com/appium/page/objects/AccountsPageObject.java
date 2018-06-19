@@ -9,10 +9,12 @@ public class AccountsPageObject {
 
     @AndroidFindBy(id = "org.wordpress.android:id/me_login_logout_text_view")
     @SelendroidFindBy(id = "me_login_logout_text_view")
-    @iOSFindBy(id = "Disconnect from WordPress.com") public MobileElement LOGOUT;
+    @iOSFindBy(id = "logOutFromWPcomButton") public MobileElement LOGOUT;
 
     @AndroidFindBy(id = "android:id/button1") @SelendroidFindBy(id = "button1")
-    @iOSFindBy(id = "Disconnect") public MobileElement DISCONNECT;
+    @iOSFindBy(id="Logging out will remove all of @vodqademo’s WordPress.com data from this device.")
+    @iOSFindBy(id = "Log Out")
+    public MobileElement DISCONNECT;
 
 
 }

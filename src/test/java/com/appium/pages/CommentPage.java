@@ -36,7 +36,7 @@ public class CommentPage extends CommonAppiumTest {
         commentPageObjects.ENTER_COMMENTS.click();
         commentPageObjects.ENTER_COMMENTS.sendKeys("Testing Comments");
         commentPageObjects.SUBMIT_COMMENTS.click();
-        driver.navigate().back();
+        commentPageObjects.BACK.click();
         return new CommentPage(driver);
     }
 
@@ -44,7 +44,7 @@ public class CommentPage extends CommonAppiumTest {
         //scrollDirection(commentPageObjects.SELECT_TOPIC.get(0), SwipeElementDirection.DOWN);
         new ScreenShotManager().captureScreenShot("Comments Added");
         return commentPageObjects.SELECT_TOPIC.get(0).getAttribute("name")
-            .contains("Testing Comments");
+            .contains("vodqademo on Appium: Testing comments");
     }
 
 

@@ -35,7 +35,7 @@ public class LoginPage extends CommonAppiumTest {
     }
 
     public boolean validateUserNameFieldIsDisplayed() {
-        return loginPageObjects.username.isDisplayed();
+        return loginPageObjects.logInButton.isDisplayed();
     }
 
     public void enterUserAndPassword(String user, String pass) throws IOException, InterruptedException {

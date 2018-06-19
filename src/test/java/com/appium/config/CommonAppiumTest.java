@@ -18,6 +18,7 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.time.Duration;
+import java.util.List;
 import java.util.Set;
 
 public class CommonAppiumTest {
@@ -36,6 +37,11 @@ public class CommonAppiumTest {
     public void waitForElementToDisAppear(String id) {
         WebDriverWait wait = new WebDriverWait(driver, 15);
         wait.until(ExpectedConditions.invisibilityOfElementLocated(By.id(id)));
+    }
+
+    public void waitForElementsToAppear(List<WebElement> id) {
+        WebDriverWait wait = new WebDriverWait(driver, 15);
+        wait.until(ExpectedConditions.visibilityOfAllElements(id));
     }
 
     public WebElement waitForElement(WebElement arg) {

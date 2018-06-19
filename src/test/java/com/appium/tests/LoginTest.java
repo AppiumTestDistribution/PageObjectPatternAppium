@@ -8,7 +8,12 @@ import com.appium.pages.LoginPage;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
+import java.io.File;
+import java.io.FileFilter;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
 
 public class LoginTest {
 
@@ -27,16 +32,8 @@ public class LoginTest {
         Assert.assertTrue(userNameLoggedIn);
     }
 
-    @Test
-    public void loginWithInValidUser() throws InterruptedException, IOException {
-        loginPage = new LoginPage(AppiumDriverManager.getDriver());
-        credentials = new UserCredentials("vodqa123@gmail.com", "Hello12342225678");
-        loginPage.enterValidCredentails(credentials.getUserName(), credentials.getPassWord());
-        String userNameLoggedIn = loginPage.validateErrorMessage();
-        Assert.assertEquals(userNameLoggedIn, "The username or password you entered is incorrect");
-    }
 
-    @Test public void logOutTest() throws InterruptedException, IOException {
+    @Test(groups = "Parallel") public void logOutTest() throws InterruptedException, IOException {
         loginPage = new LoginPage(AppiumDriverManager.getDriver());
         accountsPage = new AccountsPage(AppiumDriverManager.getDriver());
         credentials = new UserCredentials("vodqa@gmail.com", "Hello12345678");

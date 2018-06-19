@@ -19,7 +19,6 @@ public class iOSFlow extends CommonAppiumTest implements DeviceInterface {
     }
 
     public void login(LoginPage loginPage, String username, String password) throws IOException, InterruptedException {
-        Thread.sleep(10000);
         waitForElement(loginPage.loginPageObjects.logInButton).click();
         loginPage.enterUserAndPassword(username, password);
         loginPage.signIn();

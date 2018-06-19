@@ -5,6 +5,7 @@ import io.appium.java_client.pagefactory.AndroidFindBy;
 import io.appium.java_client.pagefactory.SelendroidFindBy;
 import io.appium.java_client.pagefactory.iOSFindBy;
 import io.appium.java_client.pagefactory.iOSXCUITFindBy;
+import org.openqa.selenium.WebElement;
 
 import java.util.List;
 
@@ -40,8 +41,9 @@ public class WelcomePageObjects {
     @iOSFindBy(accessibility = "Continue")
     public MobileElement continueButton;
 
-    @iOSFindBy(className = "UIATableCell") @AndroidFindBy(id = "org.wordpress.android:id/title")
-    @SelendroidFindBy(id = "title") public List<MobileElement> SELECT_BLOG;
+    @iOSFindBy(id="vodqademo on Appium: Testing comments")
+    @AndroidFindBy(id = "org.wordpress.android:id/title")
+    @SelendroidFindBy(id = "title") public MobileElement SELECT_BLOG;
 
     @iOSFindBy(accessibility = "Me") public MobileElement SELECT_ME;
 

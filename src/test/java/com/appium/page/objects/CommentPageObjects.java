@@ -13,12 +13,15 @@ public class CommentPageObjects {
     @iOSFindBy(className = "UIATableCell") public List<MobileElement> SELECT_TOPIC;
 
     @AndroidFindBy(id = "org.wordpress.android:id/edit_comment")
-    @SelendroidFindBy(id = "edit_comment") @iOSFindBy(id = "ReplyText") public MobileElement
+    @SelendroidFindBy(id = "edit_comment") @iOSFindBy(accessibility = "ReplyText") public MobileElement
         ENTER_COMMENTS;
 
     @AndroidFindBy(id = "org.wordpress.android:id/image_post_comment")
-    @SelendroidFindBy(id = "image_post_comment") @iOSFindBy(id = "REPLY") public MobileElement
+    @SelendroidFindBy(id = "image_post_comment") @iOSFindBy(id = "Reply") public MobileElement
         SUBMIT_COMMENTS;
+
+    @iOSFindBy(accessibility = "Comments")
+    public MobileElement BACK;
 
     @AndroidFindBy(id = "org.wordpress.android:id/progress_submit_comment")
     @SelendroidFindBy(id = "progress_submit_comment") public String PROGRESS_SUBMIT;

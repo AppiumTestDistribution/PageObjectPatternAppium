@@ -8,6 +8,7 @@ import com.appium.utils.ScreenShotManager;
 import io.appium.java_client.AppiumDriver;
 import io.appium.java_client.MobileElement;
 import io.appium.java_client.pagefactory.AppiumFieldDecorator;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.PageFactory;
 
 import java.io.IOException;
@@ -21,7 +22,7 @@ public class WelcomePage extends CommonAppiumTest {
     public WelcomePage(AppiumDriver<MobileElement> driver) {
         super(driver);
         PageFactory.initElements(new AppiumFieldDecorator(driver), welcomePageObjects);
-        runnerInfo = viewFactory.getMobilePlatform(driver.toString().split(":")[0].toString());
+        runnerInfo = viewFactory.getMobilePlatform(driver.getPlatformName());
     }
 
     public WelcomePage waitForWelcomePage() {
@@ -47,9 +48,8 @@ public class WelcomePage extends CommonAppiumTest {
 
     public CommentPage clickComments() {
         welcomePageObjects.COMMENT.click();
-        waitForElement(welcomePageObjects.SELECT_BLOG.get(0));
-        List<MobileElement> el = welcomePageObjects.SELECT_BLOG;
-        el.get(0).click();
+        waitForElement(welcomePageObjects.SELECT_BLOG);
+         welcomePageObjects.SELECT_BLOG.click();
         return new CommentPage(driver);
 
     }

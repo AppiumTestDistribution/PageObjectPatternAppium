@@ -13,7 +13,9 @@ import java.util.List;
             ParallelThread parallelThread = new ParallelThread();
             List<String> test = new ArrayList<String>();
             test.add("LoginTest");
-            Assert.assertTrue(parallelThread.runner("com.appium.tests"));
+            boolean runner = parallelThread.runner("com.appium.tests");
+            System.out.println(runner);
+            Assert.assertFalse(runner);
         }
 
 }

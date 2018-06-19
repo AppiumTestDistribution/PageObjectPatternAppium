@@ -17,7 +17,7 @@ public class PublishPage extends CommonAppiumTest {
     public PublishPage(AppiumDriver<MobileElement> driver) {
         super(driver);
         PageFactory.initElements(new AppiumFieldDecorator(driver), postPageObjects);
-        runnerInfo = viewFactory.getMobilePlatform(driver.toString().split(":")[0].toString());
+        runnerInfo = viewFactory.getMobilePlatform(driver.getPlatformName());
     }
 
     public WelcomePage writeContentAndPublish() throws InterruptedException {
