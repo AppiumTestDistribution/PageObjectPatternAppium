@@ -21,14 +21,13 @@ public class PostPage extends CommonAppiumTest {
     }
 
     public PostPage deletePost() {
-        waitForElement(postPageObjects.POST_TEXT).click();
+        //waitForElement(postPageObjects.POST_TEXT).click();
         waitForElement(postPageObjects.DELETE).click();
-        waitForElement(postPageObjects.DELETE_CONFIRMATION).click();
         return new PostPage(driver);
     }
 
     public String verifyPostIsDeleted() {
-        return postPageObjects.DELETE_POST.getText();
+        return postPageObjects.DELETE_CONFIRMATION.getText();
     }
 
 }

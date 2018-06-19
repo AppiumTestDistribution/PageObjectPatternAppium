@@ -26,12 +26,12 @@ public class WritePostTest {
         Assert.assertTrue(postpage.verifyPostIsSuccessfull());
     }
 
-    @Test public void deleteTheCreatedPost() throws IOException, InterruptedException {
+    @Test(groups = "Parallel1") public void deleteTheCreatedPost() throws IOException, InterruptedException {
         loginPage = new LoginPage(AppiumDriverManager.getDriver());
         credentials = new UserCredentials("vodqa@gmail.com", "Hello12345678");
         PostPage postpage =
             loginPage.enterValidCredentails(credentials.getUserName(), credentials.getPassWord())
                 .waitForWelcomePage().clickPostPage().deletePost();
-        Assert.assertEquals(postpage.verifyPostIsDeleted(), "Deleting post");
+        Assert.assertEquals(postpage.verifyPostIsDeleted(), "Post sent to trash");
     }
 }

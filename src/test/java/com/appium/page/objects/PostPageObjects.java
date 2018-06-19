@@ -14,11 +14,11 @@ public class PostPageObjects {
     @iOSFindBy(className = "UIATableView")
     public MobileElement POST_TEXT;
 
-    @AndroidFindBy(id = "org.wordpress.android:id/deletePost")
+    @AndroidFindBy(xpath = ".//*[@text='Trash']")
     @SelendroidFindBy(id = "deletePost")
     public MobileElement DELETE;
 
-    @AndroidFindBy(xpath = ".//*[@text='Yes']")
+    @AndroidFindBy(id = "org.wordpress.android:id/snackbar_text")
     @SelendroidFindBy(xpath = ".//*[@value='Yes']")
     public MobileElement DELETE_CONFIRMATION;
 
