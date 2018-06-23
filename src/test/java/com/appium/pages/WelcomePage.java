@@ -8,11 +8,9 @@ import com.appium.utils.ScreenShotManager;
 import io.appium.java_client.AppiumDriver;
 import io.appium.java_client.MobileElement;
 import io.appium.java_client.pagefactory.AppiumFieldDecorator;
-import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.PageFactory;
 
 import java.io.IOException;
-import java.util.List;
 
 public class WelcomePage extends CommonAppiumTest {
     public ViewFactory viewFactory = new ViewFactory(driver);
@@ -49,7 +47,7 @@ public class WelcomePage extends CommonAppiumTest {
     public CommentPage clickComments() {
         welcomePageObjects.COMMENT.click();
         waitForElement(welcomePageObjects.SELECT_BLOG);
-         welcomePageObjects.SELECT_BLOG.click();
+        welcomePageObjects.SELECT_BLOG.click();
         return new CommentPage(driver);
 
     }
@@ -88,6 +86,17 @@ public class WelcomePage extends CommonAppiumTest {
     public ViewSitePage clickViewSite() {
         waitForElement(welcomePageObjects.VIEW_SITE).click();
         return new ViewSitePage(driver);
+    }
+
+    public WelcomePage reader() throws InterruptedException {
+        welcomePageObjects.READER.click();
+        Thread.sleep(3000);
+        return this;
+    }
+
+    public MobileElement swipe() {
+        return runnerInfo.scrollUp(welcomePageObjects.swipeReader);
+
     }
 
 }

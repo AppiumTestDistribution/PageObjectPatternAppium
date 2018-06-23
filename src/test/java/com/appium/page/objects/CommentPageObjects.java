@@ -16,11 +16,12 @@ public class CommentPageObjects {
     @SelendroidFindBy(id = "edit_comment") @iOSFindBy(accessibility = "ReplyText") public MobileElement
         ENTER_COMMENTS;
 
-    @AndroidFindBy(id = "org.wordpress.android:id/image_post_comment")
+    @AndroidFindBy(id = "org.wordpress.android:id/btn_submit_reply")
     @SelendroidFindBy(id = "image_post_comment") @iOSFindBy(id = "Reply") public MobileElement
         SUBMIT_COMMENTS;
 
     @iOSFindBy(accessibility = "Comments")
+    @AndroidFindBy(accessibility = "Navigate up")
     public MobileElement BACK;
 
     @AndroidFindBy(id = "org.wordpress.android:id/progress_submit_comment")

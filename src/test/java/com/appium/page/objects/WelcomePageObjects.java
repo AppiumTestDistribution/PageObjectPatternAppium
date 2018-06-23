@@ -13,7 +13,8 @@ public class WelcomePageObjects {
 
     @AndroidFindBy(id = "org.wordpress.android:id/fab_button")
     @SelendroidFindBy(id = "fab_button")
-    @iOSFindBy(id = "New Post") public MobileElement WRITE_POST;
+    @iOSFindBy(id = "New Post")
+    public MobileElement WRITE_POST;
 
     @AndroidFindBy(xpath = ".//*[@text='Blog Posts']")
     @SelendroidFindBy(xpath = ".//*[@value='Blog Posts']")
@@ -21,7 +22,8 @@ public class WelcomePageObjects {
     public MobileElement BLOG_POST;
 
     @AndroidFindBy(id = "org.wordpress.android:id/my_site_comments_text_view")
-    @SelendroidFindBy(id = "my_site_comments_text_view") @iOSFindBy(id = "Comments")
+    @SelendroidFindBy(id = "my_site_comments_text_view")
+    @iOSFindBy(id = "Comments")
     public MobileElement COMMENT;
 
     @AndroidFindBy(id = "org.wordpress.android:id/my_site_title_label")
@@ -30,24 +32,39 @@ public class WelcomePageObjects {
     public MobileElement LOGGED_IN_USER;
 
     @iOSFindBy(accessibility = "Not Now")
-    @AndroidFindBy(id = "promo_dialog_button_negative") public MobileElement ACCEPT_TIP;
+    @AndroidFindBy(id = "promo_dialog_button_negative")
+    public MobileElement ACCEPT_TIP;
 
-    @iOSFindBy(accessibility = "Not Now") public MobileElement clickBetaPopUp;
+    @iOSFindBy(accessibility = "Not Now")
+    public MobileElement clickBetaPopUp;
 
     @AndroidFindBy(id = "org.wordpress.android:id/switch_site")
-    @iOSFindBy(className = "UIATableCell") @SelendroidFindBy(id = "switch_site")
+    @iOSFindBy(className = "UIATableCell")
+    @SelendroidFindBy(id = "switch_site")
     public MobileElement WELCOME_PAGE;
 
     @iOSFindBy(accessibility = "Continue")
     public MobileElement continueButton;
 
-    @iOSFindBy(id="vodqademo on Appium: Testing comments")
+    @iOSFindBy(id = "vodqademo on Appium: Testing comments")
     @AndroidFindBy(id = "org.wordpress.android:id/title")
-    @SelendroidFindBy(id = "title") public MobileElement SELECT_BLOG;
+    @SelendroidFindBy(id = "title")
+    public MobileElement SELECT_BLOG;
 
-    @iOSFindBy(accessibility = "Me") public MobileElement SELECT_ME;
+    @iOSFindBy(accessibility = "Me")
+    public MobileElement SELECT_ME;
 
     @AndroidFindBy(id = "org.wordpress.android:id/my_site_view_site_text_view")
-    @iOSFindBy(id = "View Site") public MobileElement VIEW_SITE;
+    @iOSFindBy(id = "View Site")
+    public MobileElement VIEW_SITE;
+
+    @AndroidFindBy(accessibility = "Reader. Follow content from other sites.")
+    @iOSFindBy(accessibility = "readerTabButton")
+    public MobileElement READER;
+
+    @AndroidFindBy(id = "org.wordpress.android:id/viewpager_main")
+    @iOSFindBy(className = "XCUIElementTypeTable")
+    @iOSFindBy(accessibility = "Reader")
+    public MobileElement swipeReader;
 
 }

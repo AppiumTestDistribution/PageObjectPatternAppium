@@ -15,7 +15,7 @@ public class AddCommentTest {
     LoginPage loginPage;
     UserCredentials credentials = new UserCredentials("vodqa@gmail.com", "Hello12345678");
 
-    @Test(groups = "regression")
+    @Test
     @Author(name="Sai")public void addComment() throws InterruptedException, IOException {
         loginPage = new LoginPage(AppiumDriverManager.getDriver());
         CommentPage commentsPage =
