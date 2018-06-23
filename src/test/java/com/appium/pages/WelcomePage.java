@@ -84,6 +84,7 @@ public class WelcomePage extends CommonAppiumTest {
     }
 
     public ViewSitePage clickViewSite() {
+        runnerInfo.scrollUp(welcomePageObjects.BLOGTABLE);
         waitForElement(welcomePageObjects.VIEW_SITE).click();
         return new ViewSitePage(driver);
     }

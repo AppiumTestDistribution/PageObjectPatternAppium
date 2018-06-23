@@ -18,7 +18,7 @@ public class WelcomePageObjects {
 
     @AndroidFindBy(xpath = ".//*[@text='Blog Posts']")
     @SelendroidFindBy(xpath = ".//*[@value='Blog Posts']")
-    @iOSFindBy(uiAutomator = ".elements()[1].cells().firstWithPredicate(\"name BEGINSWITH 'Blog'\")")
+    @iOSXCUITFindBy(iOSNsPredicate = "name BEGINSWITH 'Blog'")
     public MobileElement BLOG_POST;
 
     @AndroidFindBy(id = "org.wordpress.android:id/my_site_comments_text_view")
@@ -55,7 +55,7 @@ public class WelcomePageObjects {
     public MobileElement SELECT_ME;
 
     @AndroidFindBy(id = "org.wordpress.android:id/my_site_view_site_text_view")
-    @iOSFindBy(id = "View Site")
+    @iOSXCUITFindBy(iOSNsPredicate = "name BEGINSWITH 'View'")
     public MobileElement VIEW_SITE;
 
     @AndroidFindBy(accessibility = "Reader. Follow content from other sites.")
@@ -66,5 +66,9 @@ public class WelcomePageObjects {
     @iOSFindBy(className = "XCUIElementTypeTable")
     @iOSFindBy(accessibility = "Reader")
     public MobileElement swipeReader;
+
+    @iOSFindBy(accessibility = "Blog Details Table")
+    @AndroidFindBy(id = "org.wordpress.android:id/scroll_view")
+    public MobileElement BLOGTABLE;
 
 }
