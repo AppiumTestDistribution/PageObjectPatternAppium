@@ -27,8 +27,25 @@
       "machineIP": "127.0.0.1",
       "simulators": [
         {
+          "deviceName": "iPhone 6",
+          "OS": "11.3"
+        },
+        {
           "deviceName": "iPhone 7",
-          "OS": "11.0"
+          "OS": "11.3"
+        }
+      ]
+    },
+    {
+      "machineIP": "10.234.1.91",
+      "simulators": [
+        {
+          "deviceName": "iPhone 6",
+          "OS": "11.2"
+        },
+        {
+          "deviceName": "iPhone 7",
+          "OS": "11.2"
         }
       ]
     }
