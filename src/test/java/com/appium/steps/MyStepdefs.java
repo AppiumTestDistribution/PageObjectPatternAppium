@@ -6,27 +6,24 @@ import com.appium.pages.CommentPage;
 import com.appium.pages.LoginPage;
 import com.appium.pages.PostPage;
 import com.appium.pages.WelcomePage;
-import com.cucumber.listener.ExtentCucumberFormatter;
 import cucumber.api.java.en.And;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
 import org.testng.Assert;
 
-import static com.appium.manager.AppiumDriverManager.getDriver;
-
 /**
  * Created by saikrisv on 22/04/16.
  */
 public class MyStepdefs {
 
-    LoginPage loginPage;
-    UserCredentials credentials;
-    boolean userNameLoggedIn;
-    PostPage postpage;
-    CommentPage commentsPage;
+    private LoginPage loginPage;
+    private UserCredentials credentials;
+    private boolean userNameLoggedIn;
+    private PostPage postpage;
+    private CommentPage commentsPage;
 
-    public MyStepdefs() throws Exception {
+    public MyStepdefs()  {
 
     }
 
@@ -39,7 +36,7 @@ public class MyStepdefs {
         loginPage = new LoginPage(AppiumDriverManager.getDriver());
         credentials = new UserCredentials("vodqa@gmail.com", "Hello12345678");
         userNameLoggedIn =
-            loginPage.enterValidCredentails(credentials.getUserName(), credentials.getPassWord())
+            loginPage.login(credentials)
                 .waitForWelcomePage().verifyUserIsLoggedIn();
 
     }
@@ -53,7 +50,7 @@ public class MyStepdefs {
         throws Throwable {
         loginPage = new LoginPage(AppiumDriverManager.getDriver());
         credentials = new UserCredentials("vodqa123@gmail.com", "Hello12342225678");
-        loginPage.enterValidCredentails(credentials.getUserName(), credentials.getPassWord());
+        loginPage.login(credentials);
 
     }
 

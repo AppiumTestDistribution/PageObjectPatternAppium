@@ -16,7 +16,7 @@ public class WebTest {
 
         loginPage = new LoginPage(AppiumDriverManager.getDriver());
         credentials = new UserCredentials("vodqa@gmail.com", "Hello12345678");
-        loginPage.enterValidCredentails(credentials.getUserName(), credentials.getPassWord())
+        loginPage.login(credentials)
             .waitForWelcomePage().clickViewSite().switchToWebView().clickShow();
     }
 }

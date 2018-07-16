@@ -3,6 +3,7 @@ package com.appium.pages;
 import com.annotation.values.PageName;
 import com.appium.config.CommonAppiumTest;
 import com.appium.config.DeviceInterface;
+import com.appium.config.UserCredentials;
 import com.appium.config.ViewFactory;
 import com.appium.page.objects.LoginPageObjects;
 import com.appium.utils.ScreenShotManager;
@@ -25,8 +26,8 @@ public class LoginPage extends CommonAppiumTest {
         runnerInfo = viewFactory.getMobilePlatform(driver.getPlatformName());
     }
 
-    public WelcomePage enterValidCredentails(String username, String password) throws IOException, InterruptedException {
-        runnerInfo.login(this, username, password);
+    public WelcomePage login(UserCredentials userCredentials) throws IOException, InterruptedException {
+        runnerInfo.login(this, userCredentials.getUserName(), userCredentials.getPassWord());
         return new WelcomePage(driver);
     }
 

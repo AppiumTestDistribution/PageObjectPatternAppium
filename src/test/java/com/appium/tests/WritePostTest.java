@@ -21,7 +21,7 @@ public class WritePostTest {
         loginPage = new LoginPage(AppiumDriverManager.getDriver());
         credentials = new UserCredentials("vodqa@gmail.com", "Hello12345678");
         PostPage postpage =
-            loginPage.enterValidCredentails(credentials.getUserName(), credentials.getPassWord())
+            loginPage.login(credentials)
                 .waitForWelcomePage().writePost().writeContentAndPublish().clickPostPage();
         //Assert.assertTrue(postpage.verifyPostIsSuccessfull());
     }
@@ -30,7 +30,7 @@ public class WritePostTest {
         loginPage = new LoginPage(AppiumDriverManager.getDriver());
         credentials = new UserCredentials("vodqa@gmail.com", "Hello12345678");
         PostPage postpage =
-            loginPage.enterValidCredentails(credentials.getUserName(), credentials.getPassWord())
+            loginPage.login(credentials)
                 .waitForWelcomePage().clickPostPage().deletePost();
         Assert.assertEquals(postpage.verifyPostIsDeleted(), "Post sent to trash");
     }

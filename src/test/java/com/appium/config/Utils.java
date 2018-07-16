@@ -84,7 +84,7 @@ public class Utils {
         loginPage = new LoginPage(driver);
         credentials = new UserCredentials("vodqa@gmail.com", "Hello12345678");
         boolean userNameLoggedIn =
-            loginPage.enterValidCredentails(credentials.getUserName(), credentials.getPassWord())
+            loginPage.login(credentials)
                 .waitForWelcomePage().verifyUserIsLoggedIn();
         Assert.assertTrue(userNameLoggedIn);
 

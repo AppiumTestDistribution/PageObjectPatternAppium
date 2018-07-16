@@ -6,7 +6,6 @@ import com.appium.manager.AppiumDriverManager;
 import com.appium.pages.LoginPage;
 import org.json.simple.JSONObject;
 import org.testng.Assert;
-import org.testng.annotations.Test;
 
 import java.io.IOException;
 
@@ -22,7 +21,7 @@ public class MultiLoginTest {
         loginPage = new LoginPage(AppiumDriverManager.getDriver());
         credentials = new UserCredentials(getUserName(), getPassword());
         boolean userNameLoggedIn =
-            loginPage.enterValidCredentails(credentials.getUserName(), credentials.getPassWord())
+            loginPage.login(credentials)
                 .waitForWelcomePage().verifyUserIsLoggedIn();
         Assert.assertEquals(userNameLoggedIn, JSonParser.getUserData(
             Integer.parseInt(Thread.currentThread().getName().toString().split("_")[1]))

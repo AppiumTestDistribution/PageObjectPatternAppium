@@ -19,7 +19,7 @@ public class AddCommentTest {
     @Author(name="Sai")public void addComment() throws InterruptedException, IOException {
         loginPage = new LoginPage(AppiumDriverManager.getDriver());
         CommentPage commentsPage =
-            loginPage.enterValidCredentails(credentials.getUserName(), credentials.getPassWord())
+            loginPage.login(credentials)
                 .waitForWelcomePage().clickComments().enterComments();
         Assert.assertTrue(commentsPage.verifyCommentIsAdded());
     }

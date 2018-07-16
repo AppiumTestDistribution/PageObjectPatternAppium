@@ -8,12 +8,7 @@ import com.appium.pages.LoginPage;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
-import java.io.File;
-import java.io.FileFilter;
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
 
 public class LoginTest {
 
@@ -27,7 +22,7 @@ public class LoginTest {
         loginPage = new LoginPage(AppiumDriverManager.getDriver());
         credentials = new UserCredentials("vodqa@gmail.com", "Hello12345678");
         boolean userNameLoggedIn =
-            loginPage.enterValidCredentails(credentials.getUserName(), credentials.getPassWord())
+            loginPage.login(credentials)
                 .waitForWelcomePage().verifyUserIsLoggedIn();
         Assert.assertTrue(userNameLoggedIn);
     }
@@ -38,7 +33,7 @@ public class LoginTest {
         accountsPage = new AccountsPage(AppiumDriverManager.getDriver());
         credentials = new UserCredentials("vodqa@gmail.com", "Hello12345678");
         Boolean validateUserIsLoggedOut =
-            loginPage.enterValidCredentails(credentials.getUserName(), credentials.getPassWord())
+            loginPage.login(credentials)
                 .waitForWelcomePage().moveToDisconnect().logOut()
                 .validateUserNameFieldIsDisplayed();
         Assert.assertTrue(validateUserIsLoggedOut, "Failed to log out users");
