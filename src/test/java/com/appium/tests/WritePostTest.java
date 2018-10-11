@@ -1,6 +1,5 @@
 package com.appium.tests;
 
-import com.annotation.values.Description;
 import com.appium.config.UserCredentials;
 import com.appium.manager.AppiumDriverManager;
 import com.appium.pages.LoginPage;
@@ -10,7 +9,6 @@ import org.testng.annotations.Test;
 
 import java.io.IOException;
 
-@Description("Test to check if user can write post and also delete the post")
 public class WritePostTest {
 
     LoginPage loginPage;

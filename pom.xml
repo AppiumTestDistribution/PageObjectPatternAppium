@@ -21,10 +21,10 @@
 
     <dependencies>
         <dependency>
-            <groupId>com.github.saikrishna321</groupId>
-            <artifactId>AppiumTestDistribution</artifactId>
-            <version>ef39d1cdd0</version>
-        </dependency>
+        <groupId>com.github.saikrishna321</groupId>
+        <artifactId>AppiumTestDistribution</artifactId>
+        <version>a79eff19f6</version>
+    </dependency>
         <dependency>
             <groupId>log4j</groupId>
             <artifactId>log4j</artifactId>

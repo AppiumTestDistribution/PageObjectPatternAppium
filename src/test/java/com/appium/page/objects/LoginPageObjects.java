@@ -1,7 +1,6 @@
 package com.appium.page.objects;
 
 
-import com.annotation.values.ElementDescription;
 import io.appium.java_client.MobileElement;
 import io.appium.java_client.pagefactory.AndroidFindBy;
 import io.appium.java_client.pagefactory.SelendroidFindBy;
@@ -16,7 +15,7 @@ public class LoginPageObjects {
     @AndroidFindBy(id = "org.wordpress.android:id/nux_username")
     @iOSXCUITFindBy(accessibility = "Email address")
     @SelendroidFindBy(id = "nux_username")
-    @FindBy(id = "user_login") @ElementDescription("UserName Field") public MobileElement username;
+    @FindBy(id = "user_login") public MobileElement username;
 
     @iOSXCUITFindBy(iOSNsPredicate = "label contains 'Log In'")
     public MobileElement logInButton;
@@ -32,7 +31,7 @@ public class LoginPageObjects {
     @CacheLookup
     @AndroidFindBy(id = "org.wordpress.android:id/nux_password")
     @iOSXCUITFindBy(accessibility = "Password") @SelendroidFindBy(id = "nux_password")
-    @FindBy(id = "user_pass") @ElementDescription("Password Field") public MobileElement password;
+    @FindBy(id = "user_pass")  public MobileElement password;
 
 
     @CacheLookup

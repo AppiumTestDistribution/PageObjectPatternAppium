@@ -23,11 +23,10 @@ To Run the Cucumber test
 
 3.No need to start appium server externally , framework takes case of starting and shutting down the server for you.
 
-Post Run :
+Reports :
 
-Once the test run is completed, HTML report will b generated at target/ExtentReport.html
+All the execution reports are logged to report-portal (http://reportportal.io/). Please update the reportportal properties which is located inside test/resources/reportportal.properties
 
-If you have used ScreenshotManager to capture screenshots on runtime, you can execute generate_report.sh to view detailed reports
 
 ### Please Raise Issues 
 https://github.com/saikrishna321/AppiumTestDistribution

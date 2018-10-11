@@ -28,28 +28,13 @@
       "simulators": [
         {
           "deviceName": "iPhone 6",
-          "OS": "11.3"
+          "OS": "11.4"
         },
         {
           "deviceName": "iPhone 7",
-          "OS": "11.3"
-        }
-      ]
-    },
-    {
-      "machineIP": "10.234.1.91",
-      "simulators": [
-        {
-          "deviceName": "iPhone 6",
-          "OS": "11.2"
-        },
-        {
-          "deviceName": "iPhone 7",
-          "OS": "11.2"
+          "OS": "11.4"
         }
       ]
     }
-  ],
-  "ATDServiceHost":"127.0.0.1",
-  "ATDServicePort":"3000"
+  ]
 }

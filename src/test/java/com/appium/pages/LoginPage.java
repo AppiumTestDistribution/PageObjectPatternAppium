@@ -1,6 +1,5 @@
 package com.appium.pages;
 
-import com.annotation.values.PageName;
 import com.appium.config.CommonAppiumTest;
 import com.appium.config.DeviceInterface;
 import com.appium.config.UserCredentials;
@@ -14,7 +13,7 @@ import org.openqa.selenium.support.PageFactory;
 
 import java.io.IOException;
 
-@PageName("Login Page")
+
 public class LoginPage extends CommonAppiumTest {
     public ViewFactory viewFactory = new ViewFactory(driver);
     public DeviceInterface runnerInfo;
@@ -39,12 +38,10 @@ public class LoginPage extends CommonAppiumTest {
         return loginPageObjects.logInButton.isDisplayed();
     }
 
-    public void enterUserAndPassword(String user, String pass) throws IOException, InterruptedException {
+    public void enterUserAndPassword(String user, String pass) {
         // TODO Auto-generated method stub
-        logStepIntoExtentReport(getPageObjectElemetDescription(loginPageObjects,"username"),"SendKeys",user);
         loginPageObjects.username.sendKeys(user);
         new ScreenShotManager().captureScreenShot("UserName");
-        logStepIntoExtentReport(getPageObjectElemetDescription(loginPageObjects,"password"),"SendKeys",pass);
         loginPageObjects.nextButton.click();
         waitForElement(loginPageObjects.enterPasswordLink).click();
         loginPageObjects.password.sendKeys(pass);

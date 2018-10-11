@@ -1,9 +1,5 @@
 package com.appium.config;
 
-import com.annotation.values.ElementDescription;
-import com.annotation.values.PageName;
-import com.aventstack.extentreports.Status;
-import com.report.factory.ExtentTestManager;
 import io.appium.java_client.AppiumDriver;
 import io.appium.java_client.MobileElement;
 import io.appium.java_client.TouchAction;
@@ -118,30 +114,4 @@ public class CommonAppiumTest {
     }
 
 
-    public String getCurrentMethodName() {
-        return Thread.currentThread().getStackTrace()[2].getMethodName();
-    }
-
-    public void logStepIntoExtentReport(String elementDescription, String action,String typeString) {
-    }
-
-    public String withBoldHTML(String string) {
-        if (!string.trim().isEmpty()) {
-            return "<b>" + string + "</b>";
-        } else {
-            return "";
-        }
-    }
-
-    public String getPageObjectElemetDescription(Object pageObject, String fieldName) {
-        try {
-            return this.getClass().getAnnotation(PageName.class).value() + "::" +
-                pageObject.getClass().getField(fieldName).getAnnotation(ElementDescription.class)
-                    .value();
-        } catch (NoSuchFieldException e) {
-
-            e.printStackTrace();
-        }
-        return "";
-    }
 }
