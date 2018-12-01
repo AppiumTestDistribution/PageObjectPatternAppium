@@ -3,6 +3,7 @@
     "platformName": "android",
     "platformVersion": "7.0",
     "app": "./build/wordpress.apk",
+    "automationName":"UIAutomator2",
     "appPackage": "org.wordpress.android",
     "appActivity": "org.wordpress.android.ui.WPLaunchActivity",
     "deviceName": "android",

@@ -6,24 +6,11 @@
     <artifactId>PagePatternAppium</artifactId>
     <version>0.0.1-SNAPSHOT</version>
 
-    <repositories>
-        <repository>
-            <id>jitpack.io</id>
-            <url>https://jitpack.io</url>
-        </repository>
-    </repositories>
-    <pluginRepositories>
-        <pluginRepository>
-            <id>jitpack.io</id>
-            <url>https://jitpack.io</url>
-        </pluginRepository>
-    </pluginRepositories>
-
     <dependencies>
         <dependency>
-        <groupId>com.github.saikrishna321</groupId>
-        <artifactId>AppiumTestDistribution</artifactId>
-        <version>a79eff19f6</version>
+            <groupId>com.github.saikrishna321</groupId>
+            <artifactId>AppiumTestDistribution</artifactId>
+            <version>9.0.1</version>
     </dependency>
         <dependency>
             <groupId>log4j</groupId>
@@ -75,7 +62,7 @@
                             <useTestNG>true</useTestNG>
                             <plugins>
                                 <plugin>
-                                    <name>com.cucumber.listener.ExtentCucumberFormatter</name>
+                                    <name>com.cucumber.listener.CucumberListener</name>
                                 </plugin>
                             </plugins>
                         </configuration>
