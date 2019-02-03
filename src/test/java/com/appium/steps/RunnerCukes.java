@@ -1,6 +1,6 @@
 package com.appium.steps;
 
-import com.appium.manager.ParallelThread;
+import com.appium.manager.ATDRunner;
 import org.testng.annotations.Test;
 
 
@@ -10,7 +10,7 @@ import org.testng.annotations.Test;
 public class RunnerCukes {
     @Test
     public void testCukesRunner() throws Exception {
-        ParallelThread parallelThread = new ParallelThread();
+        ATDRunner parallelThread = new ATDRunner();
         parallelThread.runner("");
     }
 }

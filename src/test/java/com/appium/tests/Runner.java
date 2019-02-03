@@ -1,6 +1,6 @@
 package com.appium.tests;
 
-import com.appium.manager.ParallelThread;
+import com.appium.manager.ATDRunner;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
@@ -10,7 +10,7 @@ import java.util.List;
     public class Runner {
 
         @Test public void testRunner() throws Exception {
-            ParallelThread parallelThread = new ParallelThread();
+            ATDRunner parallelThread = new ATDRunner();
             List<String> test = new ArrayList<String>();
             test.add("LoginTest");
             boolean runner = parallelThread.runner("com.appium.tests");
