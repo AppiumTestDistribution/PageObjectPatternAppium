@@ -13,7 +13,7 @@ import java.util.List;
             ATDRunner parallelThread = new ATDRunner();
             List<String> test = new ArrayList<String>();
             test.add("LoginTest");
-            boolean runner = parallelThread.runner("com.appium.tests");
+            boolean runner = parallelThread.runner("com.appium.tests", test);
             System.out.println(runner);
             Assert.assertFalse(runner);
         }

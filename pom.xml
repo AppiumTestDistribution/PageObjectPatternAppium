@@ -6,12 +6,20 @@
     <artifactId>PagePatternAppium</artifactId>
     <version>0.0.1-SNAPSHOT</version>
 
+
+    <repositories>
+        <repository>
+            <id>jitpack.io</id>
+            <url>https://jitpack.io</url>
+        </repository>
+    </repositories>
+
     <dependencies>
         <dependency>
-            <groupId>com.github.saikrishna321</groupId>
+            <groupId>com.github.AppiumTestDistribution</groupId>
             <artifactId>AppiumTestDistribution</artifactId>
-            <version>11.0.0</version>
-    </dependency>
+            <version>fix-533-SNAPSHOT</version>
+        </dependency>
         <dependency>
             <groupId>log4j</groupId>
             <artifactId>log4j</artifactId>
