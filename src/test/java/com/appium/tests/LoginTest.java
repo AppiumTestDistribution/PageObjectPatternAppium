@@ -17,14 +17,14 @@ public class LoginTest {
     AccountsPage accountsPage;
     UserCredentials credentials;
 
-    @BeforeMethod
+    @BeforeMethod(alwaysRun = true)
     public void setUp() {
         loginPage = new LoginPage(AppiumDriverManager.getDriver());
         accountsPage = new AccountsPage(AppiumDriverManager.getDriver());
         credentials = new UserCredentials("vodqa@gmail.com", "Hello12345678");
     }
 
-    @Test
+    @Test(groups = "Parallel")
     public void loginWithValidUser() throws InterruptedException, IOException {
         boolean userNameLoggedIn =
             loginPage.login(credentials)
@@ -32,8 +32,7 @@ public class LoginTest {
         Assert.assertTrue(userNameLoggedIn);
     }
 
-
-    @Test public void logOutTest() throws InterruptedException, IOException {
+    @Test (groups = "Parallel")public void logOutTest() throws InterruptedException, IOException {
         Boolean validateUserIsLoggedOut =
             loginPage.login(credentials)
                 .waitForWelcomePage().moveToDisconnect().logOut()
