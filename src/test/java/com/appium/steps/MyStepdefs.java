@@ -6,10 +6,11 @@ import com.appium.pages.CommentPage;
 import com.appium.pages.LoginPage;
 import com.appium.pages.PostPage;
 import com.appium.pages.WelcomePage;
-import cucumber.api.java.en.And;
-import cucumber.api.java.en.Given;
-import cucumber.api.java.en.Then;
-import cucumber.api.java.en.When;
+
+import io.cucumber.java.en.And;
+import io.cucumber.java.en.Given;
+import io.cucumber.java.en.Then;
+import io.cucumber.java.en.When;
 import org.testng.Assert;
 
 /**

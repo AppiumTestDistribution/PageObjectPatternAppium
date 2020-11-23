@@ -18,7 +18,7 @@
         <dependency>
             <groupId>com.github.AppiumTestDistribution</groupId>
             <artifactId>AppiumTestDistribution</artifactId>
-            <version>11.0.2</version>
+            <version>4cb71028ce</version>
         </dependency>
         <dependency>
             <groupId>log4j</groupId>
