@@ -5,6 +5,18 @@
     <groupId>com.pagepattern.appium</groupId>
     <artifactId>PagePatternAppium</artifactId>
     <version>0.0.1-SNAPSHOT</version>
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <configuration>
+                    <source>8</source>
+                    <target>8</target>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
 
 
     <repositories>
@@ -18,7 +30,7 @@
         <dependency>
             <groupId>com.github.AppiumTestDistribution</groupId>
             <artifactId>AppiumTestDistribution</artifactId>
-            <version>4cb71028ce</version>
+            <version>main-583de4c002-1</version>
         </dependency>
         <dependency>
             <groupId>log4j</groupId>
@@ -34,58 +46,9 @@
         </dependency>
 
     </dependencies>
-    <build>
-        <plugins>
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-surefire-plugin</artifactId>
-                <version>2.18.1</version>
-            </plugin>
-            <plugin>
-                <groupId>com.github.temyers</groupId>
-                <artifactId>cucumber-jvm-parallel-plugin</artifactId>
-                <version>4.2.0</version>
-                <executions>
-                    <execution>
-                        <id>generateRunners</id>
-                        <phase>validate</phase>
-                        <goals>
-                            <goal>generateRunners</goal>
-                        </goals>
-                        <configuration>
-                            <!-- outputDirectory should always point to src/test/java/output -->
-                            <outputDirectory>src/test/java</outputDirectory>
-                            <!-- -->
-                            <glue>com.appium.steps</glue>
-                            <featuresDirectory>src/test/resources/features</featuresDirectory>
-                            <cucumberOutputDir>target</cucumberOutputDir>
-                            <tags>
-                                <tag>@login</tag>
-                            </tags>
-                            <namingScheme>simple</namingScheme>
-                            <!-- The class naming pattern to use.  Only required/used if naming scheme is 'pattern'.-->
-                            <namingPattern>Parallel{c}IT</namingPattern>
-                            <parallelScheme>SCENARIO</parallelScheme>
-                            <packageName>output</packageName>
-                            <useTestNG>true</useTestNG>
-                            <plugins>
-                                <plugin>
-                                    <name>com.cucumber.listener.CucumberListener</name>
-                                </plugin>
-                            </plugins>
-                        </configuration>
-                    </execution>
-                </executions>
-            </plugin>
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-compiler-plugin</artifactId>
-                <configuration>
-                    <source>1.8</source>
-                    <target>1.8</target>
-                </configuration>
-            </plugin>
-        </plugins>
-    </build>
+    <properties>
+        <maven.compiler.source>1.8</maven.compiler.source>
+        <maven.compiler.target>1.8</maven.compiler.target>
+    </properties>
 </project>
 
