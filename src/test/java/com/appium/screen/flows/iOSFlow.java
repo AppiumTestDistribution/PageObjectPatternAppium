@@ -7,7 +7,8 @@ import com.appium.pages.LoginPage;
 import com.appium.pages.PublishPage;
 import com.appium.pages.WelcomePage;
 import io.appium.java_client.AppiumDriver;
-import io.appium.java_client.MobileElement;
+import io.appium.java_client.PerformsTouchActions;
+import org.openqa.selenium.WebElement;
 import io.appium.java_client.TouchAction;
 import io.appium.java_client.touch.WaitOptions;
 import io.appium.java_client.touch.offset.PointOption;
@@ -19,7 +20,7 @@ import java.util.stream.IntStream;
 
 public class iOSFlow extends CommonAppiumTest implements DeviceInterface {
 
-    public iOSFlow(AppiumDriver<MobileElement> driver) {
+    public iOSFlow(AppiumDriver driver) {
         super(driver);
     }
 
@@ -54,16 +55,16 @@ public class iOSFlow extends CommonAppiumTest implements DeviceInterface {
     }
 
     @Override
-    public MobileElement scrollUp(MobileElement welcomePage) {
+    public WebElement scrollUp(WebElement welcomePage) {
         return verticalSwipe(welcomePage);
     }
 
-    private MobileElement verticalSwipe(MobileElement locator) {
+    private WebElement verticalSwipe(WebElement locator) {
         Dimension size = locator.getSize();
 
         IntStream.range(0, 3).forEach(value -> {
             int height = size.height / 2;
-            TouchAction swipe = new TouchAction(driver).press(PointOption.point(size.width / 2, height))
+            TouchAction swipe = new TouchAction((PerformsTouchActions) driver).press(PointOption.point(size.width / 2, height))
                     .waitAction(WaitOptions.waitOptions(Duration.ofMillis(300)))
                     .moveTo(PointOption.point(size.width / 2, height / 2 - height))
                     .release();

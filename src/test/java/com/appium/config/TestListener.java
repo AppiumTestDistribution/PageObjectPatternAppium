@@ -22,7 +22,7 @@ public class TestListener implements IInvokedMethodListener {
     public void afterInvocation(IInvokedMethod method, ITestResult testResult) {
         String msg = String.format("%s.afterInvocation() was invoked", getClass().getName());
         System.out.println("After DeviceId"
-            + AppiumDeviceManager.getAppiumDevice().getDevice().getUdid());
+            + AppiumDeviceManager.getAppiumDevice().getUdid());
         System.err.println(msg);
     }
 

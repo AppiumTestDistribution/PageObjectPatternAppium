@@ -30,7 +30,7 @@
         <dependency>
             <groupId>com.github.AppiumTestDistribution</groupId>
             <artifactId>AppiumTestDistribution</artifactId>
-            <version>main-583de4c002-1</version>
+            <version>main-5ec141a9fe-1</version>
         </dependency>
         <dependency>
             <groupId>log4j</groupId>

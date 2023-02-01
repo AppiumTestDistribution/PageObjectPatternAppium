@@ -6,7 +6,8 @@ import com.appium.config.ViewFactory;
 import com.appium.manager.ScreenShotManager;
 import com.appium.page.objects.WelcomePageObjects;
 import io.appium.java_client.AppiumDriver;
-import io.appium.java_client.MobileElement;
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebElement;
 import io.appium.java_client.pagefactory.AppiumFieldDecorator;
 import org.openqa.selenium.support.PageFactory;
 
@@ -17,10 +18,10 @@ public class WelcomePage extends CommonAppiumTest {
     public DeviceInterface runnerInfo;
     WelcomePageObjects welcomePageObjects = new WelcomePageObjects();
 
-    public WelcomePage(AppiumDriver<MobileElement> driver) {
+    public WelcomePage(AppiumDriver driver) {
         super(driver);
         PageFactory.initElements(new AppiumFieldDecorator(driver), welcomePageObjects);
-        runnerInfo = viewFactory.getMobilePlatform(driver.getPlatformName());
+        runnerInfo = viewFactory.getMobilePlatform(driver.getCapabilities().getPlatformName().toString());
     }
 
     public WelcomePage waitForWelcomePage() {
@@ -69,7 +70,7 @@ public class WelcomePage extends CommonAppiumTest {
     }
 
     public void selectBlog() {
-        waitForElement(driver.findElementById("vodqademo.wordpress.com")).click();
+        waitForElement(driver.findElement(By.id("vodqademo.wordpress.com"))).click();
     }
 
     public AccountsPage clickOnMe() {
@@ -79,7 +80,7 @@ public class WelcomePage extends CommonAppiumTest {
 
     public AccountsPage moveToDisconnect() throws IOException, InterruptedException {
         runnerInfo.moveToLogOutScreen(this);
-        new ScreenShotManager().captureScreenShot("LogoutPage");
+        //new ScreenShotManager().captureScreenShot("LogoutPage");
         return new AccountsPage(driver);
     }
 
@@ -95,7 +96,7 @@ public class WelcomePage extends CommonAppiumTest {
         return this;
     }
 
-    public MobileElement swipe() {
+    public WebElement swipe() {
         return runnerInfo.scrollUp(welcomePageObjects.swipeReader);
 
     }

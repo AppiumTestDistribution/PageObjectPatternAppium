@@ -5,7 +5,7 @@ import com.appium.config.DeviceInterface;
 import com.appium.config.ViewFactory;
 import com.appium.page.objects.PostPageObjects;
 import io.appium.java_client.AppiumDriver;
-import io.appium.java_client.MobileElement;
+import org.openqa.selenium.WebElement;
 import io.appium.java_client.pagefactory.AppiumFieldDecorator;
 import org.openqa.selenium.support.PageFactory;
 
@@ -14,10 +14,10 @@ public class PublishPage extends CommonAppiumTest {
     public ViewFactory viewFactory = new ViewFactory(driver);
     public DeviceInterface runnerInfo;
 
-    public PublishPage(AppiumDriver<MobileElement> driver) {
+    public PublishPage(AppiumDriver driver) {
         super(driver);
         PageFactory.initElements(new AppiumFieldDecorator(driver), postPageObjects);
-        runnerInfo = viewFactory.getMobilePlatform(driver.getPlatformName());
+        runnerInfo = viewFactory.getMobilePlatform(driver.getCapabilities().getPlatformName().toString());
     }
 
     public WelcomePage writeContentAndPublish() throws InterruptedException {

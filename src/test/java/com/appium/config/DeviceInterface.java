@@ -4,7 +4,7 @@ import com.appium.pages.CommentPage;
 import com.appium.pages.LoginPage;
 import com.appium.pages.PublishPage;
 import com.appium.pages.WelcomePage;
-import io.appium.java_client.MobileElement;
+import org.openqa.selenium.WebElement;
 
 import java.io.IOException;
 
@@ -20,5 +20,5 @@ public interface DeviceInterface {
 
     boolean validateComments(CommentPage commentPage);
 
-    MobileElement scrollUp(MobileElement welcomePage);
+    WebElement scrollUp(WebElement welcomePage);
 }

@@ -6,7 +6,7 @@ import com.appium.config.ViewFactory;
 import com.appium.manager.ScreenShotManager;
 import com.appium.page.objects.CommentPageObjects;
 import io.appium.java_client.AppiumDriver;
-import io.appium.java_client.MobileElement;
+import org.openqa.selenium.WebElement;
 import io.appium.java_client.pagefactory.AppiumFieldDecorator;
 import org.openqa.selenium.support.PageFactory;
 
@@ -17,11 +17,11 @@ public class CommentPage extends CommonAppiumTest {
     CommentPageObjects commentPageObjects = new CommentPageObjects();
     private ViewFactory viewFactory = new ViewFactory(driver);
     private DeviceInterface runnerInfo;
-    public CommentPage(AppiumDriver<MobileElement> driver) {
+    public CommentPage(AppiumDriver driver) {
         super(driver);
         // loadPage();
         PageFactory.initElements(new AppiumFieldDecorator(driver), commentPageObjects);
-        runnerInfo = viewFactory.getMobilePlatform(driver.getPlatformName());
+        runnerInfo = viewFactory.getMobilePlatform(driver.getCapabilities().getPlatformName().toString());
     }
 
     public CommentPage selectTopic() {
@@ -40,7 +40,7 @@ public class CommentPage extends CommonAppiumTest {
 
     public boolean verifyCommentIsAdded() throws IOException, InterruptedException {
         //scrollDirection(commentPageObjects.SELECT_TOPIC.get(0), SwipeElementDirection.DOWN);
-        new ScreenShotManager().captureScreenShot("Comments Added");
+        //new ScreenShotManager().captureScreenShot("Comments Added");
         return runnerInfo.validateComments(this);
     }
 

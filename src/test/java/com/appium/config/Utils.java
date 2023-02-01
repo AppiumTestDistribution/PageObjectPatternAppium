@@ -3,7 +3,7 @@ package com.appium.config;
 import com.appium.pages.AccountsPage;
 import com.appium.pages.LoginPage;
 import io.appium.java_client.AppiumDriver;
-import io.appium.java_client.MobileElement;
+import org.openqa.selenium.WebElement;
 import io.appium.java_client.android.AndroidDriver;
 import io.appium.java_client.ios.IOSDriver;
 import io.appium.java_client.remote.AndroidMobileCapabilityType;
@@ -33,7 +33,7 @@ import java.util.concurrent.TimeUnit;
 
 public class Utils {
     DesiredCapabilities caps = new DesiredCapabilities();
-    public AppiumDriver<MobileElement> driver;
+    public AppiumDriver driver;
     public static Properties prop = new Properties();
     static InputStream input = null;
 
@@ -41,7 +41,7 @@ public class Utils {
     AccountsPage accountsPage;
     UserCredentials credentials;
 
-    @BeforeClass public AppiumDriver<MobileElement> getDriver() throws IOException {
+    @BeforeClass public AppiumDriver getDriver() throws IOException {
         input = new FileInputStream("property/android.properties");
         prop.load(input);
         if (prop.getProperty("platform").equals("android")) {
@@ -62,7 +62,7 @@ public class Utils {
         caps.setCapability("appActivity", "org.wordpress.android.ui.WPLaunchActivity");
         caps.setCapability(AndroidMobileCapabilityType.APP_WAIT_ACTIVITY,
             "org.wordpress.android.ui.accounts.SignInActivity");
-        driver = new AndroidDriver<MobileElement>(new URL("http://127.0.0.1:4723/wd/hub"), caps);
+        driver = new AndroidDriver(new URL("http://127.0.0.1:4723/wd/hub"), caps);
     }
 
     public void iosSetup() throws MalformedURLException {
@@ -72,7 +72,7 @@ public class Utils {
         caps.setCapability("platformVersion", "9.2");
         caps.setCapability("deviceName", "iPhone 6");
         caps.setCapability("app", app.getAbsolutePath());
-        driver = new IOSDriver<MobileElement>(new URL("http://127.0.0.1:4723/wd/hub"), caps);
+        driver = new IOSDriver(new URL("http://127.0.0.1:4723/wd/hub"), caps);
     }
 
     @AfterClass public void tearDown() {

@@ -3,14 +3,14 @@ package com.appium.config;
 import com.appium.screen.flows.AndroidFlow;
 import com.appium.screen.flows.iOSFlow;
 import io.appium.java_client.AppiumDriver;
-import io.appium.java_client.MobileElement;
+import org.openqa.selenium.WebElement;
 
 public class ViewFactory extends CommonAppiumTest {
 
     private AndroidFlow androidFlow;
     private iOSFlow iosFlow;
 
-    public ViewFactory(AppiumDriver<MobileElement> driver) {
+    public ViewFactory(AppiumDriver driver) {
         super(driver);
         // TODO Auto-generated constructor stub
     }

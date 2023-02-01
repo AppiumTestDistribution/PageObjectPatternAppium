@@ -1,14 +1,13 @@
 {
   "android": {
     "platformName": "android",
-    "platformVersion": "7.0",
-    "app": {
-      "local": "./build/wordpress.apk"
-    },
+    "automationName": "UiAutomator2",
+    "uiautomator2ServerInstallTimeout": 120000,
+    "adbExecTimeout": 140000,
     "appPackage": "org.wordpress.android",
     "appActivity": "org.wordpress.android.ui.WPLaunchActivity",
+    "app": "./build/wordpress.apk",
     "deviceName": "android",
-    "automationName": "UIAutomator2",
     "noSign": true
   },
   "iOS": {
@@ -26,16 +25,15 @@
     "simpleIsVisibleCheck": true,
     "maxTypingFrequency": 10
   },
-  "hostMachines": [
-    {
-      "machineIP": "127.0.0.1",
-      "appiumServerPath": "/Users/saikrisv/.node/lib/node_modules/appium/build/lib/main.js",
-      "simulators": [
-        {
-          "deviceName": "iPhone 7",
-          "OS": "11.4"
+  "serverConfig" : {
+    "server": {
+      "use-plugins": ["device-farm"],
+      "plugin": {
+        "device-farm": {
+          "platform": "android",
+          "skipChromeDownload": true
         }
-      ]
+      }
     }
-  ]
+  }
 }

@@ -7,7 +7,7 @@ import com.appium.config.ViewFactory;
 import com.appium.manager.ScreenShotManager;
 import com.appium.page.objects.LoginPageObjects;
 import io.appium.java_client.AppiumDriver;
-import io.appium.java_client.MobileElement;
+import org.openqa.selenium.WebElement;
 import io.appium.java_client.pagefactory.AppiumFieldDecorator;
 import org.openqa.selenium.support.PageFactory;
 
@@ -19,10 +19,10 @@ public class LoginPage extends CommonAppiumTest {
     public DeviceInterface runnerInfo;
     public LoginPageObjects loginPageObjects = new LoginPageObjects();
 
-    public LoginPage(AppiumDriver<MobileElement> driver) {
+    public LoginPage(AppiumDriver driver) {
         super(driver);
         PageFactory.initElements(new AppiumFieldDecorator(driver), loginPageObjects);
-        runnerInfo = viewFactory.getMobilePlatform(driver.getPlatformName());
+        runnerInfo = viewFactory.getMobilePlatform(driver.getCapabilities().getPlatformName().toString());
     }
 
     public WelcomePage login(UserCredentials userCredentials) throws IOException, InterruptedException {
@@ -41,11 +41,11 @@ public class LoginPage extends CommonAppiumTest {
     public void enterUserAndPassword(String user, String pass) {
         // TODO Auto-generated method stub
         loginPageObjects.username.sendKeys(user);
-        new ScreenShotManager().captureScreenShot("UserName");
+        //new ScreenShotManager().captureScreenShot("UserName");
         loginPageObjects.nextButton.click();
         waitForElement(loginPageObjects.enterPasswordLink).click();
         loginPageObjects.password.sendKeys(pass);
-        new ScreenShotManager().captureScreenShot("Password");
+        //new ScreenShotManager().captureScreenShot("Password");
     }
 
     public void signIn() {

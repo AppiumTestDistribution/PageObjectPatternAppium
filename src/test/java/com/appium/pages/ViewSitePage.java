@@ -5,7 +5,7 @@ import com.appium.config.DeviceInterface;
 import com.appium.config.ViewFactory;
 import com.appium.page.objects.ViewSitePageObject;
 import io.appium.java_client.AppiumDriver;
-import io.appium.java_client.MobileElement;
+import org.openqa.selenium.WebElement;
 import io.appium.java_client.pagefactory.AppiumFieldDecorator;
 import org.openqa.selenium.support.PageFactory;
 
@@ -18,7 +18,7 @@ public class ViewSitePage extends CommonAppiumTest {
     public DeviceInterface runnerInfo;
     ViewSitePageObject viewSitePageObjects = new ViewSitePageObject();
 
-    public ViewSitePage(AppiumDriver<MobileElement> driver) {
+    public ViewSitePage(AppiumDriver driver) {
         super(driver);
         PageFactory.initElements(new AppiumFieldDecorator(driver), viewSitePageObjects);
         runnerInfo = viewFactory.getMobilePlatform(driver.toString().split(":")[0].toString());
